@@ -1,0 +1,15 @@
+.mobile-footer {
+    position: fixed;
+    bottom: 0;
+}
+
+.mobile-nav {
+    &__list {
+        display: flex;
+        list-style: none;
+    }
+
+    &__icon {
+        height: 2rem;
+    }
+}
