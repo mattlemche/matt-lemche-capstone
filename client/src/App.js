@@ -50,7 +50,7 @@ class App extends Component {
           <Route path='/new-yard-sale' component={NewYardSaleModal} />
           <Route path='/new-sale-item' component={NewSaleItemModal} />
           <Route path='/my-new-yard-sale' component={YardSaleBuilder} />
-          <Route path='/image=upload' component={ImageUpload} />
+          <Route path='/image-upload' component={ImageUpload} />
           <Redirect from='/' to='/browse' />
     
         </Switch>

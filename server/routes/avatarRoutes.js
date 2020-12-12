@@ -9,9 +9,10 @@ router.post('/', async (req, res) => {
                 message: 'No file uploaded'
             });
         } else {
+            console.log("This is the request body", req)
             let avatar = req.files.avatar;
             
-            avatar.mv('./public/user_avatars/' + avatar.name);
+            avatar.mv('./public/sale_item_images/' + avatar.name);
 
             //send response
             res.send({

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { getSaleInfo } from '../../util';
+import Button from '../Button/Button';
 
 class YardSaleBuilder extends Component {
 
@@ -14,14 +15,35 @@ class YardSaleBuilder extends Component {
         axios
             .get(getSaleInfo(currentSale.saleId))
             .then(response => {
+                console.log("Logging response from get request in sale builder", response);
                 this.setState({
                     currentSale: response.data,
-                })
-            })
+                });
+            });
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps !== this.props) {
+            const currentSale = JSON.parse(sessionStorage.getItem("rummageCurrentSale"));
+
+            axios
+                .get(getSaleInfo(currentSale.saleId))
+                .then(response => {
+                    console.log("Logging response from get request in sale builder", response);
+                    this.setState({
+                        currentSale: response.data,
+                    });
+                });
+        }
+    }
+
+    handleAddSaleItem = (e) => {
+        e.preventDefault();
+        this.props.history.push('/new-sale-item')
     }
 
     render() {
-        if (this.state.currentSale) {
+        if (!this.state.currentSale) {
             return (
                 <h1>Loading Your Sale...</h1>
             )
@@ -31,7 +53,15 @@ class YardSaleBuilder extends Component {
 
         return (
             <div>
-                
+                <h2>{this.state.currentSale.name}</h2>
+                <ul>
+                    {this.state.currentSale.saleItems.map(saleItem => {
+                        return (
+                        <li>{saleItem.name}</li>
+                        )
+                    })}
+                </ul>
+                <Button buttonText="New Yard Sale Item" onButtonClick={this.handleAddSaleItem}/>
             </div>
         );
     }

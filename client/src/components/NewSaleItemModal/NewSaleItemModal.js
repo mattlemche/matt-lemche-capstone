@@ -35,14 +35,14 @@ class NewSaleItemModal extends Component {
     }
 
     handleFormSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
         const currentUser = JSON.parse(sessionStorage.getItem("rummageLoggedIn"));
         
         const body = {
             itemName: this.state.itemName,
             description: this.state.description,
-            image_URL: "something",
+            image_URL: "no image url",
             category: this.state.category,
             condition: this.state.condition,
             price: this.state.price,
@@ -50,22 +50,22 @@ class NewSaleItemModal extends Component {
             user_id: currentUser.userLoggedInId,
         }
         
-        console.log("this is the body for the new item req", body)
-        
         axios   
             .post(getAllItems, body)
             .then(response => {
-                console.log("This is the response from new sale post", response)
-            });
-            // .then(response => {
-            //     this.props.history.push('/new-sale-item');
-            // });
+                sessionStorage.setItem("rummageCurrentSaleItem", 
+                    JSON.stringify({
+                        saleItemId: response.data.id
+                    }));
+            })
+            .then(_response => {
+                this.props.history.push('/image-upload');
+            })
             
     }
 
     render() {
 
-        console.log(this.state)
         if (!sessionStorage.getItem("rummageCurrentSale")) {
             return (
                 <h1>You aren't building a sale right now</h1>
@@ -113,7 +113,14 @@ class NewSaleItemModal extends Component {
                     <label htmlFor="price" className="form__label">
                         Price
                     </label>
-                    <input onChange={this.handleInputChange} type="number" name="price" id="price" className="form__input"/>
+                    <input 
+                    onChange={this.handleInputChange} 
+                    type="number" 
+                    name="price" 
+                    id="price" 
+                    className="form__input"
+                    />
+                   
                     <Button buttonText="Add Item" buttonType="submit"/>
                 </form>
                 
