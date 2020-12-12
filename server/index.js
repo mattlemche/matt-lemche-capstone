@@ -4,10 +4,13 @@ const cors = require('cors');
 const fileUpload = require('express-fileupload');
 const morgan = require('morgan');
 
+const loginRoutes = require('./routes/loginRoutes')
 const userRoutes = require('./routes/userRoutes');
 const yardSaleRoutes = require('./routes/yardSaleRoutes');
 const saleItemRoutes = require('./routes/saleItemRoutes');
 const avatarRoutes = require('./routes/avatarRoutes');
+const favouriteRoutes = require('./routes/favouriteRoutes')
+
 
 require('dotenv').config();
 
@@ -23,10 +26,12 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
 
+app.use('/login', loginRoutes)
 app.use('/user', userRoutes);
 app.use('/yard-sale', yardSaleRoutes);
 app.use('/sale-item', saleItemRoutes);
 app.use('/avatar-upload', avatarRoutes);
+app.use('/favourite', favouriteRoutes);
 
 app.listen(PORT, () => {
     console.log(`Express is listenting on port ${PORT}`);

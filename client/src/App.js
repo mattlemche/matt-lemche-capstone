@@ -1,3 +1,4 @@
+import { Component } from 'react';
 import './App.scss';
 import { BrowserRouter as Router, Switch,  Redirect, Route } from 'react-router-dom';
 import MobileNav from './components/MobileNav/MobileNav';
@@ -13,29 +14,44 @@ import SaleDetails from './pages/SaleDetails';
 import Search from './components/SearchModal/SearchModal';
 import Login from './components/LoginModal/LoginModal';
 
-function App() {
-  return (
-    <Router>
-      <MobileHeader />
-      <main className="main">
-      <Switch>
-        <Route path='/browse' component={Home}/>
-        <Route path='/profile' component={Profile} />
-        <Route path='/my-yard-sales' component={MySales} />
-        <Route path='/favourites' component={Favourites} />
-        <Route path='/cart' component={Cart} />
-        <Route path='/search' component={Search} />
-        <Route path='/login' component={Login} />
-        <Route path='/item/:id' component={ItemDetails} />
-        <Route path='/yard-sale/:id' component={SaleDetails}/>
-        <Redirect from='/' to='/browse' />
+class App extends Component {
+
+  constructor() {
+    super();
+
+    const rummageLoggedIn = JSON.parse(sessionStorage.getItem("rummageLoggedIn"));
+
+    this.state = rummageLoggedIn || {
+      isLoggedIn: false,
+      username: "",
+    };
+  }
   
-      </Switch>
-       
-      </main>
-      <MobileNav />
-    </Router>
-  );
+  render() {
+    console.log("logging state from home page", this.state);
+    return (
+      <Router>
+        <MobileHeader />
+        <main className="main">
+        <Switch>
+          <Route path='/browse' component={Home}/>
+          <Route path='/profile' component={Profile} />
+          <Route path='/my-yard-sales' component={MySales} />
+          <Route path='/favourites' component={Favourites} />
+          <Route path='/cart' component={Cart} />
+          <Route path='/search' component={Search} />
+          <Route path='/login' component={Login} />
+          <Route path='/item/:id' component={ItemDetails} />
+          <Route path='/yard-sale/:id' component={SaleDetails}/>
+          <Redirect from='/' to='/browse' />
+    
+        </Switch>
+         
+        </main>
+        <MobileNav />
+      </Router>
+    );
+  }
 }
 
 export default App;

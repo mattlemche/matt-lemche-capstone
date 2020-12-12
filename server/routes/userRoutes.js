@@ -37,11 +37,11 @@ router
     });
 
 router 
-    .route('/:id')
+    .route('/:username')
     .get((req, res) => {
         User
-            .where({ id: req.params.id })
-            .fetch()
+            .where({ username: req.params.username })
+            .fetch(({withRelated: ['yardSales'] }))
             .then(user => {
                 res.status(200).json(user);
             });
