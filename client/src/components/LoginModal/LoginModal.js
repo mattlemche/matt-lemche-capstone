@@ -8,6 +8,7 @@ class LoginModal extends Component {
     state = {
         isLoggedIn: false,
         userLoggedIn: '',
+        userLoggedInId: '',
         userName: '',
         password: '',
     }
@@ -31,17 +32,19 @@ class LoginModal extends Component {
         axios
             .post(login(username), body)
             .then(response => {
-                console.log("Login attempt, response:", response);
+                // console.log("Login attempt, response:", response);
                 this.setState({
                     isLoggedIn: true,
                     userLoggedIn: username,
+                    userLoggedInId: response.data.id
                     },
                     () => {
                     sessionStorage
                         .setItem("rummageLoggedIn", 
                         JSON.stringify({ 
                             isLoggedIn: this.state.isLoggedIn, 
-                            userLoggedIn: this.state.userLoggedIn
+                            userLoggedIn: this.state.userLoggedIn,
+                            userLoggedInId: this.state.userLoggedInId
                         }));
 
                     }
@@ -49,7 +52,7 @@ class LoginModal extends Component {
 
             })
             .then(response => {
-                console.log("Response and hist obj", response, this.props.history);
+                // console.log("Response and hist obj", response, this.props.history);
                 this.props.history.push('/');
             })
     }

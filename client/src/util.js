@@ -16,3 +16,28 @@ export const getSaleInfo = (saleId) => {
 export const login = (username) => {
     return `${API_URL}login/${username}`;
 };
+export const categories = [
+    "antiques",
+"appliances",
+"arts + crafts",
+"automotive",
+"baby + kid",
+"beauty + health",
+"bikes",
+"books",
+"camping",
+"cds/dvd/vhs",
+"clothes + accessories",
+"collectibles",
+"electronics",
+"farm + garden",
+"furniture",
+"household",
+"jewelry",
+"music",
+"photo + video",
+"sports",
+"tools",
+"toys + games",
+"videogaming",
+]

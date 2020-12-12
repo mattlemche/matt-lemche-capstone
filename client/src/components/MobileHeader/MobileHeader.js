@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { ReactComponent as SearchIcon } from '../../assets/icons/search.svg';
 import { ReactComponent as UserIcon } from '../../assets/icons/user.svg';
+import { ReactComponent as NewSaleIcon } from '../../assets/icons/new-sale-2.svg';
 
 const MobileHeader = () => {
     return (
@@ -13,6 +14,14 @@ const MobileHeader = () => {
                             <SearchIcon className="mobile-nav__icon"/>
                             <div className="mobile-nav__title">
                                 Search
+                            </div>
+                        </NavLink>
+                    </li>
+                    <li className="mobile-nav__item">
+                        <NavLink to="/new-yard-sale" className="link link--mobile-nav" activeClassName="mobile-nav__link--active">
+                            <NewSaleIcon className="mobile-nav__icon"/>
+                            <div className="mobile-nav__title">
+                                New Yard Sale
                             </div>
                         </NavLink>
                     </li>
