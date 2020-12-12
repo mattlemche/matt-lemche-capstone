@@ -25,6 +25,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
+app.use(express.static('images'));
+
+app.use('/static', express.static('public'))
 
 app.use('/login', loginRoutes)
 app.use('/user', userRoutes);

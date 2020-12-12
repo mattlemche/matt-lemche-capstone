@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { getSaleInfo } from '../../util';
 import Button from '../Button/Button';
+import ItemThumb from '../ItemThumb/ItemThumb';
 
 class YardSaleBuilder extends Component {
 
@@ -55,9 +56,9 @@ class YardSaleBuilder extends Component {
             <div>
                 <h2>{this.state.currentSale.name}</h2>
                 <ul>
-                    {this.state.currentSale.saleItems.map(saleItem => {
+                    {this.state.currentSale.saleItems.map(item => {
                         return (
-                        <li>{saleItem.name}</li>
+                            <ItemThumb price={item.price} key={item.id} itemId={item.id}/>
                         )
                     })}
                 </ul>

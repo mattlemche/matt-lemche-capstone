@@ -16,6 +16,10 @@ export const getSaleInfo = (saleId) => {
 export const login = (username) => {
     return `${API_URL}login/${username}`;
 };
+export const imageUpload = (saleItemId) => {
+    return `${API_URL}avatar-upload/${saleItemId}`;
+};
+
 export const categories = [
     "antiques",
 "appliances",

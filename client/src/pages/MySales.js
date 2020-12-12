@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { getUserInfo } from '../util';
+import SaleThumb from '../components/SaleThumb/SaleThumb';
 
 
 
@@ -31,14 +32,14 @@ class MySales extends Component {
             )
         }
         return (
-            <div>
+            <ul>
                 My Sales
                 {this.state.currentUser.yardSales.map(sale => {
                     return (
-                    <li key={sale.id}>{sale.name}</li>
+                    <SaleThumb location={sale.location} key={sale.id} saleId={sale.id}/>
                     )
                 })}
-            </div>
+            </ul>
         );
     }
 }

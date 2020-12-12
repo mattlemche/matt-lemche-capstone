@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const SaleItem = require('../models/saleItem');
-const YardSale = require("../models/yardSale");
 
 router
     .route('/')
