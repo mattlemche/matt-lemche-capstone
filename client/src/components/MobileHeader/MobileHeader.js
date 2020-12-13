@@ -3,10 +3,12 @@ import { NavLink } from 'react-router-dom';
 import { ReactComponent as SearchIcon } from '../../assets/icons/search.svg';
 import { ReactComponent as UserIcon } from '../../assets/icons/user.svg';
 import { ReactComponent as NewSaleIcon } from '../../assets/icons/new-sale-2.svg';
+import { ReactComponent as Logo } from '../../assets/logo/rummage-wordmark.svg';
 
 const MobileHeader = () => {
     return (
         <header className="mobile-header">
+            <Logo className="logo logo--small"/>
             <nav className="mobile-nav mobile-nav--header">
                 <ul className="mobile-nav__list">
                     <li className="mobile-nav__item">

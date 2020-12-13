@@ -1,6 +1,6 @@
-@import './partials/typography';
-@import './partials/variables';
-@import './partials/mixins';
+@use './partials/typography';
+@use './partials/variables';
+@use './partials/mixins';
 
 /*------------------------------------*\
   #CSS RESET
@@ -26,3 +26,8 @@ a {
 /*------------------------------------*\
     #GLOBAL
 \*------------------------------------*/
+
+body {
+  font-family: 'Arimo';
+}
+

@@ -1,4 +1,5 @@
 import React from 'react';
+import ItemList from '../ItemList/ItemList';
 import ItemThumb from '../ItemThumb/ItemThumb';
 import axios from 'axios';
 import { getAllItems } from '../../util';
@@ -29,13 +30,20 @@ class AllSaleItems extends React.Component {
                 <section className="section">
                     THIS IS ITEMS
                    
-                    <ul className="rummage-list">
+                    <ItemList>
                         {this.state.itemArray.map((item) => {
                             return (
-                                <ItemThumb price={item.price} key={item.id} itemId={item.id}/>
+                                <ItemThumb 
+                                    
+                                key={item.id} 
+                                itemId={item.id}
+                                price={item.price}
+                                image={item.image_URL}
+                                imageAlt={item.name}
+                                />
                             )
                         })}
-                    </ul>
+                    </ItemList>
         
         
                 </section>
