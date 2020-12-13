@@ -1,3 +1,4 @@
+import { Component } from 'react';
 import './App.scss';
 import { BrowserRouter as Router, Switch,  Redirect, Route } from 'react-router-dom';
 import MobileNav from './components/MobileNav/MobileNav';
@@ -12,30 +13,53 @@ import ItemDetails from './pages/ItemDetails';
 import SaleDetails from './pages/SaleDetails';
 import Search from './components/SearchModal/SearchModal';
 import Login from './components/LoginModal/LoginModal';
+import NewYardSaleModal from './components/NewYardSaleModal/NewYardSaleModal';
+import NewSaleItemModal from './components/NewSaleItemModal/NewSaleItemModal';
+import YardSaleBuilder from './components/YardSaleBuilder/YardSaleBuilder';
+import ImageUpload from './components/ImageUpload/ImageUpload';
 
-function App() {
-  return (
-    <Router>
-      <MobileHeader />
-      <main className="main">
-      <Switch>
-        <Route path='/browse' component={Home}/>
-        <Route path='/profile' component={Profile} />
-        <Route path='/my-yard-sales' component={MySales} />
-        <Route path='/favourites' component={Favourites} />
-        <Route path='/cart' component={Cart} />
-        <Route path='/search' component={Search} />
-        <Route path='/login' component={Login} />
-        <Route path='/item/:id' component={ItemDetails} />
-        <Route path='/yard-sale/:id' component={SaleDetails}/>
-        <Redirect from='/' to='/browse' />
+class App extends Component {
+
+  constructor() {
+    super();
+
+    const rummageLoggedIn = JSON.parse(sessionStorage.getItem("rummageLoggedIn"));
+
+    this.state = rummageLoggedIn || {
+      isLoggedIn: false,
+      username: "",
+    };
+  }
   
-      </Switch>
-       
-      </main>
-      <MobileNav />
-    </Router>
-  );
+  render() {
+    console.log("logging state from home page", this.state);
+    return (
+      <Router>
+        <MobileHeader />
+        <main className="main">
+        <Switch>
+          <Route path='/login' component={Login} />
+          <Route path='/browse' component={Home}/>
+          <Route path='/profile' component={Profile} />
+          <Route path='/my-yard-sales' component={MySales} />
+          <Route path='/favourites' component={Favourites} />
+          <Route path='/item/:id' component={ItemDetails} />
+          <Route path='/yard-sale/:id' component={SaleDetails}/>
+          <Route path='/cart' component={Cart} />
+          <Route path='/search' component={Search} />
+          <Route path='/new-yard-sale' component={NewYardSaleModal} />
+          <Route path='/new-sale-item' component={NewSaleItemModal} />
+          <Route path='/my-new-yard-sale' component={YardSaleBuilder} />
+          <Route path='/image-upload' component={ImageUpload} />
+          <Redirect from='/' to='/browse' />
+    
+        </Switch>
+         
+        </main>
+        <MobileNav />
+      </Router>
+    );
+  }
 }
 
 export default App;

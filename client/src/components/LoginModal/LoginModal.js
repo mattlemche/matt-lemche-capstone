@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './LoginModal.scss';
+import { login } from '../../util';
 
 class LoginModal extends Component {
 
     state = {
+        isLoggedIn: false,
+        userLoggedIn: '',
+        userLoggedInId: '',
         userName: '',
         password: '',
     }
@@ -19,10 +23,37 @@ class LoginModal extends Component {
     handleLoginSubmit = (e) => {
         e.preventDefault();
         const username = e.target.userName.value
+
+        const body = {
+            username: username,
+            password: e.target.password.value,
+        }
+
         axios
-            .get(`http://localhost:8080/user/${username}`)
+            .post(login(username), body)
             .then(response => {
-                console.log("Login attempt, response:", response)
+                // console.log("Login attempt, response:", response);
+                this.setState({
+                    isLoggedIn: true,
+                    userLoggedIn: username,
+                    userLoggedInId: response.data.id
+                    },
+                    () => {
+                    sessionStorage
+                        .setItem("rummageLoggedIn", 
+                        JSON.stringify({ 
+                            isLoggedIn: this.state.isLoggedIn, 
+                            userLoggedIn: this.state.userLoggedIn,
+                            userLoggedInId: this.state.userLoggedInId
+                        }));
+
+                    }
+                );
+
+            })
+            .then(response => {
+                // console.log("Response and hist obj", response, this.props.history);
+                this.props.history.push('/');
             })
     }
 

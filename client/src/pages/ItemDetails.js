@@ -28,6 +28,7 @@ class ItemDetails extends Component {
             return (
                 <div>
                     {this.state.saleItem.price}
+                    <img src={this.state.saleItem.image_URL} alt="" className="image"/>
                 </div>
             );
         }

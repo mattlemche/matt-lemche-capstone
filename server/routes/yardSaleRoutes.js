@@ -23,7 +23,7 @@ router
             description: req.body.description,
             duration: req.body.duration,
             status: req.body.status,
-            seller_ID: req.body.seller_ID,
+            user_id: req.body.user_id,
         })
         .save()
         .then(yardSale => {

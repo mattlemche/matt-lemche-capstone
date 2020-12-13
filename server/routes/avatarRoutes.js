@@ -1,32 +1,48 @@
 const express = require("express");
 const router = express.Router();
+const SaleItem = require('../models/saleItem');
 
-router.post('/', async (req, res) => {
-    try {
+
+require('dotenv').config();
+const port = process.env.PORT;
+
+router.put('/:id', (req, res) => {
         if(!req.files) {
-            res.send({
+            res.status(500).send({
                 status: false,
                 message: 'No file uploaded'
             });
         } else {
             let avatar = req.files.avatar;
+            avatar.mv(`./public/sale_item_images/image-for-sale-item-${req.params.id}.jpg`);
+            const currentImage = `http://localhost:${port}/static/sale_item_images/image-for-sale-item-${req.params.id}.jpg`
             
-            avatar.mv('./public/user_avatars/' + avatar.name);
-
-            //send response
-            res.send({
-                status: true,
-                message: 'File is uploaded',
-                data: {
-                    name: avatar.name,
-                    mimetype: avatar.mimetype,
-                    size: avatar.size
-                }
-            });
+            SaleItem
+                .where({ id: req.params.id })
+                .fetch()
+                .then(saleItem => {
+                    return saleItem.save({
+                        name: req.body.itemName ? req.body.itemName : saleItem.name,
+                        description: req.body.description ? req.body.description : saleItem.description,
+                        image_URL: currentImage ? currentImage : saleItem.image_URL,
+                        condition: req.body.condition ? req.body.condition : saleItem.condition,
+                        category: req.body.category ? req.body.category : saleItem.category,
+                        price: req.body.price ? req.body.price : saleItem.price,
+                    });
+                })
+                .then((_updatedSaleItem) => {
+                    res.status(200).send({
+                        status: true,
+                        message: 'File is uploaded',
+                        data: {
+                            name: avatar.name,
+                            mimetype: avatar.mimetype,
+                            size: avatar.size,
+                            saleItemId: req.params.id
+                        }
+                    });
+                })
         }
-    } catch (err) {
-        res.status(500).send(err);
-    }
 });
 
 module.exports = router;

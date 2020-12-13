@@ -1,9 +1,8 @@
-const TABLE_NAME = 'sale_items';
+const TABLE_NAME = 'favourites';
 
 exports.up = function(knex) {
   return knex.schema.createTable(TABLE_NAME, table => {
     table.increments("id").primary();
-    table.string("name");
     table.string("description");
     table
         .string("image_URL")
@@ -12,18 +11,18 @@ exports.up = function(knex) {
     table.string("condition")
         .notNullable()
         .defaultTo("Fair");
-    table.string("category").notNullable();
+    table.json("categories").notNullable();
     table
         .integer("price")
         .unsigned()
         .notNullable()
         .defaultTo(1);
     table
-        .integer("yard_sale_id")
+        .integer("sale_item_id")
         .unsigned()
         .notNullable()
         .references("id")
-        .inTable("yard_sales")
+        .inTable("sale_items")
         .onUpdate("CASCADE")
         .onDelete("CASCADE");
     table
