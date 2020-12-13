@@ -3,6 +3,7 @@ const TABLE_NAME = 'sale_items';
 exports.up = function(knex) {
   return knex.schema.createTable(TABLE_NAME, table => {
     table.increments("id").primary();
+    table.string("name");
     table.string("description");
     table
         .string("image_URL")
@@ -11,7 +12,7 @@ exports.up = function(knex) {
     table.string("condition")
         .notNullable()
         .defaultTo("Fair");
-    table.json("categories").notNullable();
+    table.string("category").notNullable();
     table
         .integer("price")
         .unsigned()

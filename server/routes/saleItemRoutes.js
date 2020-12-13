@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const SaleItem = require('../models/saleItem');
-const YardSale = require("../models/yardSale");
 
 router
     .route('/')
@@ -18,27 +17,21 @@ router
             });
     })
     .post((req, res) => {
-        YardSale
-            .where({ id: req.body.sale_ID })
-            .fetch()
-            .then(yardSale => {
-                return yardSale.id;
-            })
-            .then(sellerId =>{
-                new SaleItem({
-                    description: req.body.description,
-                    image_URL: req.body.image_URL,
-                    condition: req.body.condition,
-                    categories: JSON.stringify(req.body.categories),
-                    price: req.body.price,
-                    sale_ID: req.body.sale_ID,
-                    seller_ID: sellerId,
-                })
-                .save()
-                .then(saleItem => {
-                    res.status(201).json(saleItem);
-                });
-            }); 
+        console.log(req.body)
+        new SaleItem({
+            name: req.body.itemName,
+            description: req.body.description,
+            image_URL: req.body.image_URL,
+            condition: req.body.condition,
+            category: req.body.category,
+            price: req.body.price,
+            yard_sale_id: req.body.yard_sale_id,
+            user_id: req.body.user_id,
+        })
+        .save()
+        .then(saleItem => {
+            res.status(201).json(saleItem);
+        });
     });
 
 router
@@ -57,10 +50,11 @@ router
             .fetch()
             .then(saleItem => {
                 return saleItem.save({
+                    name: req.body.itemName ? req.body.itemName : saleItem.name,
                     description: req.body.description ? req.body.description : saleItem.description,
                     image_URL: req.body.image_URL ? req.body.image_URL : saleItem.image_URL,
                     condition: req.body.condition ? req.body.condition : saleItem.condition,
-                    categories: JSON.stringify(req.body.categories) ? JSON.stringify(req.body.categories) : saleItem.categories,
+                    category: req.body.category ? req.body.category : saleItem.category,
                     price: req.body.price ? req.body.price : saleItem.price,
                 });
             })
