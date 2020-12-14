@@ -10,8 +10,8 @@ const ProfileDetails = ({currentUser}) => {
     <div className="profile">
         <div className="profile__avatar">
             {
-                currentUser.image_URL ?
-                <img src={currentUser.image_URL} alt={currentUser.name} className="profile__image"/> :
+                currentUser.profile_image ?
+                <img src={currentUser.profile_image} alt={currentUser.name} className="profile__image"/> :
                 <Microscope className="profile__default-avatar"/>
 
             }

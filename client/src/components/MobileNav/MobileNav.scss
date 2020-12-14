@@ -52,11 +52,31 @@
         }
     }
 
-    &__link--active {
-        position: relative;
-        z-index: 10;
-        color: $color-sky;
+    &__link{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &--active {
+            position: relative;
+            color: $color-sky;
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: -0.25rem;
+                z-index: 10;
+                display: flex;
+                justify-content: center;
+                width: 2.5rem;
+                height: 2.5rem;
+                border-radius: 50%;
+                background-color: rgba($color-sky, 0.15);
+            }
+        }
     }
+    
+    
 
 
 }

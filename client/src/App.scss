@@ -65,8 +65,9 @@ body {
   }
 
   &__super {
+    width: 100%;
     font-size: $font-small;
-    text-transform: uppercase;
+    text-align: center;
   }
 
   &__logo {
@@ -120,5 +121,9 @@ body {
     font-weight: 700;
     text-decoration: underline;
   }
+}
+
+.bold {
+  font-weight: 700;
 }
 

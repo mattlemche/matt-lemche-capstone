@@ -1,16 +1,16 @@
 module.exports = [
     {
-      username: "userOne",
+      username: "mattlemche",
       password: "password",
-      first_name: "Josie",
-      last_name: "Smith",
-      email: "josie@example.com",
+      first_name: "Matt",
+      last_name: "Lemche",
+      email: "matt@example.com",
       phone: "123 555-1234",
-      profile_image: "../public/image.png",
+      profile_image: "http://localhost:8080/static/user-avatars/user-avatar-mattlemche.jpg",
       location: JSON.stringify({
         address: "2 Morton St.",
         city: "Toronto",
-        state: "ON",
+        province: "ON",
         postal: "M5T 7Y8"})
     },
     {
@@ -24,7 +24,7 @@ module.exports = [
       location: JSON.stringify({
         address: "2 Morton St.",
         city: "Calgary",
-        state: "AB",
+        province: "AB",
         postal: "M5T 7Y8"})
     },
     {
@@ -38,7 +38,7 @@ module.exports = [
       location: JSON.stringify({
         address: "2 Morton St.",
         city: "Montreal",
-        state: "QC",
+        province: "QC",
         postal: "M5T 7Y8"})
     }
   ]

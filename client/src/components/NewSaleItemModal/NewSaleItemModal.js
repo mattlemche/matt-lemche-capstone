@@ -4,7 +4,6 @@ import { categories } from '../../util';
 import axios from 'axios';
 import { getAllItems } from '../../util';
 import Button from '../Button/Button';
-import { ReactComponent as MySales } from '../../assets/icons/my-sales.svg';
  
 class NewSaleItemModal extends Component {
     
@@ -83,20 +82,15 @@ class NewSaleItemModal extends Component {
         return (
             <section className="section">
                 <div className="section__header">
-                    <span className="section__super">
-                        Add an Item to
-                    </span>
                     <div className="section__title-container">
-                        <MySales className="section__icon" />
                         <h1 className="section__title">
-                            {currentSale.saleName}
+                            New Sale Item
                         </h1>
-                        <MySales className="section__icon" />
                     </div>
                     
-                    <span className="section__sub">
-                        Yard Sale
-                    </span>
+                </div>
+                <div className="section__super">
+                        Adding an Item to <span className="bold">{currentSale.saleName}</span> Yard Sale.
                 </div>
                 <form onSubmit={this.handleFormSubmit} className="form">
                    

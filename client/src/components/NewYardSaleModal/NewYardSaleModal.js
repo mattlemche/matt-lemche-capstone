@@ -82,9 +82,8 @@ class NewYardSaleModal extends Component {
         return (
             <section className="section">
                 <div className="section__header">
-                    <span className="section__super">Create a new</span>
                     <h1 className="section__title">
-                        Yard Sale
+                        New Yard Sale
                     </h1>
                 </div>
                 <form onSubmit={this.handleFormSubmit} className="form">

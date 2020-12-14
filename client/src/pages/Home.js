@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { Route, NavLink, Switch } from 'react-router-dom';
 
 import BrowseNav from '../components/BrowseNav/BrowseNav';
@@ -11,16 +10,6 @@ import AllYardSales from '../components/AllYardSales/AllYardSales';
 
 class Home extends Component {
    
-   
-
-    
-
-    componentDidMount() {
-        axios
-            .get('http://localhost:8080/user')
-            .then(response => {
-            })
-    }
 
   render() {
     const {path} = this.props.match;

@@ -12,6 +12,7 @@
     overflow: hidden;
     margin: 0 0.2rem 0.2rem 0;
     background-color: $color-shale;
+    cursor: pointer;
 
     &::after {
         content: 'See Item details';

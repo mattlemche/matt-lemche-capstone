@@ -1,11 +1,14 @@
 import React from 'react';
 import './Details.scss';
+import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import Button from '../Button/Button';
 import IconGroup from '../IconGroup/IconGroup';
 import ItemList from '../ItemList/ItemList';
 import ItemThumb from '../ItemThumb/ItemThumb';
+import { newFavourite } from '../../util';
 import { ReactComponent as BackArrow } from '../../assets/icons/back.svg';
+import { ReactComponent as Heart } from '../../assets/icons/favourite-solid.svg';
 
 
 const Details = ({item}) => {
@@ -14,8 +17,32 @@ const Details = ({item}) => {
 
     console.log("Hist obj", navigate);
 
-    const handleGoBack = (props) => {
+    const handleGoBack = () => {
         navigate.goBack();
+    }
+
+    const handleFavourite = () => {
+
+        const currentUser = JSON.parse(sessionStorage.getItem("rummageLoggedIn"));
+
+        const body = {
+            description: item.description,
+            image_URL: item.image_URL,
+            condition: item.condition,
+            category: item.category,
+            price: item.price,
+            sale_item_id: item.id,
+            user_id: currentUser.userLoggedInId,
+        }
+
+        console.log("Logging body from fav req post", body)
+
+        axios
+            .post(newFavourite, body)
+            .then(response => {
+                console.log("res from fav", response);
+            })
+
     }
 
     return (
@@ -42,10 +69,22 @@ const Details = ({item}) => {
                     'No description given'
                 }
                 </div>
+
+                {
+                    item.price ? // if viewing item details, show favourite button
+                    <Button 
+                    buttonType="button"
+                    buttonModifier=" button--fav"
+                    onButtonClick={handleFavourite}
+                    >
+                        <Heart className="button__icon button__icon--fav"/>
+                    </Button> : // if viewing sale details, hide favourite button
+                    ''
+                }
                 
             </div>
             {
-                item.price ?
+                item.price ? // if viewing item details, show price + add
                 <div className="details__shop">
                     <div className="details__price">
                         {item.price}
@@ -53,7 +92,7 @@ const Details = ({item}) => {
                     <Button buttonType="button">
                         Add to Cart
                     </Button>
-                </div> :
+                </div> : // if viewing sale details, show item list
                 <div className="details__items">
                     <h3 className="details__items-title">
                         Items for Sale

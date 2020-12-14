@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { getUserInfo, getFavourites } from '../util';
+import ItemList from '../components/ItemList/ItemList';
+import ItemThumb from '../components/ItemThumb/ItemThumb';
 
 class Favourites extends Component {
 
@@ -9,21 +11,15 @@ class Favourites extends Component {
     }
 
     componentDidMount() {
-        const rummageLoggedIn = JSON.parse(sessionStorage.getItem("rummageLoggedIn"));
-        console.log(getUserInfo(rummageLoggedIn.userLoggedIn));
+        const currentUser = JSON.parse(sessionStorage.getItem("rummageLoggedIn"));
+        console.log(getUserInfo(currentUser.userLoggedInId));
         axios
-            .get(getUserInfo(rummageLoggedIn.userLoggedIn))
+            .get(getFavourites(currentUser.userLoggedInId))
             .then(response => {
-                const userId = response.data.id;
-
-                axios
-                    .get(getFavourites(userId))
-                    .then(response => {
-                        this.setState({ 
-                            favourites: response.data
-                         });
-                    })
-            })
+                this.setState({ 
+                    favourites: response.data
+                    });
+            });
     }
 
 
@@ -35,14 +31,27 @@ class Favourites extends Component {
         } 
         
         return (
-            <div>
-                {this.state.favourites.map(favourite => {
-                    return (
-                    <div key={favourite.id}>{favourite.description}</div>
-                    )
-                })
-                }
-            </div>
+            <section className="section">
+                <div className="section__header">
+                    <h1 className="section__title">
+                        My Favs
+                    </h1>
+                </div>
+                <ItemList>
+                    {this.state.favourites.map((item) => {
+                        return (
+                            <ItemThumb 
+                                
+                            key={item.id} 
+                            itemId={item.id}
+                            price={item.price}
+                            image={item.image_URL}
+                            imageAlt={item.name}
+                            />
+                        )
+                    })}
+                </ItemList>
+            </section>
         );
     }
 }

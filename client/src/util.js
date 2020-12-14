@@ -19,6 +19,7 @@ export const login = (username) => {
 export const imageUpload = (saleItemId) => {
     return `${API_URL}avatar-upload/${saleItemId}`;
 };
+export const newFavourite = `${API_URL}favourite`
 
 export const categories = [
     "antiques",

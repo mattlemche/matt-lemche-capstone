@@ -3,7 +3,7 @@ module.exports = [
       location: JSON.stringify({
         address: "2 Morton St.",
         city: "Toronto",
-        state: "Ontario",
+        province: "Ontario",
         postal: "M5T 7Y8"
       }),
       name: "Everything must go!",
@@ -15,11 +15,11 @@ module.exports = [
       location: JSON.stringify({
         address: "2 Morton St.",
         city: "Toronto",
-        state: "Ontario",
+        province: "Ontario",
         postal: "M5T 7Y8"
       }),
-      name: "Moving sale",
-      description: "",
+      name: "Going to Paris!",
+      description: "Moving across the pond and need to get rid of a few things that I can't take with me",
       duration: 1,
       status: "active",
     },
@@ -27,11 +27,11 @@ module.exports = [
       location: JSON.stringify({
         address: "2 Morton St.",
         city: "Toronto",
-        state: "Ontario",
+        province: "Ontario",
         postal: "M5T 7Y8"
       }),
-      name: "Moving sale",
-      description: "",
+      name: "Downsizing",
+      description: "We are moving form our large house to a condo and we need to pare down!",
       duration: 1,
       status: "active",
     }

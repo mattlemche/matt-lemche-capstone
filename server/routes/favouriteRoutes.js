@@ -9,7 +9,7 @@ router
             description: req.body.description,
             image_URL: req.body.image_URL,
             condition: req.body.condition,
-            categories: JSON.stringify(req.body.categories),
+            category: req.body.category,
             price: req.body.price,
             sale_item_id: req.body.sale_item_id,
             user_id: req.body.user_id,

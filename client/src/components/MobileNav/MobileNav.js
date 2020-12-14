@@ -1,6 +1,6 @@
 import React from 'react';
 import './MobileNav.scss';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { ReactComponent as HomeIcon } from '../../assets/icons/home.svg';
 import { ReactComponent as FavIcon } from '../../assets/icons/favourite.svg';
 import { ReactComponent as SaleIcon } from '../../assets/icons/my-sales.svg';
@@ -12,36 +12,36 @@ const MobileNav = () => {
             <nav className="mobile-nav">
                 <ul className="mobile-nav__list">
                     <li className="mobile-nav__item">
-                        <Link to='/browse' className="link link--mobile-nav">
+                        <NavLink to='/browse' className="mobile-nav__link" activeClassName="mobile-nav__link--active">
                             <HomeIcon className="mobile-nav__icon" />
                             <div className="mobile-nav__title">
                                 Home
                             </div>
-                        </Link>
+                        </NavLink>
                     </li>
                     <li className="mobile-nav__item">
-                        <Link to='/favourites' className="link link--mobile-nav">
+                        <NavLink to='/favourites' className="mobile-nav__link" activeClassName="mobile-nav__link--active">
                             <FavIcon className="mobile-nav__icon" />
                             <div className="mobile-nav__title">
                                 Favs
                             </div>
-                        </Link>
+                        </NavLink>
                     </li>
                     <li className="mobile-nav__item">
-                        <Link to='/my-yard-sales' className="link link--mobile-nav">
+                        <NavLink to='/my-yard-sales' className="mobile-nav__link" activeClassName="mobile-nav__link--active">
                             <SaleIcon className="mobile-nav__icon" />
                             <div className="mobile-nav__title">
                                 My Sales
                             </div>
-                        </Link>
+                        </NavLink>
                     </li>
                     <li className="mobile-nav__item">
-                        <Link to='/cart' className="link link--mobile-nav">
+                        <NavLink to='/cart' className="mobile-nav__link" activeClassName="mobile-nav__link--active">
                             <CartIcon className="mobile-nav__icon" />
                             <div className="mobile-nav__title">
                                 Cart
                             </div>
-                        </Link>
+                        </NavLink>
                     </li>
 
                 </ul>

@@ -6,7 +6,7 @@ import { ReactComponent as UserIcon } from '../../assets/icons/user.svg';
 import { ReactComponent as NewSaleIcon } from '../../assets/icons/new-sale-2.svg';
 import { ReactComponent as Logo } from '../../assets/logo/rummage-wordmark.svg';
 
-const MobileHeader = () => {
+const MobileHeader = (props) => {
 
     let navigate = useHistory();
 
@@ -16,6 +16,7 @@ const MobileHeader = () => {
 
 
     console.log("Logging navigation obj from mobile header", navigate)
+    console.log("Logging window obj from mobile header", window)
 
     return (
         <header className="mobile-header">
@@ -23,24 +24,24 @@ const MobileHeader = () => {
             <nav className="mobile-nav mobile-nav--header">
                 <ul className="mobile-nav__list">
                     <li className="mobile-nav__item mobile-nav__item--header">
-                        <NavLink to="/search" className="link link--mobile-nav" activeClassName="mobile-nav__link--active">
-                            <SearchIcon className={`mobile-nav__icon${navigate.location.pathname === '/search' ? ' mobile-nav__icon--active' : ''}`}/>
+                        <NavLink to="/search" className="mobile-nav__link" activeClassName="mobile-nav__link--active">
+                            <SearchIcon className={`mobile-nav__icon${window.location.pathname === '/search' ? ' mobile-nav__icon--active' : ''}`}/>
                             <div className="mobile-nav__title">
                                 Search
                             </div>
                         </NavLink>
                     </li>
                     <li className="mobile-nav__item mobile-nav__item--header">
-                        <NavLink to="/new-yard-sale" className="link link--mobile-nav" activeClassName="mobile-nav__link--active">
-                            <NewSaleIcon className={`mobile-nav__icon${navigate.location.pathname === '/new-yard-sale' ? ' mobile-nav__icon--active' : ''}`}/>
+                        <NavLink to="/new-yard-sale" className="mobile-nav__link" activeClassName="mobile-nav__link--active">
+                            <NewSaleIcon className={`mobile-nav__icon${window.location.pathname === '/new-yard-sale' ? ' mobile-nav__icon--active' : ''}`}/>
                             <div className="mobile-nav__title">
                                 Create
                             </div>
                         </NavLink>
                     </li>
                     <li className="mobile-nav__item mobile-nav__item--header">
-                        <NavLink to="/profile" className="link link--mobile-nav" activeClassName="mobile-nav__link--active">
-                            <UserIcon className={`mobile-nav__icon${navigate.location.pathname === '/profile' ? ' mobile-nav__icon--active' : ''}`}/>
+                        <NavLink to="/profile" className="mobile-nav__link" activeClassName="mobile-nav__link--active">
+                            <UserIcon className={`mobile-nav__icon${window.location.pathname === '/profile' ? ' mobile-nav__icon--active' : ''}`}/>
                             <div className="mobile-nav__title">
                                 Profile
                             </div>
