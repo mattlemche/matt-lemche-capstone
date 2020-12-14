@@ -4,6 +4,14 @@ const Favourite = require('../models/favourite');
 
 router
     .route('/')
+    .get((req, res) => {
+        Favourite
+            .where(req.query)
+            .fetchAll()
+            .then((favourites) => {
+                res.status(200).json(favourites);
+            })
+    })
     .post((req, res) => {
         new Favourite({
             description: req.body.description,

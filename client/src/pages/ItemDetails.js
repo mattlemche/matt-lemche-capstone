@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { getItemInfo } from '../util';
 
-import Details from '../components/Details/Details';
+import SaleItemDetails from '../components/SaleItemDetails/SaleItemDetails';
 
 
 
@@ -31,7 +31,7 @@ class ItemDetails extends Component {
         } else {
             return (
                 <section className="section">
-                    <Details item={this.state.saleItem}/>
+                    <SaleItemDetails item={this.state.saleItem}/>
                 </section>
             );
         }
