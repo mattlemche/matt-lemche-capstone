@@ -1,0 +1,63 @@
+@use '../../partials/variables' as *;
+@use '../../partials/mixins' as *;
+
+/*------------------------------------*\
+  #DETAILS
+\*------------------------------------*/
+
+.details {
+    position: relative;
+    height: 100%;
+
+    &__header {
+        display: flex;
+        justify-content: center;
+        width: 100vw;
+        height: 16rem;
+        background-color: $color-shale;
+        overflow: hidden;
+    }
+
+    &__image {
+        height: 100%;
+    }
+
+    &__content {
+        padding: 2rem 2rem 0;
+        margin-bottom: 2.5rem;
+    }
+
+    &__title {
+        color: $color-cerise;
+        margin-bottom: 1rem;
+    }
+
+    &__shop {
+        position: fixed;
+        bottom: 6rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 1.5rem;
+        background-color: rgba($color-sky, 0.1);
+    }
+
+    &__price {
+        color: $color-sky;
+        font-size: 2rem;
+        font-weight: 700;
+
+        &:before {
+            content: '$';
+        }
+    }
+
+    &__items-title {
+        width: 100%;
+        padding: 0.5rem;
+        background-color: $color-cerise;
+        color: $color-white;
+        text-align: center;
+    }
+}

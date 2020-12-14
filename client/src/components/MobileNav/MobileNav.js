@@ -23,7 +23,7 @@ const MobileNav = () => {
                         <Link to='/favourites' className="link link--mobile-nav">
                             <FavIcon className="mobile-nav__icon" />
                             <div className="mobile-nav__title">
-                                Favourites
+                                Favs
                             </div>
                         </Link>
                     </li>

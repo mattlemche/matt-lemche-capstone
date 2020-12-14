@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './NewYardSaleModal.scss';
 import Button from '../Button/Button';
 import axios from 'axios';
 import { getAllSales } from '../../util';
@@ -66,11 +67,12 @@ class NewYardSaleModal extends Component {
                 console.log("This is the response from new sale post", response)
                 sessionStorage.setItem("rummageCurrentSale", 
                     JSON.stringify({
-                        saleId: response.data.id
+                        saleId: response.data.id,
+                        saleName: response.data.name
                     }));
             })
             .then(_response => {
-                this.props.history.push('/my-new-yard-sale');
+                this.props.history.push('/my-yard-sales');
             })
             
     }
@@ -78,7 +80,13 @@ class NewYardSaleModal extends Component {
     render() {
 
         return (
-            <>
+            <section className="section">
+                <div className="section__header">
+                    <span className="section__super">Create a new</span>
+                    <h1 className="section__title">
+                        Yard Sale
+                    </h1>
+                </div>
                 <form onSubmit={this.handleFormSubmit} className="form">
                     <label htmlFor="saleName" className="form__label">
                         Yard Sale Name
@@ -90,6 +98,7 @@ class NewYardSaleModal extends Component {
                     name="saleName" 
                     id="saleName" 
                     className="form__input"
+                    placeholder={this.state.name ? this.state.name : 'Give your yard sale a catchy name!'}
                     />
                     <label htmlFor="description" className="form__label">
                         Description
@@ -100,8 +109,9 @@ class NewYardSaleModal extends Component {
                     type="text" 
                     name="description" 
                     id="description" 
-                    className="form__input"
-                    />
+                    className="form__input form__input--long"
+                    placeholder={this.state.description ? this.state.description : `Describe your yard sale. Grab buyers' attention with some highlights.`}
+                    ></textarea>
                     <fieldset name="location" className="form__group">
                         <label htmlFor="city" className="form__label">
                             City
@@ -113,6 +123,7 @@ class NewYardSaleModal extends Component {
                         name="city" 
                         id="city" 
                         className="form__input"
+                        placeholder={this.state.location.city ? this.state.location.city : 'Your city'}
                         />
                         <label htmlFor="province" className="form__label">
                             Province
@@ -124,6 +135,7 @@ class NewYardSaleModal extends Component {
                         name="province" 
                         id="province" 
                         className="form__input"
+                        placeholder={this.state.location.province ? this.state.location.province : 'Your province'}
                         />
                         <label htmlFor="postal" className="form__label">
                             Postal Code
@@ -135,6 +147,7 @@ class NewYardSaleModal extends Component {
                         name="postal" 
                         id="postal" 
                         className="form__input"
+                        placeholder={this.state.location.postal ? this.state.location.postal : 'Your postal code'}
                         />
                     </fieldset>
                     <label htmlFor="duration" className="form__label">
@@ -160,34 +173,40 @@ class NewYardSaleModal extends Component {
                         </option>
                     </select>
                     <fieldset className="form__group">
-                        <input 
-                        onChange={this.handleShipping} 
-                        type="radio" 
-                        name="retrieval" 
-                        id="shipping" 
-                        value="true" 
-                        className="form__radio"
-                        />
-                        <label htmlFor="shipping" className="form__label">
-                            Shipping Available
-                        </label>
-                        <input 
-                        onChange={this.handlePickup}
-                        type="radio" 
-                        name="retrieval" 
-                        id="pick-up" 
-                        value="false" 
-                        className="form__radio"
-                        />
-                        <label htmlFor="pick-up" className="form__label">
-                            Pick-up Only
-                        </label>
+                        <div className="form__radio-pair">
+                            <input 
+                            onChange={this.handleShipping} 
+                            type="radio" 
+                            name="retrieval" 
+                            id="shipping" 
+                            value="true" 
+                            className="form__radio"
+                            />
+                            <label htmlFor="shipping" className="form__label">
+                                Shipping Available
+                            </label>
+                        </div>
+                        <div className="form__radio-pair">
+                            <input 
+                            onChange={this.handlePickup}
+                            type="radio" 
+                            name="retrieval" 
+                            id="pick-up" 
+                            value="false" 
+                            className="form__radio"
+                            />
+                            <label htmlFor="pick-up" className="form__label">
+                                Pick-up Only
+                            </label>
+                        </div>
                     </fieldset>
-                    <Button buttonText="Create Yard Sale" buttonType="submit"/>
+                    <Button buttonType="submit">
+                        Create Yard Sale
+                    </Button>
                 </form>
                 
                 
-            </>
+            </section>
         );
     }
 }

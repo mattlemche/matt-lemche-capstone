@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import SaleThumb from '../SaleThumb/SaleThumb';
+import YardSaleThumb from '../YardSaleThumb/YardSaleThumb';
+import YardSaleList from '../YardSaleList/YardSaleList';
 import axios from 'axios';
 import { getAllSales } from '../../util';
 
@@ -27,15 +28,21 @@ class AllYardSales extends Component {
         } else {
             return (
                 <section className="section">
-                    THIS IS SALES
-                    
-                    <ul className="rummage-list">
-                        {this.state.saleArray.map((sale) => {
-                            return (
-                                <SaleThumb location={sale.location} key={sale.id} saleId={sale.id}/>
-                            )
-                        })}
-                    </ul>
+            
+                    <YardSaleList>
+                    {this.state.saleArray.map((sale) => {
+                        return (
+                            <YardSaleThumb 
+                            key={sale.id} 
+                            saleId={sale.id}
+                            name={sale.name}
+                            description={sale.description}
+                            location={sale.location}
+                            items={sale.saleItems}
+                            />
+                        )
+                    })}
+                    </YardSaleList>
         
         
                 </section>

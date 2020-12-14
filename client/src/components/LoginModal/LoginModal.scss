@@ -1,3 +1,10 @@
+@use '../../partials/variables' as *;
+
+/*------------------------------------*\
+  #LOGIN MODAL
+\*------------------------------------*/
+
+
 .login-modal {
     position: absolute;
     top: 0;
@@ -5,4 +12,26 @@
     height: 100vh;
     width: 100%;
     background-color: white;
+}
+
+.icon-bubble-container {
+    position: fixed;
+    bottom: 2rem;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 0 2rem;
+   
+}
+
+.icon-bubble {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+
+    &__icon {
+        height: 3.75rem;
+        fill: $color-cerise;
+    }
 }

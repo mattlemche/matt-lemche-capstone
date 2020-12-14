@@ -62,7 +62,9 @@ class YardSaleBuilder extends Component {
                         )
                     })}
                 </ul>
-                <Button buttonText="New Yard Sale Item" onButtonClick={this.handleAddSaleItem}/>
+                <Button onButtonClick={this.handleAddSaleItem}>
+                    New Yard Sale Item
+                </Button>
             </div>
         );
     }

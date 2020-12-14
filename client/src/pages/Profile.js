@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { getUserInfo } from '../util';
+import ProfileDetails from '../components/ProfileDetails/ProfileDetails';
 
 
 
@@ -29,10 +30,14 @@ class Profile extends Component {
             )
         }
         return (
-            <div>
-                Profile
-                <h1>{this.state.currentUser.first_name}</h1>
-            </div>
+            <section className="section">
+                <div className="section__header">
+                    <h1 className="section__title">
+                        Profile
+                    </h1>
+                </div>
+                <ProfileDetails currentUser={this.state.currentUser}/>
+            </section>
         );
     }
 }

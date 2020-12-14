@@ -27,9 +27,7 @@ class AllSaleItems extends React.Component {
             )
         } else {
             return (
-                <section className="section">
-                    THIS IS ITEMS
-                   
+                <section className="section">                   
                     <ItemList>
                         {this.state.itemArray.map((item) => {
                             return (

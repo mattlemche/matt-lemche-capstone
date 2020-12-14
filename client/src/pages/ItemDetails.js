@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { getItemInfo } from '../util';
 
+import Details from '../components/Details/Details';
+
+
+
 class ItemDetails extends Component {
 
     state = {
@@ -26,10 +30,9 @@ class ItemDetails extends Component {
             )
         } else {
             return (
-                <div>
-                    {this.state.saleItem.price}
-                    <img src={this.state.saleItem.image_URL} alt="" className="image"/>
-                </div>
+                <section className="section">
+                    <Details item={this.state.saleItem}/>
+                </section>
             );
         }
         

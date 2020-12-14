@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Button from '../Button/Button';
 import axios from 'axios';
 import { imageUpload } from '../../util';
+import { ReactComponent as BackArrow } from '../../assets/icons/back.svg';
 
 class ImageUpload extends Component {
 
@@ -22,7 +23,8 @@ class ImageUpload extends Component {
     handleImageUpload = (e) => {
         e.preventDefault();
 
-        const saleItemId = JSON.parse(sessionStorage.getItem("rummageCurrentSaleItem"))
+        const saleItemId = JSON.parse(sessionStorage.getItem("rummageCurrentSaleItem"));
+        const currentSale = JSON.parse(sessionStorage.getItem("rummageCurrentSale"));
         
         const formdata = new FormData();
         formdata.append("avatar", e.target.images.files[0], e.target.images.files[0].name);
@@ -36,7 +38,7 @@ class ImageUpload extends Component {
             })
             .then(_response => {
                 setTimeout(() => {
-                    this.props.history.push('/my-new-yard-sale')
+                    this.props.history.push(`/yard-sale/${currentSale.saleId}`)
                 }, 300)
                 
             });
@@ -53,19 +55,27 @@ class ImageUpload extends Component {
         }
         
         return (
-            <>
-                <Button buttonText="Back" onButtonClick={this.handleGoBack}/>
-                <form onSubmit={this.handleImageUpload}>
+            <section className="section">
+                <div className="section__header">
+                    Image Upload
+                </div>
+                <Button buttonType="button" onButtonClick={this.handleGoBack} buttonModifier=" button--previous">
+                    <BackArrow className="button__icon button__icon--previous"/> Back
+                </Button>
+                <form onSubmit={this.handleImageUpload} className="form">
                     <input 
                     onChange={this.handleImageChange}
                     accept="image/*"
                     type="file"
                     name="images" 
-                    capture="environment" /> 
-                    <Button buttonText="Add Image" buttonType="submit"/>
+                    capture="environment"
+                    className="form__input form__input--image-upload" /> 
+                    <Button buttonType="submit" buttonModifier=" button--add-image">
+                        Add Image
+                    </Button>
                 </form>
                       
-            </>
+            </section>
 
         );
     }

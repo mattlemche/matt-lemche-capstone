@@ -1,6 +1,6 @@
 @use './partials/typography';
-@use './partials/variables';
-@use './partials/mixins';
+@use './partials/variables' as *;
+@use './partials/mixins' as *;
 
 /*------------------------------------*\
   #CSS RESET
@@ -29,5 +29,96 @@ a {
 
 body {
   font-family: 'Arimo';
+  color: $color-shale;
+  padding-top: 5.625rem;
+}
+
+.section {
+  position: relative;
+  padding: 0 0 7rem;
+
+  &__header {
+    width: 100%;
+    padding: 1rem 0;
+    margin-bottom: 0.5rem;
+    background-color: rgba($color-sky, 0.1);
+    color: $color-sky;
+    text-align: center;
+
+  }
+
+  &__title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    margin: 0 1rem;
+  }
+
+  &__icon {
+    flex-basis: 10%;
+    fill: $color-white;
+    height: 2.5rem;
+  }
+
+  &__super {
+    font-size: $font-small;
+    text-transform: uppercase;
+  }
+
+  &__logo {
+    position: relative;
+    z-index: 20;
+    width: 80%;
+    margin: 0 auto 2rem;
+    fill: $color-cerise;
+  }
+
+  &--login {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: $color-white;
+  }
+}
+
+.sun {
+  position: absolute;
+  top: 3rem;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  height: 12rem;
+  width: 12rem;
+  border-radius: 50%;
+  margin: 0 auto;
+  background-color: $color-lemon;
+}
+
+.link {
+
+  &--mobile-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &--signup {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    color: $color-sky;
+    font-weight: 700;
+    text-decoration: underline;
+  }
 }
 

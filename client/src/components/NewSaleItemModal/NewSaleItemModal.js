@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-// import { Route } from 'react-router-dom';
+import './NewSaleItemModal.scss';
 import { categories } from '../../util';
 import axios from 'axios';
 import { getAllItems } from '../../util';
 import Button from '../Button/Button';
+import { ReactComponent as MySales } from '../../assets/icons/my-sales.svg';
  
 class NewSaleItemModal extends Component {
+    
     state = {
         currentSaleId: '',
         itemName: '',
@@ -66,6 +68,12 @@ class NewSaleItemModal extends Component {
 
     render() {
 
+        const currentSale = JSON.parse(sessionStorage.getItem("rummageCurrentSale"))
+        console.log({
+            "current sale": currentSale,
+            "Props": this.props
+        })
+
         if (!sessionStorage.getItem("rummageCurrentSale")) {
             return (
                 <h1>You aren't building a sale right now</h1>
@@ -73,35 +81,79 @@ class NewSaleItemModal extends Component {
         }
     
         return (
-            <>
+            <section className="section">
+                <div className="section__header">
+                    <span className="section__super">
+                        Add an Item to
+                    </span>
+                    <div className="section__title-container">
+                        <MySales className="section__icon" />
+                        <h1 className="section__title">
+                            {currentSale.saleName}
+                        </h1>
+                        <MySales className="section__icon" />
+                    </div>
+                    
+                    <span className="section__sub">
+                        Yard Sale
+                    </span>
+                </div>
                 <form onSubmit={this.handleFormSubmit} className="form">
                    
-                    <div>
-                        The current sale id is: {this.state.currentSaleId}
-                    </div>
                     <label htmlFor="itemName" className="form__label">
                         Item Name
                     </label>
-                    <input onChange={this.handleInputChange} type="text" name="itemName" id="itemName" className="form__input"/>
+                    <input 
+                    onChange={this.handleInputChange} 
+                    type="text" 
+                    name="itemName" 
+                    id="itemName" 
+                    className="form__input"/>
                     <label htmlFor="description" className="form__label">
                         Description
                     </label>
-                    <textarea onChange={this.handleInputChange} type="text" name="description" id="description" className="form__input"/>
+                    <textarea 
+                    onChange={this.handleInputChange} 
+                    type="text" 
+                    name="description" 
+                    id="description" 
+                    className="form__input form__input--long">
+                    </textarea>
                     <label htmlFor="condition" className="form__label">
                         Condition
                     </label>
-                    <select onChange={this.handleInputChange} name="condition" id="condition" className="form__select">
-                        <option value="well-used" className="form__option">Well Used</option>
-                        <option value="fair" className="form__option">Fair</option>
-                        <option value="good" className="form__option">Good</option>
-                        <option value="lightly-used" className="form__option">Lightly Used</option>
-                        <option value="like-new" selected={true} className="form__option">Like New</option>
+                    <select 
+                    onChange={this.handleInputChange} 
+                    name="condition" 
+                    id="condition" 
+                    className="form__select">
+                        <option value="well-used" className="form__option">
+                            Well Used
+                        </option>
+                        <option value="fair" className="form__option">
+                            Fair
+                        </option>
+                        <option value="good" className="form__option">
+                            Good
+                        </option>
+                        <option value="lightly-used" className="form__option">
+                            Lightly Used
+                        </option>
+                        <option value="like-new" selected={true} className="form__option">
+                            Like New
+                        </option>
                     </select>
                     <label htmlFor="category" className="form__label">
                         Category
                     </label>
-                    <select onChange={this.handleInputChange} name="category" id="category" className="form__select">
-                        <option selected={true} disabled={true} className="form__option">Please choose a category</option>
+                    <select 
+                    onChange={this.handleInputChange} 
+                    name="category" 
+                    id="category" 
+                    className="form__select">
+                        <option selected={true} disabled={true} className="form__option">
+                            Please choose a category
+                        </option>
                         {categories.map(category => {
                             return (
                                 <option value={category} key={category} className="form__option">
@@ -121,10 +173,12 @@ class NewSaleItemModal extends Component {
                     className="form__input"
                     />
                    
-                    <Button buttonText="Add Item" buttonType="submit"/>
+                    <Button buttonType="submit">
+                        Add Item
+                    </Button>
                 </form>
                 
-            </>
+            </section>
            
         );
     };

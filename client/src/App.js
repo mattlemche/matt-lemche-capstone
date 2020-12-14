@@ -33,6 +33,7 @@ class App extends Component {
   
   render() {
     console.log("logging state from home page", this.state);
+
     return (
       <Router>
         <MobileHeader />

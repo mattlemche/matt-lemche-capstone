@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { getSaleInfo } from '../util';
+import Details from '../components/Details/Details';
 
 class SaleDetails extends Component {
 
@@ -26,9 +27,9 @@ class SaleDetails extends Component {
             )
         } else {
             return (
-                <div>
-                    {this.state.yardSale.location}
-                </div>
+                <section className="section">
+                    <Details item={this.state.yardSale} />
+                </section>
             );
         }
         
