@@ -142,9 +142,10 @@
 
     &--search {
       width: fit-content;
-      margin: 0 auto;
+      padding: 0 1.5rem;
+      margin-left: 0.5rem;
       color: $color-white;
-      background-color: $color-cerise;
+      background-color: $color-sky;
     }
 
     &--checkout {

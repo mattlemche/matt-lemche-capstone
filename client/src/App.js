@@ -16,6 +16,7 @@ import Login from './components/LoginModal/LoginModal';
 import NewYardSaleModal from './components/NewYardSaleModal/NewYardSaleModal';
 import NewSaleItemModal from './components/NewSaleItemModal/NewSaleItemModal';
 import ImageUpload from './components/ImageUpload/ImageUpload';
+import NoMatchPage from './pages/NoMatchPage';
 
 class App extends Component {
 
@@ -51,8 +52,8 @@ class App extends Component {
           <Route path='/new-yard-sale/' component={NewYardSaleModal} />
           <Route path='/new-sale-item/:id' component={NewSaleItemModal} />
           <Route path='/image-upload' component={ImageUpload} />
-          <Route path='/:search' component={Home} />
-          <Redirect from='/' exact={true} to='/browse' />
+          <Redirect from='/' to='/browse' />
+          <Route component={NoMatchPage} />
     
         </Switch>
          

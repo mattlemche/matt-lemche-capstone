@@ -31,9 +31,6 @@ class Home extends Component {
         <div className="tabs">
           <Switch>
             <Route path={`${path}`} exact component={() => <AllSaleItems />} />
-            <Route path={`${path}/:search`} render={(routeprops) => {
-            <AllSaleItems {...routeprops}/>
-             }} />
             <Route path={`${path}/yard-sales`} component={() => <AllYardSales />} />
           </Switch>
         </div>
