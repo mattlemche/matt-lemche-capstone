@@ -21,7 +21,7 @@ const MobileNav = () => {
                     </li>
                     <li className="mobile-nav__item">
                         <NavLink to='/favourites' className="mobile-nav__link" activeClassName="mobile-nav__link--active">
-                            <FavIcon className="mobile-nav__icon" />
+                            <FavIcon className="mobile-nav__icon mobile-nav__icon--fav" />
                             <div className="mobile-nav__title">
                                 Favs
                             </div>

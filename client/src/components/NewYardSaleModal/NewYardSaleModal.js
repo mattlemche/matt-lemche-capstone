@@ -18,6 +18,7 @@ class NewYardSaleModal extends Component {
         retrieval: false,
     }
 
+    // through line 48, create controlled components for form
     handleInputChange = (event) => {
         event.preventDefault();
         let newValue = event.target.value;  
@@ -60,7 +61,6 @@ class NewYardSaleModal extends Component {
             user_id: currentUser.userLoggedInId,
         }
 
-        
         axios   
             .post(getAllSales, body)
             .then(response => {
@@ -127,15 +127,55 @@ class NewYardSaleModal extends Component {
                         <label htmlFor="province" className="form__label">
                             Province
                         </label>
-                        <input
+                        <select
                         onChange={this.handleInputChange} 
                         value={this.state.location.province}
                         type="text" 
                         name="province" 
                         id="province" 
-                        className="form__input"
+                        className="form__select"
                         placeholder={this.state.location.province ? this.state.location.province : 'Your province'}
-                        />
+                        >
+                            <option value="ab" className="form__option">
+                                AB
+                            </option>
+                            <option value="bc" className="form__option">
+                                BC
+                            </option>
+                            <option value="mb" className="form__option">
+                                MB
+                            </option>
+                            <option value="nb" className="form__option">
+                                NB
+                            </option>
+                            <option value="nl" className="form__option">
+                                NL
+                            </option>
+                            <option value="nt" className="form__option">
+                                NT
+                            </option>
+                            <option value="ns" className="form__option">
+                                NS
+                            </option>
+                            <option value="nu" className="form__option">
+                                NU
+                            </option>
+                            <option value="on" className="form__option">
+                                ON
+                            </option>
+                            <option value="pe" className="form__option">
+                                PE
+                            </option>
+                            <option value="qc" className="form__option">
+                                QC
+                            </option>
+                            <option value="sk" className="form__option">
+                                SK
+                            </option>
+                            <option value="yt" className="form__option">
+                                YT
+                            </option>
+                        </select>
                         <label htmlFor="postal" className="form__label">
                             Postal Code
                         </label>

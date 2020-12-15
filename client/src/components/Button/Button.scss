@@ -53,7 +53,7 @@
       }
 
       &--fav {
-        fill: $color-white;
+        fill: $color-cerise;
         height: 1.5rem;
         right: 0;
         transform: none;
@@ -125,16 +125,31 @@
     }
 
     &--fav {
-      position: fixed;
-      bottom: 14rem;
-      right: 1.5rem;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 3.5rem;
       width: 3.5rem;
       padding: 0;
+      background-color: $color-white;
+      box-shadow: -0.5rem 0.5rem 1rem rgba($color-shale, 0.05);
+    }
+
+    &--un-fav {
+      @extend .button--fav;
+      background-color: rgba($color-cerise, 0.1);
+    }
+
+    &--search {
+      width: fit-content;
+      margin: 0 auto;
+      color: $color-white;
       background-color: $color-cerise;
+    }
+
+    &--checkout {
+      width: fit-content;
+      margin: 0 auto;
     }
 }
 

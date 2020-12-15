@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { getUserInfo, getFavourites } from '../util';
+import { getUserInfo, getUserFavourites } from '../util';
 import ItemList from '../components/ItemList/ItemList';
 import ItemThumb from '../components/ItemThumb/ItemThumb';
 
@@ -14,10 +14,10 @@ class Favourites extends Component {
         const currentUser = JSON.parse(sessionStorage.getItem("rummageLoggedIn"));
         console.log(getUserInfo(currentUser.userLoggedInId));
         axios
-            .get(getFavourites(currentUser.userLoggedInId))
+            .get(getUserFavourites(currentUser.userLoggedInId))
             .then(response => {
                 this.setState({ 
-                    favourites: response.data
+                    favourites: response.data.favourites,
                     });
             });
     }
@@ -43,7 +43,7 @@ class Favourites extends Component {
                             <ItemThumb 
                                 
                             key={item.id} 
-                            itemId={item.id}
+                            itemId={item.sale_item_id ? item.sale_item_id : item.id} 
                             price={item.price}
                             image={item.image_URL}
                             imageAlt={item.name}

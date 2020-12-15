@@ -1,0 +1,11 @@
+@use '../../partials/variables' as *;
+@use '../../partials/mixins' as *;
+
+/*------------------------------------*\
+  #CART LIST
+\*------------------------------------*/
+
+.cart-list {
+    width: 100%;
+    padding: 1rem;
+}
