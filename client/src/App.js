@@ -38,6 +38,7 @@ class App extends Component {
         <MobileHeader />
         <main className="main">
         <Switch>
+          
           <Route path='/login' component={Login} />
           <Route path='/browse' component={Home}/>
           <Route path='/profile' component={Profile} />
@@ -47,10 +48,11 @@ class App extends Component {
           <Route path='/yard-sale/:id' component={SaleDetails}/>
           <Route path='/cart' component={Cart} />
           <Route path='/search' component={Search} />
-          <Route path='/new-yard-sale' component={NewYardSaleModal} />
-          <Route path='/new-sale-item' component={NewSaleItemModal} />
+          <Route path='/new-yard-sale/' component={NewYardSaleModal} />
+          <Route path='/new-sale-item/:id' component={NewSaleItemModal} />
           <Route path='/image-upload' component={ImageUpload} />
-          <Redirect from='/' to='/browse' />
+          <Route path='/:search' component={Home} />
+          <Redirect from='/' exact={true} to='/browse' />
     
         </Switch>
          

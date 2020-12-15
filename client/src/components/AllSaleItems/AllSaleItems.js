@@ -11,15 +11,36 @@ class AllSaleItems extends React.Component {
         itemArray: null,
     }
 
-    componentDidMount() {
+    getAllItems = () => {
         axios
             .get(getAllItems)
             .then(res => {
                 this.setState({ itemArray: res.data });
+            });
+    }
+
+    componentDidMount() {
+       this.getAllItems()
+    }
+
+    
+    componentDidUpdate(prevProps, prevState) {
+        console.log("AllSaleItems is updated")
+        if (prevProps != this.props) {
+            this.getAllItems();
+            let newItemArray = this.state.itemArray.map(item => {
+                item.description.includes("globe")
+            });
+
+            this.setState({ 
+                itemArray: newItemArray,
             })
+        }
     }
 
     render() {
+
+        console.log("Loggin props from AllSaleItems", this.props)
 
         if (!this.state.itemArray) {
             return (

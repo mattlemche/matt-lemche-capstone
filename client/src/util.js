@@ -22,6 +22,9 @@ export const imageUpload = (saleItemId) => {
 export const favouriteDelete = (favId) => {
     return `${API_URL}favourite/${favId}`;
 }
+export const yardSaleDelete = (saleId) => {
+    return `${API_URL}yard-sale/${saleId}`
+}
 
 export const categories = [
     "antiques",

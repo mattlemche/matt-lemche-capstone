@@ -1,5 +1,7 @@
 import React from 'react';
 import './YardSaleThumb.scss'
+import axios from 'axios';
+import { yardSaleDelete } from '../../util';
 import { useHistory, Link } from 'react-router-dom';
 import { ReactComponent as YardSaleIcon } from '../../assets/icons/my-sales.svg';
 import { ReactComponent as Pencil } from '../../assets/icons/pencil.svg';
@@ -11,26 +13,24 @@ const SaleThumb = ({
     name, 
     description,
     location,
-    items
+    items,
+    onDelete
     }) => {
 
     const navigate = useHistory();
 
-    const handleItemCick = (e, id) => {
+    const handleItemCick = (_e, id) => {
         navigate.push(`/yard-sale/${id}`)
     }
 
-    const handleSaleEdit = (e, id) => {
+    const handleSaleEdit = (_e, id) => {
 
     }
 
-    const handleSaleAddItem = (e, id) => {
-        navigate.push('/new-sale-item')
+    const handleSaleAddItem = (_e, id) => {
+        navigate.push(`/new-sale-item/${id}`)
     }
 
-    const handleSaleDelete = (e, id) => {
-        
-    }
 
     const saleLocation = JSON.parse(location);
 
@@ -48,7 +48,7 @@ const SaleThumb = ({
                         <Pencil className="button__icon button__icon--edit"/>
                         Edit Sale
                     </Button>
-                    <Button buttonType="button" onButtonClick={handleSaleAddItem} buttonModifier=" button--edit">
+                    <Button buttonType="button" onButtonClick={() => handleSaleAddItem(saleId)} buttonModifier=" button--edit">
                         <span className="plus">+</span>
                         Add Item
                     </Button>
@@ -74,7 +74,7 @@ const SaleThumb = ({
                 <div className="yard-sale-thumb__location">     
                     {saleLocation.city}, {saleLocation.state}
                 </div> : // if viewing in my sales, hide location and show delete button
-                <Button buttonType="button" onButtonClick={handleSaleDelete} buttonModifier=" button--delete">
+                <Button buttonType="button" onButtonClick={() => onDelete(saleId)} buttonModifier=" button--delete">
                     <Trash className="button__icon button__icon--delete" />
                 </Button>
             }

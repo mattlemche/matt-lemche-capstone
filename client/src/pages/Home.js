@@ -9,6 +9,10 @@ import AllYardSales from '../components/AllYardSales/AllYardSales';
 
 
 class Home extends Component {
+
+  constructor(props) {
+    super(props);
+  }
    
 
   render() {
@@ -17,7 +21,7 @@ class Home extends Component {
     if (!sessionStorage.getItem("rummageLoggedIn")) {
       this.props.history.push('/login');
     }
-
+   console.log("Match params from home to pass to all items", this.props.match.params)
     return (
       <div>
         <BrowseNav>
@@ -27,6 +31,9 @@ class Home extends Component {
         <div className="tabs">
           <Switch>
             <Route path={`${path}`} exact component={() => <AllSaleItems />} />
+            <Route path={`${path}/:search`} render={(routeprops) => {
+            <AllSaleItems {...routeprops}/>
+             }} />
             <Route path={`${path}/yard-sales`} component={() => <AllYardSales />} />
           </Switch>
         </div>

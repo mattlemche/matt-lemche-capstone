@@ -1,27 +1,48 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './SearchModal.scss';
 import IconGroup from '../IconGroup/IconGroup';
 import Button from '../Button/Button';
 import { ReactComponent as Search } from '../../assets/icons/search.svg';
 
-const SearchModal = (props) => {
+class SearchModal extends Component {
 
+    state = {
+        search: '',
+    }
 
-    console.log("search hist obj", props.history);
+    handleSearchChange = (e) => {
+        this.setState({
+            search: e.target.value,
+        })
+    }
 
-    return (
-        <section className="search">
+    handleSearchParams = (e) => {
+        e.preventDefault();
+        console.log("Search string", this.state.search);
+        this.props.history.push('/bike');
+    }
 
-            <form className="form form--search">
-                <div className="form__icon-wrapper">
-                    <Search className="form__icon" />
-                    <input type="text" className="form__input form__input--search"/>
-                </div>
-                <Button buttonType="submit" buttonModifier=" button--search">Search</Button>
-            </form>
-            <IconGroup />
-        </section>
-    );
-};
+    render() {
+        console.log("search hist obj", this.props.history);
+        return (
+            <section className="search">
+    
+                <form className="form form--search" onSubmit={this.handleSearchParams}>
+                    <div className="form__icon-wrapper">
+                        <Search className="form__icon" />
+                        <input 
+                        onChange={this.handleSearchChange}
+                        value={this.state.search}
+                        type="text"
+                        name="search"
+                        className="form__input form__input--search"/>
+                    </div>
+                    <Button buttonType="submit" buttonModifier=" button--search">Search</Button>
+                </form>
+                <IconGroup />
+            </section>
+        );
+    }
+}
 
 export default SearchModal;
