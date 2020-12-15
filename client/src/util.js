@@ -4,8 +4,8 @@ export const getAllSales = `${API_URL}yard-sale`;
 export const getUserInfo = (username) => {
     return `${API_URL}user/${username}`;
 };
-export const getFavourites = (username) => {
-    return `${API_URL}favourite/${username}`;
+export const getUserFavourites = (userId) => {
+    return `${API_URL}favourite/${userId}`;
 };
 export const getItemInfo = (itemId) => {
     return `${API_URL}sale-item/${itemId}`;
@@ -19,7 +19,6 @@ export const login = (username) => {
 export const imageUpload = (saleItemId) => {
     return `${API_URL}avatar-upload/${saleItemId}`;
 };
-export const newFavourite = `${API_URL}favourite`;
 export const favouriteDelete = (favId) => {
     return `${API_URL}favourite/${favId}`;
 }
