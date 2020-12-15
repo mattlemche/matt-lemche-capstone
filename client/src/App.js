@@ -15,7 +15,6 @@ import Search from './components/SearchModal/SearchModal';
 import Login from './components/LoginModal/LoginModal';
 import NewYardSaleModal from './components/NewYardSaleModal/NewYardSaleModal';
 import NewSaleItemModal from './components/NewSaleItemModal/NewSaleItemModal';
-import YardSaleBuilder from './components/YardSaleBuilder/YardSaleBuilder';
 import ImageUpload from './components/ImageUpload/ImageUpload';
 
 class App extends Component {
@@ -50,7 +49,6 @@ class App extends Component {
           <Route path='/search' component={Search} />
           <Route path='/new-yard-sale' component={NewYardSaleModal} />
           <Route path='/new-sale-item' component={NewSaleItemModal} />
-          <Route path='/my-new-yard-sale' component={YardSaleBuilder} />
           <Route path='/image-upload' component={ImageUpload} />
           <Redirect from='/' to='/browse' />
     

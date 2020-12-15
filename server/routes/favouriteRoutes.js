@@ -1,15 +1,17 @@
 const express = require("express");
 const router = express.Router();
+const { v4: uuidv4 } = require('uuid');
 const Favourite = require('../models/favourite');
+const User = require('../models/user');
 
 router
-    .route('/')
+    .route('/:userId')
     .get((req, res) => {
-        Favourite
-            .where(req.query)
-            .fetchAll()
-            .then((favourites) => {
-                res.status(200).json(favourites);
+        User
+            .where({id : req.params.userId})
+            .fetch(({withRelated: ['favourites'] }))
+            .then((userPlusFavs) => {
+                res.status(200).json(userPlusFavs);
             })
     })
     .post((req, res) => {

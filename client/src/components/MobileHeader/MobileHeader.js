@@ -25,7 +25,7 @@ const MobileHeader = (props) => {
                 <ul className="mobile-nav__list">
                     <li className="mobile-nav__item mobile-nav__item--header">
                         <NavLink to="/search" className="mobile-nav__link" activeClassName="mobile-nav__link--active">
-                            <SearchIcon className={`mobile-nav__icon${window.location.pathname === '/search' ? ' mobile-nav__icon--active' : ''}`}/>
+                            <SearchIcon className="mobile-nav__icon"/>
                             <div className="mobile-nav__title">
                                 Search
                             </div>
@@ -33,7 +33,7 @@ const MobileHeader = (props) => {
                     </li>
                     <li className="mobile-nav__item mobile-nav__item--header">
                         <NavLink to="/new-yard-sale" className="mobile-nav__link" activeClassName="mobile-nav__link--active">
-                            <NewSaleIcon className={`mobile-nav__icon${window.location.pathname === '/new-yard-sale' ? ' mobile-nav__icon--active' : ''}`}/>
+                            <NewSaleIcon className="mobile-nav__icon"/>
                             <div className="mobile-nav__title">
                                 Create
                             </div>
@@ -41,7 +41,7 @@ const MobileHeader = (props) => {
                     </li>
                     <li className="mobile-nav__item mobile-nav__item--header">
                         <NavLink to="/profile" className="mobile-nav__link" activeClassName="mobile-nav__link--active">
-                            <UserIcon className={`mobile-nav__icon${window.location.pathname === '/profile' ? ' mobile-nav__icon--active' : ''}`}/>
+                            <UserIcon className="mobile-nav__icon"/>
                             <div className="mobile-nav__title">
                                 Profile
                             </div>

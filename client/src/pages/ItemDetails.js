@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { getItemInfo } from '../util';
 
-import SaleItemDetails from '../components/SaleItemDetails/SaleItemDetails';
+import Details from '../components/Details/DetailsCopy';
 
 
 
@@ -31,11 +31,10 @@ class ItemDetails extends Component {
         } else {
             return (
                 <section className="section">
-                    <SaleItemDetails item={this.state.saleItem}/>
+                    <Details item={this.state.saleItem}/>
                 </section>
             );
         }
-        
     }
 }
 
