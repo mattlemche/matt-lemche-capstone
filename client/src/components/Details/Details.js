@@ -107,12 +107,14 @@ export default function DetailsCopy({item}) {
                 <Button buttonType="button" onButtonClick={handleGoBack} buttonModifier=" button--back">
                     <BackArrow className="button__icon"/>
                 </Button>
-                {
+
+                {   // render image if url provided
                     item.image_URL ?
                     <img src={item.image_URL} alt={item.name} className="details__image"/> :
                     <IconGroup />
                 }
-                {
+
+                {   // renders time to end of sale if in yard sale view
                     item.price ?
                     '' :
                     <div className="details__sunset-container">
@@ -125,29 +127,29 @@ export default function DetailsCopy({item}) {
             </div>
 
             <div className="details__content">
-            <h2 className="details__title">
-                        {item.name}
-                    </h2>
-                    <div className="details__description">
-                    {
-                        item.description ?
-                        item.description :
-                        'No description given'
-                    }
+                <h2 className="details__title">
+                            {item.name}
+                </h2>
+                <div className="details__description">
+
+                {
+                    item.description ?
+                    item.description :
+                    'No description given'
+                }
+                </div>
+
+                {
+                    item.condition ?
+                    <div className="details__condition">
+                        <span className="details__condition-title">
+                            condition:
+                        </span>
+                        {item.condition}
                     </div>
-                    {
-                        item.condition ?
-                        
-                            
-                        <div className="details__condition">
-                            <span className="details__condition-title">
-                                condition:
-                            </span>
-                            {item.condition}
-                        </div>
-                         : 
-                        ''
-                    }
+                        : 
+                    ''
+                }
             </div>
 
             {
@@ -177,15 +179,18 @@ export default function DetailsCopy({item}) {
                     ''
             }
 
-            {   // conditionally show / hide pricing + add to cart 
-                // when in item / sale viewing
+            {   /* conditionally show / hide pricing + add to cart 
+                    when in item / sale viewing */
 
                 item.price ? // if viewing item details, show price + add
                 <div className="details__shop">
                     <div className="details__price">
                         {item.price}
                     </div>
-                    <Button buttonType="button" onButtonClick={(e) => handleAddtoCart(e, item.id)}>
+                    <Button 
+                    buttonType="button" 
+                    onButtonClick={(e) => handleAddtoCart(e, item.id)}
+                    buttonModifier=" button--cart">
                         Add to Cart
                     </Button>
                 </div> : // if viewing sale details, show item list

@@ -19,7 +19,10 @@ const MobileHeader = (props) => {
             <nav className="mobile-nav mobile-nav--header">
                 <ul className="mobile-nav__list">
                     <li className="mobile-nav__item mobile-nav__item--header">
-                        <NavLink to="/new-yard-sale" className="mobile-nav__link" activeClassName="mobile-nav__link--active">
+                        <NavLink 
+                        to="/new-yard-sale" 
+                        className="mobile-nav__link" 
+                        activeClassName="mobile-nav__link--active">
                             <NewSaleIcon className="mobile-nav__icon"/>
                             <div className="mobile-nav__title">
                                 Create
@@ -27,7 +30,10 @@ const MobileHeader = (props) => {
                         </NavLink>
                     </li>
                     <li className="mobile-nav__item mobile-nav__item--header">
-                        <NavLink to="/profile" className="mobile-nav__link" activeClassName="mobile-nav__link--active">
+                        <NavLink 
+                        to="/profile" 
+                        className="mobile-nav__link" 
+                        activeClassName="mobile-nav__link--active">
                             <UserIcon className="mobile-nav__icon"/>
                             <div className="mobile-nav__title">
                                 Profile

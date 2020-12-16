@@ -34,11 +34,8 @@ class ImageUpload extends Component {
                 setTimeout(() => {
                     this.props.history.push(`/yard-sale/${this.props.match.params.id}`)
                 }, 300)
-                
             });
     }
-
-    
 
     render() {
 

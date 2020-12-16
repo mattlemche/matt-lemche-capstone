@@ -44,6 +44,7 @@ class LoginModal extends Component {
                     userLoggedInId: response.data.id
                     },
                     () => {
+                        // add user info to session storage
                     sessionStorage
                         .setItem("rummageLoggedIn", 
                         JSON.stringify({ 
@@ -51,12 +52,11 @@ class LoginModal extends Component {
                             userLoggedIn: this.state.userLoggedIn,
                             userLoggedInId: this.state.userLoggedInId
                         }));
-
                     }
                 );
-
             })
             .then(response => {
+                //direct new user to home screen
                 this.props.history.push('/');
             })
     }
@@ -68,14 +68,30 @@ class LoginModal extends Component {
                 <Logo className="section__logo"/>
                 <div className="sun"></div>
                 <form className="form form--login" onSubmit={this.handleLoginSubmit}>
-                    <label htmlFor="userName" className="form__label">Username</label>
-                    <input name="userName" type="text" className="form__input" onChange={this.handleInputChange} value={this.state.username}/>
-                    <label htmlFor="password" className="form__label">Password</label>
-                    <input name="password" type="password" className="form__input" onChange={this.handleInputChange} value={this.state.password}/>
+                    <label htmlFor="userName" className="form__label">
+                        Username
+                    </label>
+                    <input 
+                    name="userName" 
+                    type="text" c
+                    lassName="form__input" 
+                    onChange={this.handleInputChange} 
+                    value={this.state.username}/>
+                    <label htmlFor="password" className="form__label">
+                        Password
+                    </label>
+                    <input 
+                    name="password" 
+                    type="password" 
+                    className="form__input" 
+                    onChange={this.handleInputChange} 
+                    value={this.state.password}/>
                     <Button buttonType="submit" buttonModifier=" button--login">
                         Login
                     </Button>
-                    <Link to='/signup' className="link link--signup">Sign Up</Link>
+                    <Link to='/signup' className="link link--signup">
+                        Sign Up
+                    </Link>
                     
                 </form>
                 <div className="icon-bubble-container">

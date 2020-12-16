@@ -20,6 +20,7 @@ const SaleThumb = ({
         navigate.push(`/yard-sale/${id}`)
     }
 
+    // Add new item to existing sale
     const handleSaleAddItem = (_e, id) => {
         navigate.push(`/new-sale-item/${id}`)
     }

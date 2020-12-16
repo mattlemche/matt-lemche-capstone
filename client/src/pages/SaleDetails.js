@@ -13,9 +13,9 @@ class SaleDetails extends Component {
     componentDidMount() {
         axios   
             .get(getSaleInfo(this.props.match.params.id))
-            .then(res => {
+            .then(response => {
                 this.setState({ 
-                    yardSale: res.data,
+                    yardSale: response.data,
                 })
             })
     }

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './SignUpModal.scss';
 import axios from 'axios';
 import {newUser} from '../../util';
 import Button from '../Button/Button';
