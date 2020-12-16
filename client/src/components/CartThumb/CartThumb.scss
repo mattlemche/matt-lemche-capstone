@@ -1,0 +1,58 @@
+@use '../../partials/variables' as *;
+
+/*------------------------------------*\
+  #CART THUMB
+\*------------------------------------*/
+
+.cart-thumb {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid rgba($color-shale, 0.1);
+    overflow: hidden;
+
+    &__image-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 5rem;
+        max-height: 3rem;
+        border-radius: 0.25rem;
+        overflow: hidden;
+    }
+
+    &__image {
+        max-width: 100%;;
+    }
+
+    &__content {
+        padding: 0 0.75rem;
+    }
+
+    &__name {
+        color: $color-cerise;
+        font-weight: 700;
+    }
+
+    &__price {
+        margin-left: auto;
+
+        &:before {
+            content: '$';
+        }
+    }
+
+    &__delete {
+        width: fit-content;
+        padding: 0.25rem 0.5rem;
+        border-radius: 1rem; 
+        margin-top: 0.25rem;
+        background-color: rgba($color-shale, 0.1);
+        font-size: 0.5rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        cursor: pointer;
+    }
+}

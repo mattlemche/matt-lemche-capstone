@@ -1,0 +1,22 @@
+@use '../../partials/variables' as *;
+
+/*------------------------------------*\
+  #ICON GROUP
+\*------------------------------------*/
+
+.icon-group {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: $color-sky;
+
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__icon {
+        fill: $color-white;
+        flex-basis: 25%;
+    }
+}
