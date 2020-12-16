@@ -16,7 +16,7 @@ import SignUpModal from './components/SignUpModal/SignUpModal';
 import NewYardSaleModal from './components/NewYardSaleModal/NewYardSaleModal';
 import NewSaleItemModal from './components/NewSaleItemModal/NewSaleItemModal';
 import ImageUpload from './components/ImageUpload/ImageUpload';
-import NoMatchPage from './pages/NoMatchPage';
+
 
 class App extends Component {
 
@@ -64,7 +64,6 @@ class App extends Component {
           <Route path='/new-sale-item/:id' component={NewSaleItemModal} />
           <Route path='/image-upload/:id' component={ImageUpload} />
           <Redirect from='/' to='/browse' />
-          <Route component={NoMatchPage} />
     
         </Switch>
          

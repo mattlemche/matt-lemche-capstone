@@ -5,7 +5,6 @@ const SaleItem = bookshelf.model("SaleItem", {
   yardSale: function() {
     return this.belongsTo("YardSale");
   },
-
   user: function() {
     return this.belongsTo("User").through("YardSale");
   }

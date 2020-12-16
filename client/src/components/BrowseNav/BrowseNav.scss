@@ -1,5 +1,4 @@
 @use '../../partials/variables' as *;
-@use '../../partials/mixins' as *;
 
 /*------------------------------------*\
   #BROWSING NAV
@@ -47,7 +46,6 @@
             }
         }
         
-
         &--active {
             background-color: $color-white;
             color: $color-cerise;

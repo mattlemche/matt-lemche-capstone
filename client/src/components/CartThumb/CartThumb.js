@@ -8,6 +8,7 @@ const CartThumb = ({
     id, 
     onDelete,
 }) => {
+    
     return (
         <li className="cart-thumb">
             <div className="cart-thumb__image-container">
@@ -17,7 +18,8 @@ const CartThumb = ({
                 <span className="cart-thumb__name">
                     {itemName}
                 </span>
-                <div className="cart-thumb__delete" onClick={onDelete(id)}>
+                {/* handleDelete is not functional */}
+                <div className="cart-thumb__delete" >
                     Remove item
                 </div>
             </div>

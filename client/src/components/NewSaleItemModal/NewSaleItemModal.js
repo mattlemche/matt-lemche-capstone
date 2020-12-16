@@ -170,7 +170,6 @@ class NewSaleItemModal extends Component {
                     id="price" 
                     className="form__input"
                     />
-                   
                     <Button buttonType="submit">
                         Add Item
                     </Button>

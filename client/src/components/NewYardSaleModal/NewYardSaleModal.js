@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './NewYardSaleModal.scss';
+import '../NewSaleItemModal/NewSaleItemModal.scss';
 import Button from '../Button/Button';
 import axios from 'axios';
 import { getAllSales } from '../../util';
@@ -245,8 +245,6 @@ class NewYardSaleModal extends Component {
                         Create Yard Sale
                     </Button>
                 </form>
-                
-                
             </section>
         );
     }

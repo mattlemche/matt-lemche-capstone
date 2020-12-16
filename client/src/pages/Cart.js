@@ -13,8 +13,7 @@ class Cart extends Component {
     }
 
     componentDidMount() {
-        this.getCartItems();
-        
+        this.getCartItems(); 
     }
 
     getCartItems = () => {
@@ -48,7 +47,16 @@ class Cart extends Component {
         return sum;
     }
 
-    handleDeleteItem = (_e, id) => {
+    //HANDLEDELETE is not functional
+
+    // componentDidUpdate(prevProps, prevState) {
+    //     if (prevState.cartList !== this.state.cartList) {
+    //         console.log("Component did update")
+    //         this.getCartItems()
+    //     }
+    // }    
+
+    /*handleDeleteItem = (_e, id) => {
         const currentCart = JSON.parse(localStorage.getItem("rummageCart"));
 
         const updatedCart = currentCart.filter(item => {
@@ -59,9 +67,15 @@ class Cart extends Component {
             .setItem("rummageCart",
             JSON.stringify(updatedCart));
 
-    }
+        this.setState({
+            cartList: updatedCart,
+        })
+
+    }*/
 
     render() {
+
+        console.log("Logging state from cart", this.state.cartList);
 
        if (this.state.cartList.length === 0) {
            return (
@@ -89,8 +103,7 @@ class Cart extends Component {
                             itemName={item.name}
                             price={item.price}
                             image={item.image_URL}
-                            onDelete={this.handleDeleteItem}
-                            
+                            // onDelete={this.handleDeleteItem}
                             />
                         )
                     })}

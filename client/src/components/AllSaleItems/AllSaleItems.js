@@ -15,7 +15,7 @@ class AllSaleItems extends React.Component {
         itemArray: null,
         search: '',
     }
-
+    // Get all sale items from db
     getAllItems = () => {
         axios
             .get(getAllItems)
@@ -34,6 +34,7 @@ class AllSaleItems extends React.Component {
         });
     }
 
+    // Search functionality
     handleSearchParams = (e) => {
         e.preventDefault();
         axios
@@ -51,15 +52,10 @@ class AllSaleItems extends React.Component {
         e.target.reset();
     }
 
-    
-
     render() {     
         
-        
-
         if (!this.state.itemArray) {
             return (
-                
                 <div className="loading">
                     <h1 className="loading__title">
                         Just collecting some great stuff!
@@ -88,6 +84,7 @@ class AllSaleItems extends React.Component {
 
                 
                 {
+                    // If search results are empty, render:
                     this.state.itemArray.length === 0 ?
                     <div className="no-results">
                         <div className="no-results__content">
@@ -113,8 +110,7 @@ class AllSaleItems extends React.Component {
                         )
                     })}
                 </ItemList>
-        
-        
+
                 </section>
             );
         }

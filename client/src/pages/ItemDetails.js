@@ -15,9 +15,9 @@ class ItemDetails extends Component {
     componentDidMount() {
         axios   
             .get(getItemInfo(this.props.match.params.id))
-            .then(res => {
+            .then(response => {
                 this.setState({ 
-                    saleItem: res.data,
+                    saleItem: response.data,
                 })
             })
     }
