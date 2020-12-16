@@ -3,17 +3,12 @@ import Button from '../Button/Button';
 import axios from 'axios';
 import { imageUpload } from '../../util';
 import { ReactComponent as BackArrow } from '../../assets/icons/back.svg';
+import { ReactComponent as Kettle } from '../../assets/icons/kettle.svg';
 
 class ImageUpload extends Component {
 
     state = {
         uploadSuccess: false,
-    }
-
-    componentDidUpdate(_prevProps, prevState) {
-        if (prevState !== this.state) {
-            console.log(this.state)
-        }
     }
 
     handleGoBack = () => {
@@ -47,22 +42,28 @@ class ImageUpload extends Component {
 
     render() {
 
-        console.log("Logging props from image upload", this.props)
-
         if (this.state.uploadSuccess) {
             return (
-                <h1>Your image has been successfully uploaded</h1>
+                <div className="loading">
+                    <h1 className="loading__title">
+                        Your image has been successfully uploaded.
+                    </h1>
+                    <Kettle className="loading__icon"/>
+                </div>
             )
         }
         
         return (
             <section className="section">
                 <div className="section__header">
+                    <h1 className="section__title">
                     Image Upload
+                    </h1>
                 </div>
                 <Button buttonType="button" onButtonClick={this.handleGoBack} buttonModifier=" button--previous">
                     <BackArrow className="button__icon button__icon--previous"/> Back
                 </Button>
+                
                 <form onSubmit={this.handleImageUpload} className="form">
                     <input 
                     onChange={this.handleImageChange}

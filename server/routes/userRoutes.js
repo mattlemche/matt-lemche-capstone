@@ -27,7 +27,7 @@ router
             last_name: req.body.last_name,
             email: req.body.email,
             phone: req.body.phone,
-            profile_image: req.body.profile_image,
+            profile_image: "",
             location: JSON.stringify(req.body.location),
         })
         .save()

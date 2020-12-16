@@ -31,7 +31,7 @@ module.exports = [
       "name": "Dutch Oven",
       "description": "Almost new dutch oven , great for suaces",
       "image_URL": "http://localhost:8080/static/sale_item_images/image-for-sale-item-4.jpg",
-      "condition": "",
+      "condition": "Like New",
       "category": "household",
       "price": 100
   },
@@ -49,7 +49,7 @@ module.exports = [
       "name": "Kitchenaid Mixer",
       "description": "This is almost new!",
       "image_URL": "http://localhost:8080/static/sale_item_images/image-for-sale-item-6.jpg",
-      "condition": "",
+      "condition": "Lightly Used",
       "category": "appliances",
       "price": 100
   },
@@ -76,7 +76,7 @@ module.exports = [
       "name": "Dutch Oven",
       "description": "Le Creuset dutch oven",
       "image_URL": "http://localhost:8080/static/sale_item_images/image-for-sale-item-9.jpg",
-      "condition": "",
+      "condition": "Like New",
       "category": "household",
       "price": 200
   },
@@ -166,7 +166,7 @@ module.exports = [
     "name": "Dutch Oven",
     "description": "Almost new dutch oven , great for suaces",
     "image_URL": "http://localhost:8080/static/sale_item_images/image-for-sale-item-4.jpg",
-    "condition": "",
+    "condition": "Like New",
     "category": "household",
     "price": 100
 },
@@ -184,7 +184,7 @@ module.exports = [
     "name": "Kitchenaid Mixer",
     "description": "This is almost new!",
     "image_URL": "http://localhost:8080/static/sale_item_images/image-for-sale-item-6.jpg",
-    "condition": "",
+    "condition": "Lightly Used",
     "category": "appliances",
     "price": 100
 },
@@ -211,7 +211,7 @@ module.exports = [
     "name": "Dutch Oven",
     "description": "Le Creuset dutch oven",
     "image_URL": "http://localhost:8080/static/sale_item_images/image-for-sale-item-9.jpg",
-    "condition": "",
+    "condition": "Like New",
     "category": "household",
     "price": 200
 },
@@ -301,7 +301,7 @@ module.exports = [
   "name": "Dutch Oven",
   "description": "Almost new dutch oven , great for suaces",
   "image_URL": "http://localhost:8080/static/sale_item_images/image-for-sale-item-4.jpg",
-  "condition": "",
+  "condition": "Like New",
   "category": "household",
   "price": 100
 },
@@ -319,7 +319,7 @@ module.exports = [
   "name": "Kitchenaid Mixer",
   "description": "This is almost new!",
   "image_URL": "http://localhost:8080/static/sale_item_images/image-for-sale-item-6.jpg",
-  "condition": "",
+  "condition": "Lightly Used",
   "category": "appliances",
   "price": 100
 },
@@ -346,7 +346,7 @@ module.exports = [
   "name": "Dutch Oven",
   "description": "Le Creuset dutch oven",
   "image_URL": "http://localhost:8080/static/sale_item_images/image-for-sale-item-9.jpg",
-  "condition": "",
+  "condition": "Like New",
   "category": "household",
   "price": 200
 },
@@ -436,7 +436,7 @@ module.exports = [
   "name": "Dutch Oven",
   "description": "Almost new dutch oven , great for suaces",
   "image_URL": "http://localhost:8080/static/sale_item_images/image-for-sale-item-4.jpg",
-  "condition": "",
+  "condition": "Like New",
   "category": "household",
   "price": 100
 },
@@ -454,7 +454,7 @@ module.exports = [
   "name": "Kitchenaid Mixer",
   "description": "This is almost new!",
   "image_URL": "http://localhost:8080/static/sale_item_images/image-for-sale-item-6.jpg",
-  "condition": "",
+  "condition": "Lightly Used",
   "category": "appliances",
   "price": 100
 },
@@ -481,7 +481,7 @@ module.exports = [
   "name": "Dutch Oven",
   "description": "Le Creuset dutch oven",
   "image_URL": "http://localhost:8080/static/sale_item_images/image-for-sale-item-9.jpg",
-  "condition": "",
+  "condition": "Like New",
   "category": "household",
   "price": 200
 },

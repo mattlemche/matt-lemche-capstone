@@ -13,10 +13,6 @@ const MobileHeader = (props) => {
         navigate.push('/');
     }
 
-
-    console.log("Logging navigation obj from mobile header", navigate)
-    console.log("Logging window obj from mobile header", window)
-
     return (
         <header className="mobile-header">
             <Logo className="logo logo--small" onClick={handleGoHome}/>

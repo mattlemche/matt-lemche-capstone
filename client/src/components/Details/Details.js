@@ -17,7 +17,7 @@ export default function DetailsCopy({item}) {
 
     const [isFavourite, setIsFavourite] = useState();
     const [favouriteId, setFavouriteId] = useState();
-    const [cartArray, setCartArray] = useState();
+    
 
 
     const currentUserId = JSON.parse(sessionStorage.getItem("rummageLoggedIn")).userLoggedInId;
@@ -52,12 +52,12 @@ export default function DetailsCopy({item}) {
             "sale_item_id": item.id,
         };
 
+        // yard_sale_id key not needed for favourite
         delete favourite.yard_sale_id;
 
         axios
             .post(getUserFavourites(currentUserId), favourite)
             .then(response => {
-                console.log(response);
                 setIsFavourite(true);
                 setFavouriteId(response.data.id);
             });
@@ -79,25 +79,25 @@ export default function DetailsCopy({item}) {
         navigate.goBack();
     }
 
-    const handleAddtoCart = (e, id) => {
 
-        let updatedCartArray = cartArray;
+    // Add item to cart
+    const handleAddtoCart = (_e, id) => {
 
-        console.log({
-            "Updated Cart": updatedCartArray,
-            "current cart": cartArray,
-        })
+        const updateCart = JSON.parse(localStorage.getItem("rummageCart"));
 
-        updatedCartArray.push(id);
+        // Check if item is already in cart
+        if (updateCart.find(cartId => cartId === id)) {
+            return;
+        }
+
+        updateCart.push(id);
 
         localStorage
-            .setItem("rummageAddToCart", 
-            JSON.stringify(updatedCartArray))
-        
+            .setItem("rummageCart",
+            JSON.stringify(updateCart));
 
     }
 
-    console.log("Logging some state from Details Copy (cartArray)", cartArray)
 
     return (
 
@@ -111,6 +111,16 @@ export default function DetailsCopy({item}) {
                     item.image_URL ?
                     <img src={item.image_URL} alt={item.name} className="details__image"/> :
                     <IconGroup />
+                }
+                {
+                    item.price ?
+                    '' :
+                    <div className="details__sunset-container">
+                        <div className="details__sunset"></div>
+                        <span className="details__sunset-text">
+                            14 hrs
+                        </span>
+                    </div>
                 }
             </div>
 

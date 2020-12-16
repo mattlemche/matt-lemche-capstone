@@ -12,6 +12,7 @@ import Cart from './pages/Cart';
 import ItemDetails from './pages/ItemDetails';
 import SaleDetails from './pages/SaleDetails';
 import Login from './components/LoginModal/LoginModal';
+import SignUpModal from './components/SignUpModal/SignUpModal';
 import NewYardSaleModal from './components/NewYardSaleModal/NewYardSaleModal';
 import NewSaleItemModal from './components/NewSaleItemModal/NewSaleItemModal';
 import ImageUpload from './components/ImageUpload/ImageUpload';
@@ -27,11 +28,20 @@ class App extends Component {
     this.state = rummageLoggedIn || {
       isLoggedIn: false,
       username: "",
+      cartContents: [],
     };
   }
-  
+
+  componentDidMount() {
+
+    if (!localStorage.getItem("rummageCart")) {
+      localStorage
+      .setItem("rummageCart", 
+      JSON.stringify([]));
+    }
+  }
+
   render() {
-    console.log("logging state from home page", this.state);
 
     return (
       <Router>
@@ -40,11 +50,14 @@ class App extends Component {
         <Switch>
           
           <Route path='/login' component={Login} />
+          <Route path='/signup' component={SignUpModal} />
           <Route path='/browse' component={Home}/>
           <Route path='/profile' component={Profile} />
           <Route path='/my-yard-sales' component={MySales} />
           <Route path='/favourites' component={Favourites} />
-          <Route path='/item/:id' component={ItemDetails} />
+          <Route path='/item/:id' render={(routeProps) => {
+            return <ItemDetails {...routeProps} cart={"test"}/>
+          }} />
           <Route path='/yard-sale/:id' component={SaleDetails}/>
           <Route path='/cart' component={Cart} />
           <Route path='/new-yard-sale/' component={NewYardSaleModal} />

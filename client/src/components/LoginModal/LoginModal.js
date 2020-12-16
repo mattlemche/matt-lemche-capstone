@@ -38,7 +38,6 @@ class LoginModal extends Component {
         axios
             .post(login(username), body)
             .then(response => {
-                // console.log("Login attempt, response:", response);
                 this.setState({
                     isLoggedIn: true,
                     userLoggedIn: username,
@@ -58,7 +57,6 @@ class LoginModal extends Component {
 
             })
             .then(response => {
-                // console.log("Response and hist obj", response, this.props.history);
                 this.props.history.push('/');
             })
     }
@@ -77,7 +75,7 @@ class LoginModal extends Component {
                     <Button buttonType="submit" buttonModifier=" button--login">
                         Login
                     </Button>
-                    <Link to='/' className="link link--signup">Sign Up</Link>
+                    <Link to='/signup' className="link link--signup">Sign Up</Link>
                     
                 </form>
                 <div className="icon-bubble-container">

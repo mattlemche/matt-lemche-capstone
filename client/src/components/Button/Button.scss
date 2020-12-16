@@ -16,7 +16,7 @@
     color: $color-white;
     text-transform: uppercase;
     font-weight: 700;
-    transition: opacity 200ms ease;
+    transition: opacity 200ms ease, transform 100ms ease;
     cursor: pointer;
 
     &:focus {
@@ -25,6 +25,10 @@
 
     &:hover {
       opacity: 0.85;
+    }
+
+    &:active {
+      transform: scale(0.95);
     }
 
     &__icon {

@@ -32,11 +32,28 @@
         padding: 0 0.75rem;
     }
 
+    &__name {
+        color: $color-cerise;
+        font-weight: 700;
+    }
+
     &__price {
         margin-left: auto;
 
         &:before {
             content: '$';
         }
+    }
+
+    &__delete {
+        width: fit-content;
+        padding: 0.25rem 0.5rem;
+        border-radius: 1rem; 
+        margin-top: 0.25rem;
+        background-color: rgba($color-shale, 0.1);
+        font-size: 0.5rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        cursor: pointer;
     }
 }
