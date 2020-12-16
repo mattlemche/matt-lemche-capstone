@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { getSaleInfo } from '../util';
+import Details from '../components/Details/Details';
+import {ReactComponent as Kettle} from '../assets/icons/kettle.svg';
 
 class SaleDetails extends Component {
 
@@ -22,13 +24,18 @@ class SaleDetails extends Component {
 
         if (!this.state.yardSale) {
             return (
-                <h1>Sale loading...</h1>
+                <div className="loading">
+                    <h1 className="loading__title">
+                        Just collecting some details!
+                    </h1>
+                    <Kettle className="loading__icon"/>
+                </div>
             )
         } else {
             return (
-                <div>
-                    {this.state.yardSale.location}
-                </div>
+                <section className="section">
+                    <Details item={this.state.yardSale} />
+                </section>
             );
         }
         

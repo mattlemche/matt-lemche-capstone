@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './NewYardSaleModal.scss';
 import Button from '../Button/Button';
 import axios from 'axios';
 import { getAllSales } from '../../util';
@@ -17,6 +18,7 @@ class NewYardSaleModal extends Component {
         retrieval: false,
     }
 
+    // through line 48, create controlled components for form
     handleInputChange = (event) => {
         event.preventDefault();
         let newValue = event.target.value;  
@@ -59,18 +61,18 @@ class NewYardSaleModal extends Component {
             user_id: currentUser.userLoggedInId,
         }
 
-        
         axios   
             .post(getAllSales, body)
             .then(response => {
                 console.log("This is the response from new sale post", response)
                 sessionStorage.setItem("rummageCurrentSale", 
                     JSON.stringify({
-                        saleId: response.data.id
+                        saleId: response.data.id,
+                        saleName: response.data.name
                     }));
             })
             .then(_response => {
-                this.props.history.push('/my-new-yard-sale');
+                this.props.history.push('/my-yard-sales');
             })
             
     }
@@ -78,7 +80,12 @@ class NewYardSaleModal extends Component {
     render() {
 
         return (
-            <>
+            <section className="section">
+                <div className="section__header">
+                    <h1 className="section__title">
+                        New Yard Sale
+                    </h1>
+                </div>
                 <form onSubmit={this.handleFormSubmit} className="form">
                     <label htmlFor="saleName" className="form__label">
                         Yard Sale Name
@@ -90,6 +97,7 @@ class NewYardSaleModal extends Component {
                     name="saleName" 
                     id="saleName" 
                     className="form__input"
+                    placeholder={this.state.name ? this.state.name : 'Give your yard sale a catchy name!'}
                     />
                     <label htmlFor="description" className="form__label">
                         Description
@@ -100,8 +108,9 @@ class NewYardSaleModal extends Component {
                     type="text" 
                     name="description" 
                     id="description" 
-                    className="form__input"
-                    />
+                    className="form__input form__input--long"
+                    placeholder={this.state.description ? this.state.description : `Describe your yard sale. Grab buyers' attention with some highlights.`}
+                    ></textarea>
                     <fieldset name="location" className="form__group">
                         <label htmlFor="city" className="form__label">
                             City
@@ -113,18 +122,63 @@ class NewYardSaleModal extends Component {
                         name="city" 
                         id="city" 
                         className="form__input"
+                        placeholder={this.state.location.city ? this.state.location.city : 'Your city'}
                         />
                         <label htmlFor="province" className="form__label">
                             Province
                         </label>
-                        <input
+                        <select
                         onChange={this.handleInputChange} 
                         value={this.state.location.province}
                         type="text" 
                         name="province" 
                         id="province" 
-                        className="form__input"
-                        />
+                        className="form__select"
+                        placeholder={this.state.location.province ? this.state.location.province : ''}
+                        >
+                            <option value="" className="form__option">
+                                Please select your province
+                            </option>
+                            <option value="AB" className="form__option">
+                                AB
+                            </option>
+                            <option value="BC" className="form__option">
+                                BC
+                            </option>
+                            <option value="MB" className="form__option">
+                                MB
+                            </option>
+                            <option value="NB" className="form__option">
+                                NB
+                            </option>
+                            <option value="NL" className="form__option">
+                                NL
+                            </option>
+                            <option value="NT" className="form__option">
+                                NT
+                            </option>
+                            <option value="NS" className="form__option">
+                                NS
+                            </option>
+                            <option value="NU" className="form__option">
+                                NU
+                            </option>
+                            <option value="ON" className="form__option">
+                                ON
+                            </option>
+                            <option value="PE" className="form__option">
+                                PE
+                            </option>
+                            <option value="QC" className="form__option">
+                                QC
+                            </option>
+                            <option value="SK" className="form__option">
+                                SK
+                            </option>
+                            <option value="YT" className="form__option">
+                                YT
+                            </option>
+                        </select>
                         <label htmlFor="postal" className="form__label">
                             Postal Code
                         </label>
@@ -135,6 +189,7 @@ class NewYardSaleModal extends Component {
                         name="postal" 
                         id="postal" 
                         className="form__input"
+                        placeholder={this.state.location.postal ? this.state.location.postal : 'Your postal code'}
                         />
                     </fieldset>
                     <label htmlFor="duration" className="form__label">
@@ -160,34 +215,40 @@ class NewYardSaleModal extends Component {
                         </option>
                     </select>
                     <fieldset className="form__group">
-                        <input 
-                        onChange={this.handleShipping} 
-                        type="radio" 
-                        name="retrieval" 
-                        id="shipping" 
-                        value="true" 
-                        className="form__radio"
-                        />
-                        <label htmlFor="shipping" className="form__label">
-                            Shipping Available
-                        </label>
-                        <input 
-                        onChange={this.handlePickup}
-                        type="radio" 
-                        name="retrieval" 
-                        id="pick-up" 
-                        value="false" 
-                        className="form__radio"
-                        />
-                        <label htmlFor="pick-up" className="form__label">
-                            Pick-up Only
-                        </label>
+                        <div className="form__radio-pair">
+                            <input 
+                            onChange={this.handleShipping} 
+                            type="radio" 
+                            name="retrieval" 
+                            id="shipping" 
+                            value="true" 
+                            className="form__radio"
+                            />
+                            <label htmlFor="shipping" className="form__label">
+                                Shipping Available
+                            </label>
+                        </div>
+                        <div className="form__radio-pair">
+                            <input 
+                            onChange={this.handlePickup}
+                            type="radio" 
+                            name="retrieval" 
+                            id="pick-up" 
+                            value="false" 
+                            className="form__radio"
+                            />
+                            <label htmlFor="pick-up" className="form__label">
+                                Pick-up Only
+                            </label>
+                        </div>
                     </fieldset>
-                    <Button buttonText="Create Yard Sale" buttonType="submit"/>
+                    <Button buttonType="submit">
+                        Create Yard Sale
+                    </Button>
                 </form>
                 
                 
-            </>
+            </section>
         );
     }
 }

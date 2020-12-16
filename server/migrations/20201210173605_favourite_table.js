@@ -11,7 +11,7 @@ exports.up = function(knex) {
     table.string("condition")
         .notNullable()
         .defaultTo("Fair");
-    table.json("categories").notNullable();
+    table.string("category").notNullable();
     table
         .integer("price")
         .unsigned()
