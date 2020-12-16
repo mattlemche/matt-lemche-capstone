@@ -9,6 +9,17 @@ import AllYardSales from '../components/AllYardSales/AllYardSales';
 
 
 class Home extends Component {
+
+
+  componentDidMount() {
+
+    if (!localStorage.getItem("rummageCart")) {
+      localStorage
+      .setItem("rummageCart", 
+      JSON.stringify([]));
+    }
+    
+  }
    
 
   render() {

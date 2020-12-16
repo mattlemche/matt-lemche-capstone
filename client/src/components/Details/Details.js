@@ -17,7 +17,7 @@ export default function DetailsCopy({item}) {
 
     const [isFavourite, setIsFavourite] = useState();
     const [favouriteId, setFavouriteId] = useState();
-    const [cartArray, setCartArray] = useState();
+    
 
 
     const currentUserId = JSON.parse(sessionStorage.getItem("rummageLoggedIn")).userLoggedInId;
@@ -79,25 +79,20 @@ export default function DetailsCopy({item}) {
         navigate.goBack();
     }
 
-    const handleAddtoCart = (e, id) => {
+    const handleAddtoCart = (_e, id) => {
 
-        let updatedCartArray = cartArray;
+        const updateCart = JSON.parse(localStorage.getItem("rummageCart"));
 
-        console.log({
-            "Updated Cart": updatedCartArray,
-            "current cart": cartArray,
-        })
+        console.log("Logging local storage from Details", updateCart);
 
-        updatedCartArray.push(id);
+        updateCart.push(id);
 
         localStorage
-            .setItem("rummageAddToCart", 
-            JSON.stringify(updatedCartArray))
-        
+            .setItem("rummageCart",
+            JSON.stringify(updateCart));
 
     }
 
-    console.log("Logging some state from Details Copy (cartArray)", cartArray)
 
     return (
 

@@ -13,18 +13,31 @@ class Cart extends Component {
     }
 
     componentDidMount() {
+        this.getCartItems();
+        
+    }
 
+    getCartItems = () => {
         axios
             .get(getAllItems)
             .then(response => {
-                console.log("Logging response from get in cart", response.data);
+
+                const currentCart = JSON.parse(localStorage.getItem("rummageCart"));
+
+                const updatedCart = currentCart.map(cartItem => {
+                    return response.data.find(resItem => resItem.id === cartItem)
+                })
+
+                console.log("Logging cartItems from Cart", updatedCart);
+
                 this.setState({ 
-                    cartList: response.data,
+                    cartList: updatedCart,
                 });
 
-            })
+        });
     }
 
+    // Tally prices for cart
     getSum = (array) => {
         let sum = 0;
         for (let i = 0; i < array.length; i++) {
@@ -33,7 +46,23 @@ class Cart extends Component {
         return sum;
     }
 
+    handleDeleteItem = (_e, id) => {
+        const currentCart = JSON.parse(localStorage.getItem("rummageCart"));
+
+        const updatedCart = currentCart.filter(item => {
+            return item !== id
+        });
+
+        localStorage
+            .setItem("rummageCart",
+            JSON.stringify(updatedCart));
+
+    }
+
     render() {
+
+        console.log('Logging state from cart', this.state)
+
         return (
             <section className="section">
                 <div className="section__header">
@@ -50,6 +79,7 @@ class Cart extends Component {
                             itemName={item.name}
                             price={item.price}
                             image={item.image_URL}
+                            onDelete={this.handleDeleteItem}
                             
                             />
                         )
