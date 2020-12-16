@@ -8,7 +8,7 @@ router
 
         YardSale
             .where(req.query)
-            .fetchAll()
+            .fetchAll({ withRelated: ['saleItems'] })
             .then(users => {
                 res.status(200).json((users));
             })

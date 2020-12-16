@@ -11,12 +11,11 @@ import MySales from './pages/MySales';
 import Cart from './pages/Cart';
 import ItemDetails from './pages/ItemDetails';
 import SaleDetails from './pages/SaleDetails';
-import Search from './components/SearchModal/SearchModal';
 import Login from './components/LoginModal/LoginModal';
 import NewYardSaleModal from './components/NewYardSaleModal/NewYardSaleModal';
 import NewSaleItemModal from './components/NewSaleItemModal/NewSaleItemModal';
-import YardSaleBuilder from './components/YardSaleBuilder/YardSaleBuilder';
 import ImageUpload from './components/ImageUpload/ImageUpload';
+import NoMatchPage from './pages/NoMatchPage';
 
 class App extends Component {
 
@@ -33,11 +32,13 @@ class App extends Component {
   
   render() {
     console.log("logging state from home page", this.state);
+
     return (
       <Router>
         <MobileHeader />
         <main className="main">
         <Switch>
+          
           <Route path='/login' component={Login} />
           <Route path='/browse' component={Home}/>
           <Route path='/profile' component={Profile} />
@@ -46,12 +47,11 @@ class App extends Component {
           <Route path='/item/:id' component={ItemDetails} />
           <Route path='/yard-sale/:id' component={SaleDetails}/>
           <Route path='/cart' component={Cart} />
-          <Route path='/search' component={Search} />
-          <Route path='/new-yard-sale' component={NewYardSaleModal} />
-          <Route path='/new-sale-item' component={NewSaleItemModal} />
-          <Route path='/my-new-yard-sale' component={YardSaleBuilder} />
-          <Route path='/image-upload' component={ImageUpload} />
+          <Route path='/new-yard-sale/' component={NewYardSaleModal} />
+          <Route path='/new-sale-item/:id' component={NewSaleItemModal} />
+          <Route path='/image-upload/:id' component={ImageUpload} />
           <Redirect from='/' to='/browse' />
+          <Route component={NoMatchPage} />
     
         </Switch>
          

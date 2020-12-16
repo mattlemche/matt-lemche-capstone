@@ -1,29 +1,39 @@
 import React, { Component } from 'react';
-// import { Route } from 'react-router-dom';
+import './NewSaleItemModal.scss';
 import { categories } from '../../util';
 import axios from 'axios';
-import { getAllItems } from '../../util';
+import { getAllItems, getSaleInfo } from '../../util';
 import Button from '../Button/Button';
+import placeholder from '../../assets/images/placeholder.png'
  
 class NewSaleItemModal extends Component {
+    
     state = {
         currentSaleId: '',
+        saleName: '',
         itemName: '',
         description: '',
-        condition: '',
+        condition: 'Like New',
         category: '',
         price: 0,
     }
 
     componentDidMount() {
-        const currentSale = JSON.parse(sessionStorage.getItem("rummageCurrentSale"))
-        ?
-        JSON.parse(sessionStorage.getItem("rummageCurrentSale"))
-        : {saleId: 0};
+        axios
+            .get(getSaleInfo(this.props.match.params.id))
+            .then(response => {
+                console.log({
+                    "Axios response from new sale item": response.data,
+                    "WHY CAN I NEVER HAVE ROUTER PROPS": this.props,
+                })
 
-        this.setState({ 
-            currentSaleId: currentSale.saleId ? currentSale.saleId : '',
-        })
+                this.setState({ 
+                    currentSaleId: response.data.id,
+                    saleName: response.data.name,
+                })
+            })
+
+        
     }
 
     handleInputChange = (e) => {
@@ -42,7 +52,7 @@ class NewSaleItemModal extends Component {
         const body = {
             itemName: this.state.itemName,
             description: this.state.description,
-            image_URL: "no image url",
+            image_URL: placeholder,
             category: this.state.category,
             condition: this.state.condition,
             price: this.state.price,
@@ -59,9 +69,8 @@ class NewSaleItemModal extends Component {
                     }));
             })
             .then(_response => {
-                this.props.history.push('/image-upload');
-            })
-            
+                this.props.history.push(`/image-upload/${this.state.currentSaleId}`);
+            }) 
     }
 
     render() {
@@ -73,35 +82,75 @@ class NewSaleItemModal extends Component {
         }
     
         return (
-            <>
+            <section className="section">
+                <div className="section__header">
+                    <div className="section__title-container">
+                        <h1 className="section__title">
+                            New Sale Item
+                        </h1>
+                    </div>
+                    
+                </div>
+                <div className="section__super">
+                        Adding an Item to <span className="bold">{this.state.saleName}</span> Yard Sale.
+                </div>
                 <form onSubmit={this.handleFormSubmit} className="form">
                    
-                    <div>
-                        The current sale id is: {this.state.currentSaleId}
-                    </div>
                     <label htmlFor="itemName" className="form__label">
                         Item Name
                     </label>
-                    <input onChange={this.handleInputChange} type="text" name="itemName" id="itemName" className="form__input"/>
+                    <input 
+                    onChange={this.handleInputChange} 
+                    type="text" 
+                    name="itemName" 
+                    id="itemName" 
+                    className="form__input"/>
                     <label htmlFor="description" className="form__label">
                         Description
                     </label>
-                    <textarea onChange={this.handleInputChange} type="text" name="description" id="description" className="form__input"/>
+                    <textarea 
+                    onChange={this.handleInputChange} 
+                    type="text" 
+                    name="description" 
+                    id="description" 
+                    className="form__input form__input--long">
+                    </textarea>
                     <label htmlFor="condition" className="form__label">
                         Condition
                     </label>
-                    <select onChange={this.handleInputChange} name="condition" id="condition" className="form__select">
-                        <option value="well-used" className="form__option">Well Used</option>
-                        <option value="fair" className="form__option">Fair</option>
-                        <option value="good" className="form__option">Good</option>
-                        <option value="lightly-used" className="form__option">Lightly Used</option>
-                        <option value="like-new" selected={true} className="form__option">Like New</option>
+                    <select 
+                    onChange={this.handleInputChange} 
+                    name="condition" 
+                    id="condition" 
+                    defaultValue="Like New"
+                    className="form__select">
+                        <option value="like-new" className="form__option">
+                            Like New
+                        </option>
+                        <option value="lightly-used" className="form__option">
+                            Lightly Used
+                        </option>
+                        <option value="good" className="form__option">
+                            Good
+                        </option>
+                        <option value="fair" className="form__option">
+                            Fair
+                        </option>
+                        <option value="well-used" className="form__option">
+                            Well Used
+                        </option>
                     </select>
                     <label htmlFor="category" className="form__label">
                         Category
                     </label>
-                    <select onChange={this.handleInputChange} name="category" id="category" className="form__select">
-                        <option selected={true} disabled={true} className="form__option">Please choose a category</option>
+                    <select 
+                    onChange={this.handleInputChange} 
+                    name="category" 
+                    id="category" 
+                    className="form__select">
+                        <option className="form__option">
+                            Please choose a category
+                        </option>
                         {categories.map(category => {
                             return (
                                 <option value={category} key={category} className="form__option">
@@ -121,10 +170,12 @@ class NewSaleItemModal extends Component {
                     className="form__input"
                     />
                    
-                    <Button buttonText="Add Item" buttonType="submit"/>
+                    <Button buttonType="submit">
+                        Add Item
+                    </Button>
                 </form>
                 
-            </>
+            </section>
            
         );
     };

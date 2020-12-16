@@ -1,0 +1,14 @@
+@use '../../partials/variables' as *;
+
+/*------------------------------------*\
+  #ITEM LIST
+\*------------------------------------*/
+
+.item-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding-top: 0.5rem;
+    list-style: none;
+}

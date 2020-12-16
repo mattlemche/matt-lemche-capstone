@@ -1,0 +1,73 @@
+@use '../../partials/variables' as *;
+@use '../../partials/mixins' as *;
+
+/*------------------------------------*\
+  #ITEM THUMB
+\*------------------------------------*/
+
+.item-thumb {
+    position: relative;
+    width: calc(((1 / 3) * 100%) - (0.2rem / 1.5));
+    height: 8rem;
+    overflow: hidden;
+    margin: 0 0.2rem 0.2rem 0;
+    background-color: $color-shale;
+    cursor: pointer;
+
+    &::after {
+        content: 'See Item details';
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        padding: 2rem;
+        opacity: 0;
+        background-color: $color-cerise;
+        color: $color-white;
+        font-weight: 700;
+        text-align: center;
+        transition: opacity 200ms ease;
+    }
+
+    &:hover::after {
+        opacity: 0.8;
+    }
+
+    &:nth-child(3n+3) {
+        margin-right: 0;
+    }
+
+    &__image-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    &__image {
+        height: 100%;
+       
+    }
+
+    &__price {
+        position: absolute;
+        z-index: 10;
+        bottom: 0;
+        right: 0;
+        padding: 0.25rem 0.25rem 0.25rem 0.5rem;
+        border-radius: 0.75rem 0 0 0;
+        background-color: $color-white;
+        color: $color-sky;
+        font-weight: 700;
+
+        &::before {
+            content: '$';
+        }
+    }
+}

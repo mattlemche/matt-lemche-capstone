@@ -1,0 +1,162 @@
+@use '../../partials/variables' as *;
+@use '../../partials/mixins' as *;
+
+/*------------------------------------*\
+  #BUTTON
+\*------------------------------------*/
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 3rem;
+    background-color: $color-sky;
+    color: $color-white;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: opacity 200ms ease;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      opacity: 0.85;
+    }
+
+    &__icon {
+      position: relative;
+      right: 0.15rem;
+      fill: $color-sky;
+      height: 1.75rem;
+      transform: rotate(180deg);
+
+      &--edit {
+        fill: $color-cerise;
+        transform: none;
+        height: 1.5rem;
+      }
+
+      &--delete {
+        fill: $color-white;
+        transform: none;
+        height: 1.25rem;
+        right: 0;
+      }
+
+      &--previous {
+        height: 0.75rem;
+        margin-right: 0.25rem;
+      }
+
+      &--fav {
+        fill: $color-cerise;
+        height: 1.5rem;
+        right: 0;
+        transform: none;
+      }
+    }
+
+    &--back {
+      position: absolute;
+      top: 0.5rem;
+      left: 0.5rem;
+      height: 3rem;
+      width: 3rem;
+      padding: 0;
+      background-color: $color-white;
+      font-size: 2rem;
+      font-weight: 400;
+    }
+
+    &--edit {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      padding: 0.25rem 0.75rem;
+      margin-bottom: 0.5rem;
+      background-color: $color-white;
+      color: $color-cerise;
+      font-size: $font-small;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &--delete {
+      position: absolute;
+      bottom: 0.25rem;
+      right: 0.25rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 2rem;
+      width: 2rem;
+      padding: 0;
+      background-color: $color-cerise;
+
+    }
+
+    &--add-image {
+      position: fixed;
+      bottom: 8rem;
+      left: 0;
+      right: 0;
+      width: fit-content;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    &--previous {
+      padding: 1rem;
+      background-color: $color-white;
+      color: $color-sky;
+    }
+
+    &--login {
+      width: fit-content;
+      margin: 0 auto 1rem;
+    }
+
+    &--fav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 3.5rem;
+      width: 3.5rem;
+      padding: 0;
+      background-color: $color-white;
+      box-shadow: -0.5rem 0.5rem 1rem rgba($color-shale, 0.05);
+    }
+
+    &--un-fav {
+      @extend .button--fav;
+      background-color: rgba($color-cerise, 0.1);
+    }
+
+    &--search {
+      width: fit-content;
+      padding: 0 1.5rem;
+      margin-left: 0.5rem;
+      color: $color-white;
+      background-color: $color-sky;
+    }
+
+    &--checkout {
+      width: fit-content;
+      margin: 0 auto;
+    }
+}
+
+.plus {
+  display: inline-block;
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+
+}

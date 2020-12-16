@@ -1,0 +1,86 @@
+@use '../../partials/variables' as *;
+@use '../../partials/mixins' as *;
+
+/*------------------------------------*\
+  #YARD SALE THUMB
+\*------------------------------------*/
+
+.yard-sale-thumb {
+    position: relative;
+    display: flex;
+    min-height: 5.25rem;
+    border: 1px solid $color-cerise;
+    border-radius: 0.5rem;
+    margin: 0 0.2rem 0.2rem;
+    overflow: hidden;
+    cursor: pointer;
+
+    &__counter {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 5rem;
+        padding: 0.5rem;
+        background-color: $color-cerise;
+    }
+
+    &__icon {
+        height: 2.5rem;
+        fill: $color-white;
+        margin-bottom: 0.15rem;
+    }
+
+    &__item-count {
+        display: block;
+        color: $color-white;
+        font-size: $font-small;
+        font-weight: 700;
+    }
+
+    &__content {
+        flex: 9;
+        width: 100%;
+        padding: 1.25rem 1rem;
+    }
+
+    &__description {
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-height: 1rem;     
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        font-size: $font-small;
+        margin-bottom: 0.5rem;
+    }
+
+    &__link {
+        color: $color-cerise;
+        font-size: $font-small;
+        font-weight: 700;
+        text-decoration: underline;
+        text-transform: uppercase;
+        
+    }
+
+    &__location {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0.15rem 0.25rem 0.15rem 0.25rem;
+        border-radius: 0 0 0 0.25rem;
+        background-color: $color-cerise;
+        color: $color-white;
+        font-size: $font-small;
+        font-weight: 700;
+    }
+
+    &__edit {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0.5rem;
+        background-color: rgba($color-cerise, 0.1);
+    }
+}

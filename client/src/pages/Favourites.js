@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { getUserInfo, getFavourites } from '../util';
+import { getUserInfo, getUserFavourites } from '../util';
+import ItemList from '../components/ItemList/ItemList';
+import ItemThumb from '../components/ItemThumb/ItemThumb';
 
 class Favourites extends Component {
 
@@ -9,40 +11,51 @@ class Favourites extends Component {
     }
 
     componentDidMount() {
-        const rummageLoggedIn = JSON.parse(sessionStorage.getItem("rummageLoggedIn"));
-        console.log(getUserInfo(rummageLoggedIn.userLoggedIn));
+        const currentUser = JSON.parse(sessionStorage.getItem("rummageLoggedIn"));
+        console.log(getUserInfo(currentUser.userLoggedInId));
         axios
-            .get(getUserInfo(rummageLoggedIn.userLoggedIn))
+            .get(getUserFavourites(currentUser.userLoggedInId))
             .then(response => {
-                const userId = response.data.id;
-
-                axios
-                    .get(getFavourites(userId))
-                    .then(response => {
-                        this.setState({ 
-                            favourites: response.data
-                         });
-                    })
-            })
+                this.setState({ 
+                    favourites: response.data.favourites,
+                    });
+            });
     }
 
 
     render() {
-        if (this.state.favourites === []) {
+        if (this.state.favourites.length === 0) {
             return (
-                <h1>Favs Loading...</h1>
+                <div className="loading">
+                    <h1 className="loading__title">
+                        You don't have any favourites yet!
+                    </h1>
+                </div>
             );
         } 
         
         return (
-            <div>
-                {this.state.favourites.map(favourite => {
-                    return (
-                    <div key={favourite.id}>{favourite.description}</div>
-                    )
-                })
-                }
-            </div>
+            <section className="section">
+                <div className="section__header">
+                    <h1 className="section__title">
+                        My Favs
+                    </h1>
+                </div>
+                <ItemList>
+                    {this.state.favourites.map((item) => {
+                        return (
+                            <ItemThumb 
+                                
+                            key={item.id} 
+                            itemId={item.sale_item_id ? item.sale_item_id : item.id} 
+                            price={item.price}
+                            image={item.image_URL}
+                            imageAlt={item.name}
+                            />
+                        )
+                    })}
+                </ItemList>
+            </section>
         );
     }
 }
