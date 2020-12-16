@@ -1,5 +1,4 @@
 @use '../../partials/variables' as *;
-@use '../../partials/mixins' as *;
 
 /*------------------------------------*\
   #BUTTON
@@ -16,7 +15,7 @@
     color: $color-white;
     text-transform: uppercase;
     font-weight: 700;
-    transition: opacity 200ms ease;
+    transition: opacity 200ms ease, transform 100ms ease;
     cursor: pointer;
 
     &:focus {
@@ -25,6 +24,10 @@
 
     &:hover {
       opacity: 0.85;
+    }
+
+    &:active {
+      transform: scale(0.95);
     }
 
     &__icon {
@@ -152,6 +155,7 @@
       width: fit-content;
       margin: 0 auto;
     }
+
 }
 
 .plus {

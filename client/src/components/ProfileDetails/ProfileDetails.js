@@ -9,11 +9,10 @@ const ProfileDetails = ({currentUser}) => {
     return (
     <div className="profile">
         <div className="profile__avatar">
-            {
+            {   // render place holder if no image provided
                 currentUser.profile_image ?
                 <img src={currentUser.profile_image} alt={currentUser.name} className="profile__image"/> :
                 <Microscope className="profile__default-avatar"/>
-
             }
             
         </div>

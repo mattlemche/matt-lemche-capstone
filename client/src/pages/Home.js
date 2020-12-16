@@ -9,15 +9,16 @@ import AllYardSales from '../components/AllYardSales/AllYardSales';
 
 
 class Home extends Component {
-   
 
+  
+  
   render() {
     const {path} = this.props.match;
 
     if (!sessionStorage.getItem("rummageLoggedIn")) {
       this.props.history.push('/login');
     }
-   console.log("Match params from home to pass to all items", this.props.match.params)
+  
     return (
       <div>
         <BrowseNav>

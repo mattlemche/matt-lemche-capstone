@@ -1,5 +1,4 @@
 @use '../../partials/variables' as *;
-@use '../../partials/mixins' as *;
 
 /*------------------------------------*\
   #DETAILS
@@ -9,11 +8,10 @@
     position: relative;
     height: 100%;
     
-
     &__header {
         display: flex;
         justify-content: center;
-        width: 100vw;
+        width: 100%;
         height: 16rem;
         background-color: $color-shale;
         overflow: hidden;
@@ -61,17 +59,22 @@
 
     &__favourite {
         position: fixed;
-        bottom: 13rem;
-        right: 1.5rem;
+        bottom: 14rem;
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        max-width: $max-width-content;
+        padding: 0 1.5rem;
     }
 
     &__shop {
         position: fixed;
-        bottom: 6rem;
+        bottom: 7rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
+        max-width: $max-width-content;
         padding: 1.5rem;
         background-color: rgba($color-sky, 0.1);
     }
@@ -92,6 +95,29 @@
         background-color: $color-cerise;
         color: $color-white;
         text-align: center;
+    }
+
+    &__sunset-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0.75rem 1rem 0.75rem 2rem;
+        border-radius: 0 0 0 1rem;
+        background-color: $color-shale;
+        color: $color-white;
+        font-weight: 700;
+    }
+
+    &__sunset {
+        position: absolute;
+        z-index: 15;
+        top: 0.25rem;
+        left: -0.75rem;
+        height: 2rem;
+        width: 2rem;
+        border-radius: 50%;
+        background: linear-gradient($color-cerise, $color-lemon);
+        background-color: white;
     }
 }
 

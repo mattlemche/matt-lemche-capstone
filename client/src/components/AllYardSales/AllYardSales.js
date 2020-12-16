@@ -48,9 +48,7 @@ class AllYardSales extends Component {
                             />
                         )
                     })}
-                    </YardSaleList>
-        
-        
+                    </YardSaleList>        
                 </section>
             );
         }

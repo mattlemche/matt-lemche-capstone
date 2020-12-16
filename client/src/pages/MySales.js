@@ -23,17 +23,10 @@ class MySales extends Component {
         
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        if (prevProps !== this.props) {
-            console.log("My sales props changed")
-        }
-     }
-
     getSales = (id) => {
         axios
         .get(getUserInfo(id))
         .then(response => {
-            console.log("Respomnse from get user info", response.data);
             this.setState({
                 userSales: response.data.yardSales,
             })
@@ -60,7 +53,7 @@ class MySales extends Component {
                 </div>
             )
         }
-        console.log("State", this.state.userSales);
+
         return (
 
             <section className="section">

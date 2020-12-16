@@ -4,7 +4,8 @@ import { categories } from '../../util';
 import axios from 'axios';
 import { getAllItems, getSaleInfo } from '../../util';
 import Button from '../Button/Button';
-import placeholder from '../../assets/images/placeholder.png'
+import placeholder from '../../assets/images/placeholder.png';
+import {ReactComponent as Kettle} from '../../assets/icons/kettle.svg';
  
 class NewSaleItemModal extends Component {
     
@@ -22,11 +23,6 @@ class NewSaleItemModal extends Component {
         axios
             .get(getSaleInfo(this.props.match.params.id))
             .then(response => {
-                console.log({
-                    "Axios response from new sale item": response.data,
-                    "WHY CAN I NEVER HAVE ROUTER PROPS": this.props,
-                })
-
                 this.setState({ 
                     currentSaleId: response.data.id,
                     saleName: response.data.name,
@@ -75,9 +71,14 @@ class NewSaleItemModal extends Component {
 
     render() {
 
-        if (!sessionStorage.getItem("rummageCurrentSale")) {
+        if (!this.state.currentSaleId) {
             return (
-                <h1>You aren't building a sale right now</h1>
+                <div className="loading">
+                    <h1 className="loading__title">
+                        We're having trouble retrieving that sale...
+                    </h1>
+                    <Kettle className="loading__icon"/>
+                </div>
             )
         }
     
@@ -169,7 +170,6 @@ class NewSaleItemModal extends Component {
                     id="price" 
                     className="form__input"
                     />
-                   
                     <Button buttonType="submit">
                         Add Item
                     </Button>

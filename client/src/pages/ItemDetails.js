@@ -15,9 +15,9 @@ class ItemDetails extends Component {
     componentDidMount() {
         axios   
             .get(getItemInfo(this.props.match.params.id))
-            .then(res => {
+            .then(response => {
                 this.setState({ 
-                    saleItem: res.data,
+                    saleItem: response.data,
                 })
             })
     }
@@ -36,7 +36,7 @@ class ItemDetails extends Component {
         } else {
             return (
                 <section className="section">
-                    <Details item={this.state.saleItem}/>
+                    <Details item={this.state.saleItem} cart={this.props.cart}/>
                 </section>
             );
         }

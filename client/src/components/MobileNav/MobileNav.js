@@ -12,7 +12,10 @@ const MobileNav = () => {
             <nav className="mobile-nav">
                 <ul className="mobile-nav__list">
                     <li className="mobile-nav__item">
-                        <NavLink to='/browse' className="mobile-nav__link" activeClassName="mobile-nav__link--active">
+                        <NavLink 
+                        to='/browse' 
+                        className="mobile-nav__link" 
+                        activeClassName="mobile-nav__link--active">
                             <HomeIcon className="mobile-nav__icon" />
                             <div className="mobile-nav__title">
                                 Home
@@ -20,7 +23,10 @@ const MobileNav = () => {
                         </NavLink>
                     </li>
                     <li className="mobile-nav__item">
-                        <NavLink to='/favourites' className="mobile-nav__link" activeClassName="mobile-nav__link--active">
+                        <NavLink 
+                        to='/favourites' 
+                        className="mobile-nav__link" 
+                        activeClassName="mobile-nav__link--active">
                             <FavIcon className="mobile-nav__icon mobile-nav__icon--fav" />
                             <div className="mobile-nav__title">
                                 Favs
@@ -28,7 +34,10 @@ const MobileNav = () => {
                         </NavLink>
                     </li>
                     <li className="mobile-nav__item">
-                        <NavLink to='/my-yard-sales' className="mobile-nav__link" activeClassName="mobile-nav__link--active">
+                        <NavLink 
+                        to='/my-yard-sales' 
+                        className="mobile-nav__link" 
+                        activeClassName="mobile-nav__link--active">
                             <SaleIcon className="mobile-nav__icon" />
                             <div className="mobile-nav__title">
                                 My Sales
@@ -36,17 +45,18 @@ const MobileNav = () => {
                         </NavLink>
                     </li>
                     <li className="mobile-nav__item">
-                        <NavLink to='/cart' className="mobile-nav__link" activeClassName="mobile-nav__link--active">
+                        <NavLink 
+                        to='/cart' 
+                        className="mobile-nav__link" 
+                        activeClassName="mobile-nav__link--active">
                             <CartIcon className="mobile-nav__icon" />
                             <div className="mobile-nav__title">
                                 Cart
                             </div>
                         </NavLink>
                     </li>
-
                 </ul>
             </nav>
-            
         </footer>
     );
 };

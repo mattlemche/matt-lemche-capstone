@@ -9,22 +9,36 @@ import Button from '../components/Button/Button';
 class Cart extends Component {
 
     state = {
-        cartList: []
+        cartList: [],
     }
 
     componentDidMount() {
-
-        axios
-            .get(getAllItems)
-            .then(response => {
-                console.log("Logging response from get in cart", response.data);
-                this.setState({ 
-                    cartList: response.data,
-                });
-
-            })
+        this.getCartItems(); 
     }
 
+    getCartItems = () => {
+
+        if (JSON.parse(localStorage.getItem("rummageCart"))) {
+            axios
+            .get(getAllItems)
+            .then(response => {
+
+                const currentCart = JSON.parse(localStorage.getItem("rummageCart"));
+
+                const updatedCart = currentCart.map(cartItem => {
+                    return response.data.find(resItem => resItem.id === cartItem)
+                })
+
+                this.setState({ 
+                    cartList: updatedCart,
+                });
+
+            });
+        }
+        
+    }
+
+    // Tally prices for cart
     getSum = (array) => {
         let sum = 0;
         for (let i = 0; i < array.length; i++) {
@@ -33,7 +47,46 @@ class Cart extends Component {
         return sum;
     }
 
+    //HANDLEDELETE is not functional
+
+    // componentDidUpdate(prevProps, prevState) {
+    //     if (prevState.cartList !== this.state.cartList) {
+    //         console.log("Component did update")
+    //         this.getCartItems()
+    //     }
+    // }    
+
+    /*handleDeleteItem = (_e, id) => {
+        const currentCart = JSON.parse(localStorage.getItem("rummageCart"));
+
+        const updatedCart = currentCart.filter(item => {
+            return item !== id
+        });
+
+        localStorage
+            .setItem("rummageCart",
+            JSON.stringify(updatedCart));
+
+        this.setState({
+            cartList: updatedCart,
+        })
+
+    }*/
+
     render() {
+
+        console.log("Logging state from cart", this.state.cartList);
+
+       if (this.state.cartList.length === 0) {
+           return (
+            <div className="loading">
+                <h4 className="loading__title">
+                    You haven't anything in your cart at the moment...
+                </h4>
+            </div>
+           )
+       }
+
         return (
             <section className="section">
                 <div className="section__header">
@@ -50,7 +103,7 @@ class Cart extends Component {
                             itemName={item.name}
                             price={item.price}
                             image={item.image_URL}
-                            
+                            // onDelete={this.handleDeleteItem}
                             />
                         )
                     })}

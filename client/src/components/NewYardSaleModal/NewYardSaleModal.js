@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './NewYardSaleModal.scss';
+import '../NewSaleItemModal/NewSaleItemModal.scss';
 import Button from '../Button/Button';
 import axios from 'axios';
 import { getAllSales } from '../../util';
@@ -64,7 +64,6 @@ class NewYardSaleModal extends Component {
         axios   
             .post(getAllSales, body)
             .then(response => {
-                console.log("This is the response from new sale post", response)
                 sessionStorage.setItem("rummageCurrentSale", 
                     JSON.stringify({
                         saleId: response.data.id,
@@ -246,8 +245,6 @@ class NewYardSaleModal extends Component {
                         Create Yard Sale
                     </Button>
                 </form>
-                
-                
             </section>
         );
     }

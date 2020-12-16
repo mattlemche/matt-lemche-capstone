@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { getUserInfo, getUserFavourites } from '../util';
+import { getUserFavourites } from '../util';
 import ItemList from '../components/ItemList/ItemList';
 import ItemThumb from '../components/ItemThumb/ItemThumb';
 
@@ -12,7 +12,6 @@ class Favourites extends Component {
 
     componentDidMount() {
         const currentUser = JSON.parse(sessionStorage.getItem("rummageLoggedIn"));
-        console.log(getUserInfo(currentUser.userLoggedInId));
         axios
             .get(getUserFavourites(currentUser.userLoggedInId))
             .then(response => {

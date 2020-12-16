@@ -1,6 +1,7 @@
 const API_URL = 'http://localhost:8080/'
 export const getAllItems = `${API_URL}sale-item`;
 export const getAllSales = `${API_URL}yard-sale`;
+export const newUser = `${API_URL}user`;
 export const getUserInfo = (username) => {
     return `${API_URL}user/${username}`;
 };
