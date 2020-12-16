@@ -17,6 +17,8 @@ export default function DetailsCopy({item}) {
 
     const [isFavourite, setIsFavourite] = useState();
     const [favouriteId, setFavouriteId] = useState();
+    const [cartArray, setCartArray] = useState();
+
 
     const currentUserId = JSON.parse(sessionStorage.getItem("rummageLoggedIn")).userLoggedInId;
 
@@ -65,7 +67,7 @@ export default function DetailsCopy({item}) {
     const handleUnFavourite = () => {
         axios   
             .delete(favouriteDelete(favouriteId))
-            .then(response => {
+            .then(_response => {
                 setIsFavourite(false);
                 setFavouriteId('');
             });
@@ -76,6 +78,26 @@ export default function DetailsCopy({item}) {
     const handleGoBack = () => {
         navigate.goBack();
     }
+
+    const handleAddtoCart = (e, id) => {
+
+        let updatedCartArray = cartArray;
+
+        console.log({
+            "Updated Cart": updatedCartArray,
+            "current cart": cartArray,
+        })
+
+        updatedCartArray.push(id);
+
+        localStorage
+            .setItem("rummageAddToCart", 
+            JSON.stringify(updatedCartArray))
+        
+
+    }
+
+    console.log("Logging some state from Details Copy (cartArray)", cartArray)
 
     return (
 
@@ -153,7 +175,7 @@ export default function DetailsCopy({item}) {
                     <div className="details__price">
                         {item.price}
                     </div>
-                    <Button buttonType="button">
+                    <Button buttonType="button" onButtonClick={(e) => handleAddtoCart(e, item.id)}>
                         Add to Cart
                     </Button>
                 </div> : // if viewing sale details, show item list

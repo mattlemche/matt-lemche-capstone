@@ -134,45 +134,48 @@ class NewYardSaleModal extends Component {
                         name="province" 
                         id="province" 
                         className="form__select"
-                        placeholder={this.state.location.province ? this.state.location.province : 'Your province'}
+                        placeholder={this.state.location.province ? this.state.location.province : ''}
                         >
-                            <option value="ab" className="form__option">
+                            <option value="" className="form__option">
+                                Please select your province
+                            </option>
+                            <option value="AB" className="form__option">
                                 AB
                             </option>
-                            <option value="bc" className="form__option">
+                            <option value="BC" className="form__option">
                                 BC
                             </option>
-                            <option value="mb" className="form__option">
+                            <option value="MB" className="form__option">
                                 MB
                             </option>
-                            <option value="nb" className="form__option">
+                            <option value="NB" className="form__option">
                                 NB
                             </option>
-                            <option value="nl" className="form__option">
+                            <option value="NL" className="form__option">
                                 NL
                             </option>
-                            <option value="nt" className="form__option">
+                            <option value="NT" className="form__option">
                                 NT
                             </option>
-                            <option value="ns" className="form__option">
+                            <option value="NS" className="form__option">
                                 NS
                             </option>
-                            <option value="nu" className="form__option">
+                            <option value="NU" className="form__option">
                                 NU
                             </option>
-                            <option value="on" className="form__option">
+                            <option value="ON" className="form__option">
                                 ON
                             </option>
-                            <option value="pe" className="form__option">
+                            <option value="PE" className="form__option">
                                 PE
                             </option>
-                            <option value="qc" className="form__option">
+                            <option value="QC" className="form__option">
                                 QC
                             </option>
-                            <option value="sk" className="form__option">
+                            <option value="SK" className="form__option">
                                 SK
                             </option>
-                            <option value="yt" className="form__option">
+                            <option value="YT" className="form__option">
                                 YT
                             </option>
                         </select>

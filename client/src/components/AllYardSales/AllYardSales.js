@@ -3,6 +3,7 @@ import YardSaleThumb from '../YardSaleThumb/YardSaleThumb';
 import YardSaleList from '../YardSaleList/YardSaleList';
 import axios from 'axios';
 import { getAllSales } from '../../util';
+import {ReactComponent as Kettle} from '../../assets/icons/kettle.svg';
 
 
 class AllYardSales extends Component {
@@ -23,7 +24,12 @@ class AllYardSales extends Component {
 
         if (!this.state.saleArray) {
             return (
-                <h1>Sales Loading...</h1>
+                <div className="loading">
+                    <h1 className="loading__title">
+                        Just collecting all the Yard Sales near you!
+                    </h1>
+                    <Kettle className="loading__icon"/>
+                </div>
             )
         } else {
             return (

@@ -1,7 +1,5 @@
 import React from 'react';
 import './YardSaleThumb.scss'
-import axios from 'axios';
-import { yardSaleDelete } from '../../util';
 import { useHistory, Link } from 'react-router-dom';
 import { ReactComponent as YardSaleIcon } from '../../assets/icons/my-sales.svg';
 import { ReactComponent as Pencil } from '../../assets/icons/pencil.svg';
@@ -33,9 +31,10 @@ const SaleThumb = ({
 
 
     const saleLocation = JSON.parse(location);
+    console.log("Logging props from YardSaleThumb", saleId)
 
     return (
-        <li onClick={items ? (e) => {handleItemCick(e, saleId)} : ''} className="yard-sale-thumb">
+        <li className="yard-sale-thumb">
 
             {
                 items ? // if viewing in browse, show item count
@@ -48,14 +47,14 @@ const SaleThumb = ({
                         <Pencil className="button__icon button__icon--edit"/>
                         Edit Sale
                     </Button>
-                    <Button buttonType="button" onButtonClick={() => handleSaleAddItem(saleId)} buttonModifier=" button--edit">
+                    <Button buttonType="button" onButtonClick={(e) => handleSaleAddItem(e, saleId)} buttonModifier=" button--edit">
                         <span className="plus">+</span>
                         Add Item
                     </Button>
                 </div>
             }
             
-            <div className="yard-sale-thumb__content">
+            <div className="yard-sale-thumb__content" onClick={(e) => {handleItemCick(e, saleId)}}>
                 <h3 className="yard-sale-thumb__name">
                     {name}
                 </h3>
@@ -72,9 +71,9 @@ const SaleThumb = ({
             {
                 items ? // if viewing in browse, show location
                 <div className="yard-sale-thumb__location">     
-                    {saleLocation.city}, {saleLocation.state}
+                    {saleLocation.city}, {saleLocation.province}
                 </div> : // if viewing in my sales, hide location and show delete button
-                <Button buttonType="button" onButtonClick={() => onDelete(saleId)} buttonModifier=" button--delete">
+                <Button buttonType="button" onButtonClick={(e) => onDelete(e, saleId)} buttonModifier=" button--delete">
                     <Trash className="button__icon button__icon--delete" />
                 </Button>
             }

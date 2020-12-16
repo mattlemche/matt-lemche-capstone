@@ -126,3 +126,32 @@ body {
 .bold {
   font-weight: 700;
 }
+
+
+.loading {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 50vh;
+  width: 100%;
+  text-align: center;
+  color: $color-cerise;
+
+  &__icon {
+    fill: $color-cerise;
+    animation: 3s linear 200ms infinite running loading-animation;
+    
+  }
+}
+
+@keyframes loading-animation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

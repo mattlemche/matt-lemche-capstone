@@ -9,10 +9,6 @@ import AllYardSales from '../components/AllYardSales/AllYardSales';
 
 
 class Home extends Component {
-
-  constructor(props) {
-    super(props);
-  }
    
 
   render() {

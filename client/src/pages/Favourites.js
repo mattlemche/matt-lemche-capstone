@@ -24,9 +24,13 @@ class Favourites extends Component {
 
 
     render() {
-        if (this.state.favourites === []) {
+        if (this.state.favourites.length === 0) {
             return (
-                <h1>Favs Loading...</h1>
+                <div className="loading">
+                    <h1 className="loading__title">
+                        You don't have any favourites yet!
+                    </h1>
+                </div>
             );
         } 
         

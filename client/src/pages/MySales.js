@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { yardSaleDelete } from '../util';
 import { getUserInfo } from '../util';
+import {ReactComponent as Kettle} from '../assets/icons/kettle.svg';
 import YardSaleList from '../components/YardSaleList/YardSaleList';
 import YardSaleThumb from '../components/YardSaleThumb/YardSaleThumb';
 
@@ -51,7 +52,12 @@ class MySales extends Component {
     render() {
         if (!this.state.userSales) {
             return (
-                <h1>Loading Your Sales...</h1>
+                <div className="loading">
+                    <h1 className="loading__title">
+                        Just collecting your sales!
+                    </h1>
+                    <Kettle className="loading__icon"/>
+                </div>
             )
         }
         console.log("State", this.state.userSales);

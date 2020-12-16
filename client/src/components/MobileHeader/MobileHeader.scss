@@ -7,7 +7,7 @@
 
 .mobile-header {
     position: fixed;
-    z-index: 10;
+    z-index: 20;
     top: 0;
     left: 0;
     display: flex;
@@ -18,6 +18,7 @@
 
 .logo {
     flex-basis: 40%;
+    margin-left: 0.5rem;
     fill: $color-cerise;
     cursor: pointer;
 }

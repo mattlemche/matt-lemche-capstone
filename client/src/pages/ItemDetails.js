@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { getItemInfo } from '../util';
-
-import Details from '../components/Details/DetailsCopy';
+import {ReactComponent as Kettle} from '../assets/icons/kettle.svg';
+import Details from '../components/Details/Details';
 
 
 
@@ -26,7 +26,12 @@ class ItemDetails extends Component {
 
         if (!this.state.saleItem) {
             return (
-                <h1>Item loading...</h1>
+                <div className="loading">
+                    <h1 className="loading__title">
+                        Just collecting some details!
+                    </h1>
+                    <Kettle className="loading__icon"/>
+                </div>
             )
         } else {
             return (

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { getUserInfo } from '../util';
 import ProfileDetails from '../components/ProfileDetails/ProfileDetails';
+import {ReactComponent as Kettle} from '../assets/icons/kettle.svg';
 
 
 
@@ -26,7 +27,12 @@ class Profile extends Component {
     render() {
         if (!this.state.currentUser) {
             return (
-                <h1>Profile Loading...</h1>
+                <div className="loading">
+                    <h1 className="loading__title">
+                        Just loading your profile!
+                    </h1>
+                    <Kettle className="loading__icon"/>
+                </div>
             )
         }
         return (

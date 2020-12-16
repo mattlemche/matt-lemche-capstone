@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import './ItemThumb.scss';
+import placeholder from '../../assets/images/placeholder.png';
 
 const ItemThumb = ({ 
     price,
@@ -18,7 +19,7 @@ const ItemThumb = ({
     return (
         <li onClick={(e) => {handleItemCick(e, itemId)}} className="item-thumb">
             <div className="item-thumb__image-container">
-                <img src={image} alt={name} className="item-thumb__image"/>
+                <img src={!image ? placeholder : image} alt={name} className="item-thumb__image"/>
             </div>
             <span className="item-thumb__price">{price}</span>
            

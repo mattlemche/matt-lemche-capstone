@@ -24,7 +24,6 @@ class ImageUpload extends Component {
         e.preventDefault();
 
         const saleItemId = JSON.parse(sessionStorage.getItem("rummageCurrentSaleItem"));
-        const currentSale = JSON.parse(sessionStorage.getItem("rummageCurrentSale"));
         
         const formdata = new FormData();
         formdata.append("avatar", e.target.images.files[0], e.target.images.files[0].name);
@@ -38,7 +37,7 @@ class ImageUpload extends Component {
             })
             .then(_response => {
                 setTimeout(() => {
-                    this.props.history.push(`/yard-sale/${currentSale.saleId}`)
+                    this.props.history.push(`/yard-sale/${this.props.match.params.id}`)
                 }, 300)
                 
             });
@@ -47,6 +46,8 @@ class ImageUpload extends Component {
     
 
     render() {
+
+        console.log("Logging props from image upload", this.props)
 
         if (this.state.uploadSuccess) {
             return (
