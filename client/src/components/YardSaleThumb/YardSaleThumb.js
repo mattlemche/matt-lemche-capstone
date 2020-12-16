@@ -2,7 +2,6 @@ import React from 'react';
 import './YardSaleThumb.scss'
 import { useHistory, Link } from 'react-router-dom';
 import { ReactComponent as YardSaleIcon } from '../../assets/icons/my-sales.svg';
-import { ReactComponent as Pencil } from '../../assets/icons/pencil.svg';
 import { ReactComponent as Trash } from '../../assets/icons/trash-2.svg';
 import Button from '../Button/Button';
 
@@ -19,10 +18,6 @@ const SaleThumb = ({
 
     const handleItemCick = (_e, id) => {
         navigate.push(`/yard-sale/${id}`)
-    }
-
-    const handleSaleEdit = (_e, id) => {
-
     }
 
     const handleSaleAddItem = (_e, id) => {
@@ -43,10 +38,7 @@ const SaleThumb = ({
             <span className="yard-sale-thumb__item-count">{`${items.length} Items`}</span>
                 </div> : // if viewing in my sales, show edit buttons 
                 <div className="yard-sale-thumb__edit">
-                    <Button buttonType="button" onButtonClick={handleSaleEdit} buttonModifier=" button--edit">
-                        <Pencil className="button__icon button__icon--edit"/>
-                        Edit Sale
-                    </Button>
+                    
                     <Button buttonType="button" onButtonClick={(e) => handleSaleAddItem(e, saleId)} buttonModifier=" button--edit">
                         <span className="plus">+</span>
                         Add Item

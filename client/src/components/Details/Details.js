@@ -52,6 +52,7 @@ export default function DetailsCopy({item}) {
             "sale_item_id": item.id,
         };
 
+        // yard_sale_id key not needed for favourite
         delete favourite.yard_sale_id;
 
         axios
@@ -79,11 +80,16 @@ export default function DetailsCopy({item}) {
         navigate.goBack();
     }
 
+
+    // Add item to cart
     const handleAddtoCart = (_e, id) => {
 
         const updateCart = JSON.parse(localStorage.getItem("rummageCart"));
 
-        console.log("Logging local storage from Details", updateCart);
+        // Check if item is already in cart
+        if (updateCart.find(cartId => cartId === id)) {
+            return;
+        }
 
         updateCart.push(id);
 
@@ -106,6 +112,16 @@ export default function DetailsCopy({item}) {
                     item.image_URL ?
                     <img src={item.image_URL} alt={item.name} className="details__image"/> :
                     <IconGroup />
+                }
+                {
+                    item.price ?
+                    '' :
+                    <div className="details__sunset-container">
+                        <div className="details__sunset"></div>
+                        <span className="details__sunset-text">
+                            14 hrs
+                        </span>
+                    </div>
                 }
             </div>
 

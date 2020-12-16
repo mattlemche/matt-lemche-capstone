@@ -8,6 +8,9 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: rgba($color-shale, 0.1);
+  
+  
 }
 
 *, *::before, *::after {
@@ -28,14 +31,24 @@ a {
 \*------------------------------------*/
 
 body {
+  height: 100vh;
+  max-width: $max-width-content;
+  padding: 5.625rem 0 6rem;
+  margin: 0 auto;
+  background-color: $color-white;
   font-family: 'Arimo';
   color: $color-shale;
-  padding-top: 5.625rem;
+  
+}
+
+.main {
+  padding-bottom: 6rem;
+  background-color: $color-white;
 }
 
 .section {
   position: relative;
-  padding: 0 0 7rem;
+  max-width: $max-width-content;
 
   &__header {
     width: 100%;
@@ -81,7 +94,6 @@ body {
   &--login {
     position: absolute;
     top: 0;
-    left: 0;
     z-index: 100;
     display: flex;
     flex-direction: column;
@@ -89,6 +101,11 @@ body {
     width: 100%;
     height: 100vh;
     background-color: $color-white;
+  }
+
+  &--signup {
+    @extend .section--login;
+    height: auto;
   }
 }
 
@@ -136,6 +153,7 @@ body {
   flex-direction: column;
   height: 50vh;
   width: 100%;
+  padding: 2rem;
   text-align: center;
   color: $color-cerise;
 

@@ -77,7 +77,7 @@ class LoginModal extends Component {
                     <Button buttonType="submit" buttonModifier=" button--login">
                         Login
                     </Button>
-                    <Link to='/' className="link link--signup">Sign Up</Link>
+                    <Link to='/signup' className="link link--signup">Sign Up</Link>
                     
                 </form>
                 <div className="icon-bubble-container">

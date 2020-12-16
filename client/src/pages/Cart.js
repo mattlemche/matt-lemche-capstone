@@ -9,7 +9,7 @@ import Button from '../components/Button/Button';
 class Cart extends Component {
 
     state = {
-        cartList: []
+        cartList: [],
     }
 
     componentDidMount() {
@@ -18,7 +18,9 @@ class Cart extends Component {
     }
 
     getCartItems = () => {
-        axios
+
+        if (JSON.parse(localStorage.getItem("rummageCart"))) {
+            axios
             .get(getAllItems)
             .then(response => {
 
@@ -34,7 +36,9 @@ class Cart extends Component {
                     cartList: updatedCart,
                 });
 
-        });
+            });
+        }
+        
     }
 
     // Tally prices for cart
@@ -61,7 +65,15 @@ class Cart extends Component {
 
     render() {
 
-        console.log('Logging state from cart', this.state)
+       if (this.state.cartList.length === 0) {
+           return (
+            <div className="loading">
+                <h4 className="loading__title">
+                    You haven't anything in your cart at the moment...
+                </h4>
+            </div>
+           )
+       }
 
         return (
             <section className="section">

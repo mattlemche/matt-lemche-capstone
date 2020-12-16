@@ -24,6 +24,8 @@ class ItemDetails extends Component {
 
     render() {
 
+        console.log("Logging props from itemdetails", this.props)
+
         if (!this.state.saleItem) {
             return (
                 <div className="loading">
@@ -36,7 +38,7 @@ class ItemDetails extends Component {
         } else {
             return (
                 <section className="section">
-                    <Details item={this.state.saleItem}/>
+                    <Details item={this.state.saleItem} cart={this.props.cart}/>
                 </section>
             );
         }
