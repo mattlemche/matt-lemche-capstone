@@ -38,7 +38,6 @@ class LoginModal extends Component {
         axios
             .post(login(username), body)
             .then(response => {
-                // console.log("Login attempt, response:", response);
                 this.setState({
                     isLoggedIn: true,
                     userLoggedIn: username,
@@ -58,7 +57,6 @@ class LoginModal extends Component {
 
             })
             .then(response => {
-                // console.log("Response and hist obj", response, this.props.history);
                 this.props.history.push('/');
             })
     }

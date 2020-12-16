@@ -14,7 +14,6 @@ class Profile extends Component {
     
     componentDidMount() {
         const rummageLoggedIn = JSON.parse(sessionStorage.getItem("rummageLoggedIn"));
-        console.log(getUserInfo(rummageLoggedIn.userLoggedIn));
         axios
             .get(getUserInfo(rummageLoggedIn.userLoggedIn))
             .then(response => {

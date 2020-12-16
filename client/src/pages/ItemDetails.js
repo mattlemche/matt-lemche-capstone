@@ -24,8 +24,6 @@ class ItemDetails extends Component {
 
     render() {
 
-        console.log("Logging props from itemdetails", this.props)
-
         if (!this.state.saleItem) {
             return (
                 <div className="loading">

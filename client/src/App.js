@@ -40,9 +40,8 @@ class App extends Component {
       JSON.stringify([]));
     }
   }
-  
+
   render() {
-    console.log("logging state from home page", this.state);
 
     return (
       <Router>

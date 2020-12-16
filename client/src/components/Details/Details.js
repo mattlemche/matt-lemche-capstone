@@ -58,7 +58,6 @@ export default function DetailsCopy({item}) {
         axios
             .post(getUserFavourites(currentUserId), favourite)
             .then(response => {
-                console.log(response);
                 setIsFavourite(true);
                 setFavouriteId(response.data.id);
             });

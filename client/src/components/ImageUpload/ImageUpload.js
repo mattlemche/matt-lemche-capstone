@@ -11,12 +11,6 @@ class ImageUpload extends Component {
         uploadSuccess: false,
     }
 
-    componentDidUpdate(_prevProps, prevState) {
-        if (prevState !== this.state) {
-            console.log(this.state)
-        }
-    }
-
     handleGoBack = () => {
         this.props.history.goBack();
     }
@@ -48,8 +42,6 @@ class ImageUpload extends Component {
 
     render() {
 
-        const currentUser = JSON.parse(sessionStorage.getItem("rummageLoggedIn"));
-
         if (this.state.uploadSuccess) {
             return (
                 <div className="loading">
@@ -60,8 +52,6 @@ class ImageUpload extends Component {
                 </div>
             )
         }
-
-        
         
         return (
             <section className="section">

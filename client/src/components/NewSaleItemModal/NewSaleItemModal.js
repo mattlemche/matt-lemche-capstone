@@ -23,11 +23,6 @@ class NewSaleItemModal extends Component {
         axios
             .get(getSaleInfo(this.props.match.params.id))
             .then(response => {
-                console.log({
-                    "Axios response from new sale item": response.data,
-                    "WHY CAN I NEVER HAVE ROUTER PROPS": this.props,
-                })
-
                 this.setState({ 
                     currentSaleId: response.data.id,
                     saleName: response.data.name,

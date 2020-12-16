@@ -48,7 +48,6 @@ class SignUpModal extends Component {
         axios
             .post(newUser, body)
             .then(response => {
-                console.log(response);
                 sessionStorage
                         .setItem("rummageLoggedIn", 
                         JSON.stringify({ 
@@ -59,7 +58,7 @@ class SignUpModal extends Component {
                         return response.data;
             })
             .then(response => {
-                this.props.history.push(`/image-upload/${response.username}`)
+                this.props.history.push(`/`)
             })
     }
 

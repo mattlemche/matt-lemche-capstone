@@ -30,8 +30,6 @@ class Cart extends Component {
                     return response.data.find(resItem => resItem.id === cartItem)
                 })
 
-                console.log("Logging cartItems from Cart", updatedCart);
-
                 this.setState({ 
                     cartList: updatedCart,
                 });

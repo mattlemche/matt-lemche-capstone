@@ -26,7 +26,6 @@ const SaleThumb = ({
 
 
     const saleLocation = JSON.parse(location);
-    console.log("Logging props from YardSaleThumb", saleId)
 
     return (
         <li className="yard-sale-thumb">

@@ -17,7 +17,6 @@ router
             });
     })
     .post((req, res) => {
-        console.log(req.body)
         new SaleItem({
             name: req.body.itemName,
             description: req.body.description,
