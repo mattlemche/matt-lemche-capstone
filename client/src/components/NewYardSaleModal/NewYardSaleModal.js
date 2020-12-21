@@ -7,14 +7,14 @@ import { getAllSales } from '../../util';
 class NewYardSaleModal extends Component {
 
     state = {
-        saleName: '',
-        description: '',
+        saleName: 'Massive Sale!',
+        description: 'This is going to be one for the books! Tons of items at great prices. Don\'t miss a chance to find that special something!!',
         location: {
-            city: '',
-            province: '',
-            postal: '',
+            city: 'Mississauga',
+            province: 'ON',
+            postal: 'L78 5T6',
         },
-        duration: 0,
+        duration: 2,
         retrieval: false,
     }
 
