@@ -8,7 +8,7 @@ const port = process.env.PORT;
 
 const IMAGE_URL = process.env.NODE_ENV === 'production'
   ? "https://rummage-app.herokuapp.com/"
-  : `http://localhost:${port}`;
+  : `http://localhost:${port}/`;
 
 router.put('/:id', (req, res) => {
         if(!req.files) {
@@ -19,7 +19,7 @@ router.put('/:id', (req, res) => {
         } else {
             let avatar = req.files.avatar;
             avatar.mv(`./public/sale_item_images/image-for-sale-item-${req.params.id}.jpg`);
-            const currentImage = `${IMAGE_URL}/static/sale_item_images/image-for-sale-item-${req.params.id}.jpg`
+            const currentImage = `${IMAGE_URL}static/sale_item_images/image-for-sale-item-${req.params.id}.jpg`
             
             SaleItem
                 .where({ id: req.params.id })
