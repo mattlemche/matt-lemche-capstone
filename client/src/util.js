@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:8080/'
+const API_URL = 'https://rummage-app.herokuapp.com/'
 export const getAllItems = `${API_URL}sale-item`;
 export const getAllSales = `${API_URL}yard-sale`;
 export const newUser = `${API_URL}user`;
