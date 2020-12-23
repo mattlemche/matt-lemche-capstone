@@ -26,9 +26,9 @@ class Favourites extends Component {
         if (this.state.favourites.length === 0) {
             return (
                 <div className="loading">
-                    <h1 className="loading__title">
+                    <h3 className="loading__title">
                         You don't have any favourites yet!
-                    </h1>
+                    </h3>
                 </div>
             );
         } 

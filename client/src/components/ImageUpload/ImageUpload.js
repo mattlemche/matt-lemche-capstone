@@ -67,7 +67,6 @@ class ImageUpload extends Component {
                     accept="image/*"
                     type="file"
                     name="images" 
-                    capture="environment"
                     className="form__input form__input--image-upload" /> 
                     <Button buttonType="submit" buttonModifier=" button--add-image">
                         Add Image

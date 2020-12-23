@@ -12,11 +12,11 @@ class NewSaleItemModal extends Component {
     state = {
         currentSaleId: '',
         saleName: '',
-        itemName: 'Microwave',
-        description: 'Kenmore microwave, 4 years old. Still working like new. Stainless stell accents!',
-        condition: 'Like New',
-        category: 'appliances',
-        price: 20,
+        itemName: '',
+        description: '',
+        condition: '',
+        category: '',
+        price: 0,
     }
 
     componentDidMount() {

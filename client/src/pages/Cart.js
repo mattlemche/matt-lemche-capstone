@@ -80,9 +80,9 @@ class Cart extends Component {
        if (this.state.cartList.length === 0) {
            return (
             <div className="loading">
-                <h4 className="loading__title">
+                <h3 className="loading__title">
                     You haven't anything in your cart at the moment...
-                </h4>
+                </h3>
             </div>
            )
        }
