@@ -36,7 +36,7 @@ app.use('/avatar-upload', avatarRoutes);
 app.use('/favourite', favouriteRoutes);
 
 if (process.env.NODE_ENV === 'production') {
-    // app.use(express.static("../client/build"));
+    app.use(express.static("../client/build"));
     
     app.get('*', (_req, res) => {
       res.sendFile(path.join(__dirname, "../client", "build", "index.html"));
