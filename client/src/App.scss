@@ -146,7 +146,6 @@ body {
   font-weight: 700;
 }
 
-
 .loading {
 
   display: flex;
@@ -158,6 +157,10 @@ body {
   padding: 2rem;
   text-align: center;
   color: $color-cerise;
+
+  &__title {
+    margin-bottom: 2rem;
+  }
 
   &__icon {
     fill: $color-cerise;
