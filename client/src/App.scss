@@ -50,6 +50,7 @@ body {
 .section {
   position: relative;
   max-width: $max-width-content;
+  height: 100%;
   background-color: $color-white;
 
   &__header {
