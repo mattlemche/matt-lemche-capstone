@@ -71,26 +71,6 @@ class SignUpModal extends Component {
                 </div>
                 <form onSubmit={this.handleSignUpSubmit} className="form form--signup">
                    
-                   <label htmlFor="userName" className="form__label">
-                       UserName
-                   </label>
-                   <input 
-                   onChange={this.handleInputChange} 
-                   value={this.state.username}
-                   type="text" 
-                   name="userName" 
-                   id="userName" 
-                   className="form__input"/>
-                   <label htmlFor="password" className="form__label">
-                       Password
-                   </label>
-                   <input 
-                   onChange={this.handleInputChange} 
-                   value={this.state.password} 
-                   type="password" 
-                   name="password" 
-                   id="password" 
-                   className="form__input"/>
                    <fieldset className="form__group">
                    <label htmlFor="firstName" className="form__label">
                       First Name
@@ -133,6 +113,26 @@ class SignUpModal extends Component {
                    id="phone" 
                    className="form__input"/>
                    </fieldset>
+                   <label htmlFor="userName" className="form__label">
+                       UserName
+                   </label>
+                   <input 
+                   onChange={this.handleInputChange} 
+                   value={this.state.username}
+                   type="text" 
+                   name="userName" 
+                   id="userName" 
+                   className="form__input"/>
+                   <label htmlFor="password" className="form__label">
+                       Password
+                   </label>
+                   <input 
+                   onChange={this.handleInputChange} 
+                   value={this.state.password} 
+                   type="password" 
+                   name="password" 
+                   id="password" 
+                   className="form__input"/>
                    <fieldset name="location" className="form__group">
                         <label htmlFor="city" className="form__label">
                             City

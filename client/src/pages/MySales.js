@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { yardSaleDelete } from '../util';
 import { getUserInfo } from '../util';
 import {ReactComponent as Kettle} from '../assets/icons/kettle.svg';
@@ -17,9 +18,12 @@ class MySales extends Component {
     })
     
     componentDidMount() {
-        const currentUserId = JSON.parse(sessionStorage.getItem("rummageLoggedIn")).userLoggedIn;
-        this.setState({ userId: currentUserId });
-        this.getSales(currentUserId);
+        if (JSON.parse(sessionStorage.getItem("rummageLoggedIn"))) {
+            const currentUserId = JSON.parse(sessionStorage.getItem("rummageLoggedIn")).userLoggedIn;
+            this.setState({ userId: currentUserId });
+            this.getSales(currentUserId);
+        }
+        
         
     }
 
@@ -43,6 +47,20 @@ class MySales extends Component {
     }
 
     render() {
+        if (!sessionStorage.getItem("rummageLoggedIn")) {
+            return (
+                <div className="loading">
+                    <h3 className="loading__title">
+                        You don't seem to be signed in!
+                    </h3>
+                    <Link to='/login' className="button">
+                        Login / Signup
+                    </Link>
+                </div>
+            )
+        }
+
+
         if (!this.state.userSales) {
             return (
                 <div className="loading">
