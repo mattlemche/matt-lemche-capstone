@@ -14,7 +14,7 @@ class NewSaleItemModal extends Component {
         saleName: '',
         itemName: '',
         description: '',
-        condition: 'Like New',
+        condition: '',
         category: '',
         price: 0,
     }
@@ -105,7 +105,8 @@ class NewSaleItemModal extends Component {
                     type="text" 
                     name="itemName" 
                     id="itemName" 
-                    className="form__input"/>
+                    className="form__input"
+                    placeholder={this.state.itemName ? this.state.itemName : "What are you selling?"}/>
                     <label htmlFor="description" className="form__label">
                         Description
                     </label>
@@ -114,7 +115,9 @@ class NewSaleItemModal extends Component {
                     type="text" 
                     name="description" 
                     id="description" 
-                    className="form__input form__input--long">
+                    className="form__input form__input--long"
+                    placeholder={this.state.description ? this.state.description : "Give your item an enticing description"}
+                    >
                     </textarea>
                     <label htmlFor="condition" className="form__label">
                         Condition
@@ -148,7 +151,8 @@ class NewSaleItemModal extends Component {
                     onChange={this.handleInputChange} 
                     name="category" 
                     id="category" 
-                    className="form__select">
+                    className="form__select"
+                    defaultValue={this.state.category ? this.state.category : null} >
                         <option className="form__option">
                             Please choose a category
                         </option>
@@ -169,6 +173,7 @@ class NewSaleItemModal extends Component {
                     name="price" 
                     id="price" 
                     className="form__input"
+                    placeholder={this.state.price}
                     />
                     <Button buttonType="submit">
                         Add Item
