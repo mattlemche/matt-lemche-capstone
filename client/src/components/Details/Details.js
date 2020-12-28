@@ -18,17 +18,13 @@ export default function DetailsCopy({item}) {
     const [isFavourite, setIsFavourite] = useState();
     const [favouriteId, setFavouriteId] = useState();
     
-    const currentUserId = JSON.parse(sessionStorage.getItem("rummageLoggedIn"))
-        ? JSON.parse(sessionStorage.getItem("rummageLoggedIn")).userLoggedInId
-        : '';
-    
 
-    
+
+    const currentUserId = JSON.parse(sessionStorage.getItem("rummageLoggedIn")).userLoggedInId;
 
     //check if item is already a favourite
     useEffect(() => {
-        if (currentUserId) {
-            axios
+        axios
             .get(getUserFavourites(currentUserId))
             .then(response => {
                 const fav = response.data.favourites.filter((favourite) => {
@@ -46,30 +42,25 @@ export default function DetailsCopy({item}) {
                     setFavouriteId(response[0].id);
                 }
             });
-        }
     });
 
     // Add item to favourites
     const handleAddToFavourites = () => {
-        if (currentUserId) {
-            let favourite = {
-                ...item, 
-                "user_id": currentUserId,
-                "sale_item_id": item.id,
-            };
-    
-            // yard_sale_id key not needed for favourite
-            delete favourite.yard_sale_id;
-    
-            axios
-                .post(getUserFavourites(currentUserId), favourite)
-                .then(response => {
-                    setIsFavourite(true);
-                    setFavouriteId(response.data.id);
-                });
-        } else {
-            alert("You need to be signed in to add a favourite!");
-        }
+        let favourite = {
+            ...item, 
+            "user_id": currentUserId,
+            "sale_item_id": item.id,
+        };
+
+        // yard_sale_id key not needed for favourite
+        delete favourite.yard_sale_id;
+
+        axios
+            .post(getUserFavourites(currentUserId), favourite)
+            .then(response => {
+                setIsFavourite(true);
+                setFavouriteId(response.data.id);
+            });
     }
 
     // Un-favourite 
