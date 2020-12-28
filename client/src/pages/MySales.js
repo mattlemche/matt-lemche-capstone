@@ -23,9 +23,9 @@ class MySales extends Component {
             this.setState({ userId: currentUserId });
             this.getSales(currentUserId);
         }
-        
-        
     }
+
+    
 
     getSales = (id) => {
         axios
