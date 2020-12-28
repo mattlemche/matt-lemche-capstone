@@ -6,7 +6,7 @@
 
 .details {
     position: relative;
-    background-color: $color-white;
+    height: 100%;
     
     &__header {
         display: flex;
@@ -58,15 +58,18 @@
     }
 
     &__favourite {
+        position: fixed;
+        bottom: 14rem;
         display: flex;
         justify-content: flex-end;
         width: 100%;
         max-width: $max-width-content;
         padding: 0 1.5rem;
-        margin-bottom: 2rem;
     }
 
     &__shop {
+        position: fixed;
+        bottom: 7rem;
         display: flex;
         justify-content: space-between;
         align-items: center;

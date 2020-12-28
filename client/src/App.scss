@@ -41,21 +41,18 @@ body {
 }
 
 .main {
-  min-height: calc(100vh - 5.75rem);
-  padding-bottom: 6rem;
-  background: linear-gradient(0deg, rgba($color-lemon, 0.25) 10%, rgba($color-cerise, 0.25) 25%, transparent 40%);
-
+  padding-bottom: 7rem;
+  background-color: $color-white;
 }
 
 .section {
   position: relative;
   max-width: $max-width-content;
-  height: 100%;
-  background-color: $color-white;
 
   &__header {
     width: 100%;
     padding: 1rem 0;
+    margin-bottom: 0.5rem;
     background-color: rgba($color-sky, 0.1);
     color: $color-sky;
     text-align: center;
@@ -81,7 +78,6 @@ body {
 
   &__super {
     width: 100%;
-    padding-top: 0.5rem;
     font-size: $font-small;
     text-align: center;
   }
@@ -89,7 +85,7 @@ body {
   &__logo {
     position: relative;
     z-index: 20;
-    width: 75%;
+    width: 80%;
     margin: 0 auto 2rem;
     fill: $color-cerise;
   }
@@ -102,6 +98,7 @@ body {
     flex-direction: column;
     justify-content: center;
     width: 100%;
+    height: 100vh;
     background-color: $color-white;
   }
 
@@ -117,8 +114,8 @@ body {
   left: 0;
   right: 0;
   z-index: 1;
-  height: 10rem;
-  width: 10rem;
+  height: 12rem;
+  width: 12rem;
   border-radius: 50%;
   margin: 0 auto;
   background-color: $color-lemon;
@@ -146,6 +143,7 @@ body {
   font-weight: 700;
 }
 
+
 .loading {
 
   display: flex;
@@ -157,10 +155,6 @@ body {
   padding: 2rem;
   text-align: center;
   color: $color-cerise;
-
-  &__title {
-    margin-bottom: 2rem;
-  }
 
   &__icon {
     fill: $color-cerise;

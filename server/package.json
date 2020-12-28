@@ -4,13 +4,7 @@
   "description": "Server for Rummage App",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "migrate": "knex migrate:latest",
-    "migrate:down": "knex migrate:down",
-    "migrate:rollback": "knex migrate:rollback",
-    "seed": "knex seed:run",
-    "start": "node index.js",
-    "server": "nodemon index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Matt Lemche",
   "license": "ISC",

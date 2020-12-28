@@ -50,35 +50,29 @@ class NewYardSaleModal extends Component {
     handleFormSubmit = (e) => {
         e.preventDefault()
 
-        if (JSON.parse(sessionStorage.getItem("rummageLoggedIn"))) {
-            const currentUser = JSON.parse(sessionStorage.getItem("rummageLoggedIn"));
+        const currentUser = JSON.parse(sessionStorage.getItem("rummageLoggedIn"));
         
-            const body = {
-                location: this.state.location,
-                name: this.state.saleName,
-                description: this.state.description,
-                duration: this.state.duration,
-                status: "active",
-                user_id: currentUser.userLoggedInId,
-            }
-    
-            axios   
-                .post(getAllSales, body)
-                .then(response => {
-                    sessionStorage.setItem("rummageCurrentSale", 
-                        JSON.stringify({
-                            saleId: response.data.id,
-                            saleName: response.data.name
-                        }));
-                })
-                .then(_response => {
-                    this.props.history.push('/my-yard-sales');
-                });
-        } else {
-            return alert("You need to be signed in to create a yard sale!");
+        const body = {
+            location: this.state.location,
+            name: this.state.saleName,
+            description: this.state.description,
+            duration: this.state.duration,
+            status: "active",
+            user_id: currentUser.userLoggedInId,
         }
 
-        
+        axios   
+            .post(getAllSales, body)
+            .then(response => {
+                sessionStorage.setItem("rummageCurrentSale", 
+                    JSON.stringify({
+                        saleId: response.data.id,
+                        saleName: response.data.name
+                    }));
+            })
+            .then(_response => {
+                this.props.history.push('/my-yard-sales');
+            })
             
     }
 

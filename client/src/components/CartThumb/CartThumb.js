@@ -19,10 +19,9 @@ const CartThumb = ({
                     {itemName}
                 </span>
                 {/* handleDelete is not functional */}
-                <div className="cart-thumb__delete" onClick={(e) => onDelete(e, id)}>
+                <div className="cart-thumb__delete" >
                     Remove item
                 </div>
-
             </div>
             <div className="cart-thumb__price">
                 {price}

@@ -23,10 +23,8 @@ class Cart extends Component {
             .get(getAllItems)
             .then(response => {
 
-                // retreive item ids from local storage
                 const currentCart = JSON.parse(localStorage.getItem("rummageCart"));
 
-                // use ids to get item details from db
                 const updatedCart = currentCart.map(cartItem => {
                     return response.data.find(resItem => resItem.id === cartItem)
                 })
@@ -49,16 +47,16 @@ class Cart extends Component {
         return sum;
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        if (this.state.cartList.length !== prevState.cartList.length) {
-            console.log("Component did update")
-            this.getCartItems()
-        }
+    //HANDLEDELETE is not functional
 
-        return null;
-    }    
+    // componentDidUpdate(prevProps, prevState) {
+    //     if (prevState.cartList !== this.state.cartList) {
+    //         console.log("Component did update")
+    //         this.getCartItems()
+    //     }
+    // }    
 
-    handleDeleteItem = (_e, id) => {
+    /*handleDeleteItem = (_e, id) => {
         const currentCart = JSON.parse(localStorage.getItem("rummageCart"));
 
         const updatedCart = currentCart.filter(item => {
@@ -73,16 +71,18 @@ class Cart extends Component {
             cartList: updatedCart,
         })
 
-    }
+    }*/
 
     render() {
+
+        console.log("Logging state from cart", this.state.cartList);
 
        if (this.state.cartList.length === 0) {
            return (
             <div className="loading">
-                <h3 className="loading__title">
+                <h4 className="loading__title">
                     You haven't anything in your cart at the moment...
-                </h3>
+                </h4>
             </div>
            )
        }
@@ -103,7 +103,7 @@ class Cart extends Component {
                             itemName={item.name}
                             price={item.price}
                             image={item.image_URL}
-                            onDelete={this.handleDeleteItem}
+                            // onDelete={this.handleDeleteItem}
                             />
                         )
                     })}

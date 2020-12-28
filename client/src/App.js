@@ -16,7 +16,6 @@ import SignUpModal from './components/SignUpModal/SignUpModal';
 import NewYardSaleModal from './components/NewYardSaleModal/NewYardSaleModal';
 import NewSaleItemModal from './components/NewSaleItemModal/NewSaleItemModal';
 import ImageUpload from './components/ImageUpload/ImageUpload';
-import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 
 class App extends Component {
@@ -44,11 +43,9 @@ class App extends Component {
 
   render() {
 
-    console.log("Logging state from App.js", this.state);
     return (
       <Router>
-        <ScrollToTop />
-        <MobileHeader isLoggedIn={this.state.isLoggedIn}/>
+        <MobileHeader />
         <main className="main">
         <Switch>
           

@@ -14,7 +14,7 @@ module.exports = [
     {
       location: JSON.stringify({
         address: "2 Morton St.",
-        city: "Mississauga",
+        city: "Toronto",
         province: "Ontario",
         postal: "M5T 7Y8"
       }),
@@ -26,7 +26,7 @@ module.exports = [
     {
       location: JSON.stringify({
         address: "2 Morton St.",
-        city: "London",
+        city: "Toronto",
         province: "Ontario",
         postal: "M5T 7Y8"
       }),

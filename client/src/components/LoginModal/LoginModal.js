@@ -57,16 +57,12 @@ class LoginModal extends Component {
             })
             .then(response => {
                 //direct new user to home screen
-                return this.props.history.push('/');
-            })
-            .catch(error => {
-                alert("You've entered an incorrect username or password. Please try again.");
+                this.props.history.push('/');
             })
     }
 
 
     render() {
-
         return (
             <section className="section section--login">
                 <Logo className="section__logo"/>
@@ -77,8 +73,8 @@ class LoginModal extends Component {
                     </label>
                     <input 
                     name="userName" 
-                    type="text" 
-                    className="form__input" 
+                    type="text" c
+                    lassName="form__input" 
                     onChange={this.handleInputChange} 
                     value={this.state.username}/>
                     <label htmlFor="password" className="form__label">
