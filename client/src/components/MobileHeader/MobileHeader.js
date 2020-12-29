@@ -12,10 +12,6 @@ class MobileHeader extends Component {
     }
 
     componentDidMount() {
-        // if (JSON.parse(sessionStorage.getItem("rummageLoggedIn"))) {
-        //     this.setState({ isLoggedIn: true });
-        // }
-
         if (this.props.isLoggedIn) {
             this.setState({ isLoggedIn: true });
         }

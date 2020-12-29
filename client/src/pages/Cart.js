@@ -51,7 +51,7 @@ class Cart extends Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (this.state.cartList.length !== prevState.cartList.length) {
-            console.log("Component did update")
+            
             this.getCartItems()
         }
 
@@ -88,7 +88,7 @@ class Cart extends Component {
        }
 
         return (
-            <section className="section">
+            <section className="section section--cart">
                 <div className="section__header">
                     <h1 className="section__title">
                         My Cart

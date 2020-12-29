@@ -8,7 +8,7 @@ const CartTotal = ({cartList, tally}) => {
                 total
             </div>
             <div className="total__amount">
-                {tally(cartList)}
+                {tally(cartList).toString()}
             </div>
         </div>
     );

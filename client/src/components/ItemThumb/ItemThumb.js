@@ -21,7 +21,7 @@ const ItemThumb = ({
             <div className="item-thumb__image-container">
                 <img src={!image ? placeholder : image} alt={name} className="item-thumb__image"/>
             </div>
-            <span className="item-thumb__price">{price}</span>
+            <span className="item-thumb__price">{price.toFixed(2)}</span>
            
         </li>
     );

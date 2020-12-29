@@ -90,7 +90,7 @@ class AllSaleItems extends React.Component {
                         <div className="no-results__content">
                             <h3 className="no-results__title">Oh shoot!</h3>
                             <span className="no-results__copy">
-                            It doesn't seem that anyone is selling that currently.
+                            Seems like no one is selling that currently.
                             </span>
                         </div>
                     </div> : 
@@ -100,7 +100,6 @@ class AllSaleItems extends React.Component {
                     {this.state.itemArray.map((item) => {
                         return (
                             <ItemThumb 
-                                
                             key={item.id} 
                             itemId={item.id}
                             price={item.price}

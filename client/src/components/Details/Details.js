@@ -17,15 +17,13 @@ export default function DetailsCopy({item}) {
 
     const [isFavourite, setIsFavourite] = useState();
     const [favouriteId, setFavouriteId] = useState();
+    const [isInCart, setIsInCart] = useState();
     
     const currentUserId = JSON.parse(sessionStorage.getItem("rummageLoggedIn"))
         ? JSON.parse(sessionStorage.getItem("rummageLoggedIn")).userLoggedInId
         : '';
-    
 
-    
-
-    //check if item is already a favourite
+    //check if item is a favourite
     useEffect(() => {
         if (currentUserId) {
             axios
@@ -48,6 +46,17 @@ export default function DetailsCopy({item}) {
             });
         }
     });
+
+    // check if item is in cart
+    useEffect(() => {
+        if (JSON.parse(localStorage.getItem('rummageCart')).find(cartItem => cartItem === item.id )) {
+            console.log('item is in cart');
+            setIsInCart(true);
+        } else {
+            return null;
+        }
+    }, [item.id]
+    );
 
     // Add item to favourites
     const handleAddToFavourites = () => {
@@ -104,6 +113,25 @@ export default function DetailsCopy({item}) {
         localStorage
             .setItem("rummageCart",
             JSON.stringify(updateCart));
+
+        setIsInCart(true);
+
+    }
+
+    // Remove item from cart
+    const handleRemoveFromCart = (_e, id) => {
+
+        const updateCart = JSON.parse(localStorage.getItem("rummageCart"));
+
+        const itemIndex = updateCart.indexOf(id);
+
+        updateCart.splice(itemIndex, 1);
+
+        localStorage
+            .setItem("rummageCart",
+            JSON.stringify(updateCart));
+        
+        setIsInCart(false);
 
     }
 
@@ -194,14 +222,22 @@ export default function DetailsCopy({item}) {
                 item.price ? // if viewing item details, show price + add
                 <div className="details__shop">
                     <div className="details__price">
-                        {item.price}
+                        {item.price.toFixed(2)}
                     </div>
+                    { isInCart ?
+                    <Button 
+                    buttonType="button" 
+                    onButtonClick={(e) => handleRemoveFromCart(e, item.id)}
+                    buttonModifier=" button--cart">
+                        Remove from Cart
+                    </Button> :
                     <Button 
                     buttonType="button" 
                     onButtonClick={(e) => handleAddtoCart(e, item.id)}
                     buttonModifier=" button--cart">
                         Add to Cart
-                    </Button>
+                    </Button> }
+                    
                 </div> : // if viewing sale details, show item list
                 <div className="details__items">
                     <h3 className="details__items-title">
