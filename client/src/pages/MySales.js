@@ -6,6 +6,7 @@ import { getUserInfo } from '../util';
 import {ReactComponent as Kettle} from '../assets/icons/kettle.svg';
 import YardSaleList from '../components/YardSaleList/YardSaleList';
 import YardSaleThumb from '../components/YardSaleThumb/YardSaleThumb';
+import Button from '../components/Button/Button';
 
 
 
@@ -37,13 +38,16 @@ class MySales extends Component {
         });
     }
 
-
     handleSaleDelete = (_e, id) => {
         axios
             .delete(yardSaleDelete(id))
             .then(_response => {
                 this.getSales(this.state.userId)
             })
+    }
+
+    handleCreateSale = () => {
+        this.props.history.push('/new-yard-sale')
     }
 
     render() {
@@ -60,7 +64,6 @@ class MySales extends Component {
             )
         }
 
-
         if (!this.state.userSales) {
             return (
                 <div className="loading">
@@ -70,6 +73,19 @@ class MySales extends Component {
                     <Kettle className="loading__icon"/>
                 </div>
             )
+        }
+
+        if (this.state.userSales.length === 0) {
+            return (
+                <div className="loading">
+                    <h3 className="loading__title">
+                        You don't have any Yard Sales yet!
+                    </h3>
+                    <Button buttonType="button" onButtonClick={this.handleCreateSale}>
+                        Create a Yard Sale
+                    </Button>
+                </div>
+            );
         }
 
         return (

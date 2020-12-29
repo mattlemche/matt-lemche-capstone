@@ -58,12 +58,10 @@ class App extends Component {
           <Route path='/profile' component={Profile} />
           <Route path='/my-yard-sales' component={MySales} />
           <Route path='/favourites' component={Favourites} />
-          <Route path='/item/:id' render={(routeProps) => {
-            return <ItemDetails {...routeProps} cart={"test"}/>
-          }} />
+          <Route path='/item/:id' component={ItemDetails}/>
           <Route path='/yard-sale/:id' component={SaleDetails}/>
           <Route path='/cart' component={Cart} />
-          <Route path='/new-yard-sale/' component={NewYardSaleModal} />
+          <Route path='/new-yard-sale' component={NewYardSaleModal} />
           <Route path='/new-sale-item/:id' component={NewSaleItemModal} />
           <Route path='/image-upload/:id' component={ImageUpload} />
           <Redirect from='/' to='/browse' />

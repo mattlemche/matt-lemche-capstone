@@ -36,7 +36,7 @@ class ItemDetails extends Component {
         } else {
             return (
                 <section className="section">
-                    <Details item={this.state.saleItem} cart={this.props.cart}/>
+                    <Details item={this.state.saleItem}/>
                 </section>
             );
         }

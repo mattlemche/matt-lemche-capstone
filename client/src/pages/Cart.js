@@ -81,7 +81,7 @@ class Cart extends Component {
            return (
             <div className="loading">
                 <h3 className="loading__title">
-                    You haven't anything in your cart at the moment...
+                    You don't have anything in your cart at the moment...
                 </h3>
             </div>
            )
