@@ -31,7 +31,7 @@ const CartThumb = ({
 
             </div>
             <div className="cart-thumb__price">
-                {price.toFixed(2)}
+                {price ? price.toFixed(2) : ''}
             </div>
             
         </li>

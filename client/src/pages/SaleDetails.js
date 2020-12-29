@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { getSaleInfo } from '../util';
-import Details from '../components/Details/Details';
 import {ReactComponent as Kettle} from '../assets/icons/kettle.svg';
+import YardSaleHeader from '../components/YardSaleHeader/YardSaleHeader';
+import YardSaleInfo from '../components/YardSaleInfo/YardSaleInfo';
+import ItemList from '../components/ItemList/ItemList';
+import ItemThumb from '../components/ItemThumb/ItemThumb';
+
 
 class SaleDetails extends Component {
 
@@ -34,7 +38,29 @@ class SaleDetails extends Component {
         } else {
             return (
                 <section className="section">
-                    <Details item={this.state.yardSale} />
+                    <YardSaleHeader item={this.state.yardSale}/>
+                    <div className="details__content">
+                        <YardSaleInfo item={this.state.yardSale}/>
+                    </div>
+                    <div className="details__items">
+                        <h3 className="details__items-title">
+                            Items for Sale
+                        </h3>
+                        <ItemList>
+                            {this.state.yardSale.saleItems.map((item) => {
+                                return (
+                                    <ItemThumb 
+                                        
+                                    key={item.id} 
+                                    itemId={item.id}
+                                    price={item.price}
+                                    image={item.image_URL}
+                                    imageAlt={item.name}
+                                    />
+                                )
+                            })}
+                        </ItemList>
+                    </div>
                 </section>
             );
         }

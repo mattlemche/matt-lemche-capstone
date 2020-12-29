@@ -113,8 +113,20 @@
         height: 2rem;
         width: 2rem;
         border-radius: 50%;
-        background: linear-gradient($color-cerise, $color-lemon);
-        background-color: white;
+        background-color: $color-lemon;
+        
+
+        &--25 {
+            background: linear-gradient($color-cerise, $color-lemon);
+        }
+
+        &--10 {
+            background: linear-gradient($color-cerise 50%, $color-lemon 100%);
+        }
+
+        &--5 {
+            background: linear-gradient($color-cerise 75%, $color-lemon 100%);
+        }
     }
 }
 
