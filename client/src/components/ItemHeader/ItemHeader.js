@@ -1,4 +1,5 @@
 import React from 'react';
+import './ItemHeader.scss';
 import { useHistory } from 'react-router-dom';
 import Button from '../Button/Button';
 import { ReactComponent as BackArrow } from '../../assets/icons/back.svg';
@@ -12,11 +13,11 @@ function ItemHeader({item}) {
     }
 
     return (
-        <div className="details__header">
+        <div className="item-header">
             <Button buttonType="button" onButtonClick={handleGoBack} buttonModifier=" button--back">
                 <BackArrow className="button__icon"/>
             </Button>
-                <img src={item.image_URL} alt={item.name} className="details__image"/>
+                <img src={item.image_URL} alt={item.name} className="item-header__image"/>
         </div>
     );
 }

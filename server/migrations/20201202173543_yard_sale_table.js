@@ -6,11 +6,11 @@ exports.up = function(knex) {
     table.json("location").notNullable();
     table
         .string("name")
-        .notNullable()
         .defaultTo("My Yard Sale");
     table.string("description");
     table
         .integer("duration")
+        .unsigned()
         .notNullable()
         .defaultTo(1);
     table
@@ -21,10 +21,6 @@ exports.up = function(knex) {
         .inTable("users")
         .onUpdate("CASCADE")
         .onDelete("CASCADE");
-    table
-        .string("status")
-        .notNullable()
-        .defaultTo("innactive");
     table.timestamp("created_at").defaultTo(knex.fn.now());
     table.timestamp("updated_at").defaultTo(knex.fn.now());
 

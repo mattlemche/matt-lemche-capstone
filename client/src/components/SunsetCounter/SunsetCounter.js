@@ -1,18 +1,17 @@
 import React from 'react';
+import './SunsetCounter.scss';
 import SunsetBadge from '../SunsetBadge/SunsetBadge';
 
-function SunsetCounter({duration, startDate}) {
+function SunsetCounter({hours, percent}) {
 
-    const currentDate = new Date();
-    const saleDate = new Date(startDate);
-    const sinceSaleCreated = Math.floor((currentDate.getTime() - saleDate.getTime()) / 1000 / 60 / 60);
-    const hoursRemaining = duration * 24 - sinceSaleCreated;
 
     return (
-        <div className="details__sunset-container">
-            <SunsetBadge duration={duration} startDate={startDate}/>
-            <span className="details__sunset-text">
-                {`${hoursRemaining}hrs`}
+        <div className="sunset-counter">
+            <div className="sunset-counter__sunset">
+                <SunsetBadge percent={percent}/>
+            </div>
+            <span className="sunset-counter__hours">
+                {`${hours}hrs`}
             </span>
         </div>
     );

@@ -1,0 +1,35 @@
+@use '../../partials/variables' as *;
+
+/*------------------------------------*\
+  #SUNSET BANNER
+\*------------------------------------*/
+
+.sunset-banner {
+    position: absolute;
+    display: none;
+    bottom: 0;
+    width: 100%;
+    max-width: $max-width-content;
+    padding: 0.75rem 2rem;
+    background-color: $color-shale;
+    color: $color-white;
+
+    &__sunset {
+        position: absolute;
+        bottom: 0.5rem;
+        width: 5rem;
+        height: 5rem;
+    }
+
+    &__content {
+        padding-left: 6rem;
+    }
+
+    &__title {
+        font-size: 1.5rem;
+    }
+
+    &--show {
+        display: flex;
+    }
+}

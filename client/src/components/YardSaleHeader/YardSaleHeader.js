@@ -1,13 +1,13 @@
 import React from 'react';
+import './YardSaleHeader.scss';
 import { useHistory } from 'react-router-dom';
 import IconGroup from '../IconGroup/IconGroup';
 import Button from '../Button/Button';
 import SunsetCounter from '../SunsetCounter/SunsetCounter';
+import SunsetBanner from '../SunsetBanner/SunsetBanner';
 import { ReactComponent as BackArrow } from '../../assets/icons/back.svg';
 
-function YardSaleHeader({item}) {
-
-    console.log("Loggin props from Yard Sale Header", item);
+function YardSaleHeader({hours, percent}) {
 
     const navigate = useHistory();
 
@@ -15,15 +15,14 @@ function YardSaleHeader({item}) {
         navigate.goBack();
     }
 
-
     return (
-        <div className="details__header">
+        <div className="yard-sale-header">
             <Button buttonType="button" onButtonClick={handleGoBack} buttonModifier=" button--back">
                 <BackArrow className="button__icon"/>
             </Button>
-            <SunsetCounter duration={item.duration} startDate={item.created_at}/>
+            <SunsetCounter hours={hours} percent={percent} />
             <IconGroup />
-            
+            <SunsetBanner hours={hours} percent={percent} />
         </div>
     );
 }

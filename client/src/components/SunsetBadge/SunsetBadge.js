@@ -1,24 +1,18 @@
 import React from 'react';
+import './SunsetBadge.scss';
 
-const SunsetBadge = ({duration, startDate}) => {
-
-    const currentDate = new Date();
-    const saleDate = new Date(startDate);
-
-    const sinceSaleCreated = Math.floor((currentDate.getTime() - saleDate.getTime()) / 1000 / 60 / 60);
-    const hoursRemaining = duration * 24 - sinceSaleCreated;
+const SunsetBadge = ({percent}) => {
 
     const sunsetColour = () => {
-        const percentRemaining = hoursRemaining / (duration * 24 / 100);
 
-        if (percentRemaining < 25 && percentRemaining > 10) {
-            return "details__sunset details__sunset--25"
-        } else if (percentRemaining < 10 && percentRemaining > 5) {
-            return "details__sunset details__sunset--10"
-        } else if (percentRemaining < 5) {
-            return "details__sunset details__sunset--5"
+        if (percent <= 25 && percent > 10) {
+            return "sunset-badge sunset-badge--25"
+        } else if (percent <= 10 && percent > 5) {
+            return "sunset-badge sunset-badge--10"
+        } else if (percent <= 5) {
+            return "sunset-badge sunset-badge--5"
         } else {
-            return "details__sunset"
+            return "sunset-badge"
         }
     }
 

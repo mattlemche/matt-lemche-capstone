@@ -22,7 +22,6 @@ router
             name: req.body.name,
             description: req.body.description,
             duration: req.body.duration,
-            status: req.body.status,
             user_id: req.body.user_id,
         })
         .save()
@@ -54,7 +53,6 @@ router
                     name: req.body.name ? req.body.name : yardSale.name,
                     description: req.body.description ? req.body.description : yardSale.description,
                     duration: req.body.duration ? req.body.duration : yardSale.duration,
-                    status: req.body.status ? req.body.status : yardSale.status,
                     seller_ID: req.body.seller_ID ? req.body.seller_ID : yardSale.seller_ID,
                 });
             })

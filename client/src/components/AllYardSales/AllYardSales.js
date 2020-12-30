@@ -31,27 +31,37 @@ class AllYardSales extends Component {
                     <Kettle className="loading__icon"/>
                 </div>
             )
-        } else {
-            return (
-                <section className="section">
-            
-                    <YardSaleList>
-                    {this.state.saleArray.map((sale) => {
-                        return (
-                            <YardSaleThumb 
-                            key={sale.id} 
-                            saleId={sale.id}
-                            name={sale.name}
-                            description={sale.description}
-                            location={sale.location}
-                            items={sale.saleItems}
-                            />
-                        )
-                    })}
-                    </YardSaleList>        
-                </section>
-            );
         }
+
+        return (
+            <section className="section">
+        
+                <YardSaleList>
+                {this.state.saleArray.map((sale) => {
+
+                    const currentDate = new Date();
+                    const saleDate = new Date(sale.created_at);
+                    const sinceSaleCreated = Math.floor((currentDate.getTime() - saleDate.getTime()) / 1000 / 60 / 60);
+                    const hoursRemaining = sale.duration * 24 - sinceSaleCreated;
+                    const percentRemaining = hoursRemaining / (sale.duration * 24 / 100);
+
+                    return (
+                        <YardSaleThumb 
+                        key={sale.id} 
+                        saleId={sale.id}
+                        name={sale.name}
+                        description={sale.description}
+                        location={sale.location}
+                        items={sale.saleItems}
+                        hours={hoursRemaining}
+                        percent={percentRemaining}
+                        />
+                    )
+                })}
+                </YardSaleList>        
+            </section>
+        );
+        
 
         
     }
