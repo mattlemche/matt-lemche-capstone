@@ -1,4 +1,5 @@
 import React from 'react';
+import './YardSaleHeader.scss';
 import { useHistory } from 'react-router-dom';
 import IconGroup from '../IconGroup/IconGroup';
 import Button from '../Button/Button';
@@ -15,7 +16,7 @@ function YardSaleHeader({hours, percent}) {
     }
 
     return (
-        <div className="details__header">
+        <div className="yard-sale-header">
             <Button buttonType="button" onButtonClick={handleGoBack} buttonModifier=" button--back">
                 <BackArrow className="button__icon"/>
             </Button>

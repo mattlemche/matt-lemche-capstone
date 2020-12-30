@@ -7,11 +7,11 @@ function SunsetBanner({hours, percent}) {
 
     const sunsetPercent = (remainder) => {
 
-        if (remainder < 25 && remainder > 10) {
+        if (remainder <= 25 && remainder > 10) {
             return 50
-        } else if (remainder < 10 && remainder > 5) {
+        } else if (remainder <= 10 && remainder > 5) {
             return 60
-        } else if (remainder < 5) {
+        } else if (remainder <= 5) {
             return 75
         } else {
             return ""

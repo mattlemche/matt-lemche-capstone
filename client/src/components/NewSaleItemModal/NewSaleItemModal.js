@@ -12,6 +12,8 @@ class NewSaleItemModal extends Component {
     state = {
         currentSaleId: '',
         saleName: '',
+        saleDuration: null,
+        saleCreatedAt: null,
         itemName: '',
         description: '',
         condition: '',
@@ -26,6 +28,8 @@ class NewSaleItemModal extends Component {
                 this.setState({ 
                     currentSaleId: response.data.id,
                     saleName: response.data.name,
+                    saleDuration: response.data.duration,
+                    saleCreatedAt: response.data.created_at,
                 })
             })
 
@@ -53,8 +57,12 @@ class NewSaleItemModal extends Component {
             condition: this.state.condition,
             price: this.state.price,
             yard_sale_id: this.state.currentSaleId,
+            yard_sale_duration: this.state.saleDuration,
+            yard_sale_created_at: this.state.saleCreatedAt,
             user_id: currentUser.userLoggedInId,
         }
+
+        console.log("Logging body from New Sale Item", body);
         
         axios   
             .post(getAllItems, body)

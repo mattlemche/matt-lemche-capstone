@@ -96,6 +96,12 @@ class Cart extends Component {
                 </div>
                 <CartList>
                     {this.state.cartList.map((item) => {
+                        const currentDate = new Date();
+                        const saleDate = new Date(item.yard_sale_created_at);
+                        const sinceSaleCreated = Math.floor((currentDate.getTime() - saleDate.getTime()) / 1000 / 60 / 60);
+                        const hoursRemaining = item.yard_sale_duration * 24 - sinceSaleCreated;
+                        const percentRemaining = hoursRemaining / (item.yard_sale_duration * 24 / 100);
+
                         return (
                             <CartThumb 
                             key={item.id}
@@ -104,6 +110,7 @@ class Cart extends Component {
                             price={item.price}
                             image={item.image_URL}
                             onDelete={this.handleDeleteItem}
+                            percent={percentRemaining}
                             />
                         )
                     })}
