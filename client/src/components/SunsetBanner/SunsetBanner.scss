@@ -1,0 +1,15 @@
+@use '../../partials/variables' as *;
+
+/*------------------------------------*\
+  #SUNSET BANNER
+\*------------------------------------*/
+
+.sunset-banner {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    max-width: $max-width-content;
+    padding: 1rem 2rem;
+    background-color: $color-shale;
+    color: $color-white;
+}

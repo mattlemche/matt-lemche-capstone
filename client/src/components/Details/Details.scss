@@ -9,6 +9,7 @@
     background-color: $color-white;
     
     &__header {
+        position: relative;
         display: flex;
         justify-content: center;
         width: 100%;
