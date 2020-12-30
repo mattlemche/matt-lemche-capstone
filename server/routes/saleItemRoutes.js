@@ -24,6 +24,8 @@ router
             condition: req.body.condition,
             category: req.body.category,
             price: req.body.price,
+            yard_sale_duration: req.body.yard_sale_duration,
+            yard_sale_created_at: req.body.yard_sale_created_at,
             yard_sale_id: req.body.yard_sale_id,
             user_id: req.body.user_id,
         })
