@@ -3,7 +3,6 @@ import './CartThumb.scss';
 import { useHistory } from 'react-router-dom';
 
 const CartThumb = ({
-    percent,
     itemName,
     image,
     price,
@@ -13,37 +12,8 @@ const CartThumb = ({
 
     const navigate = useHistory();
 
-    const handleItemCick = (e, id) => {
+    const handleItemCick = (_e, id) => {
         navigate.push(`/item/${id}`)
-    }
-
-    const sunsetPricing = (remainder) => {
-
-        if (remainder <= 25 && remainder > 10) {
-            return (
-            <div className="cart-thumb__price">
-                {(price * 0.5).toFixed(2)}
-            </div>
-            )
-        } else if (remainder <= 10 && remainder > 5) {
-            return (
-                <div className="cart-thumb__price">
-                    {(price * 0.4).toFixed(2)}
-                </div>
-                )
-        } else if (remainder <= 5) {
-            return (
-                <div className="cart-thumb__price">
-                    {(price * 0.25).toFixed(2)}
-                </div>
-                )
-        } else {
-            return (
-            <div className="cart-thumb__price">
-                {price.toFixed(2)}
-            </div>
-            )
-        }
     }
     
     return (
@@ -60,7 +30,9 @@ const CartThumb = ({
                 </div>
 
             </div>
-            {sunsetPricing(percent)}
+            <div className="cart-thumb__price">
+                {price}
+            </div>
         </li>
     );
 };
