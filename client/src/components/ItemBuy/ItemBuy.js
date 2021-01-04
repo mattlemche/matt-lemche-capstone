@@ -95,7 +95,7 @@ function ItemBuy({item, percent}) {
                 buttonModifier=" button--cart-25">
                     {
                         isInCart ? 
-                        "Remove from Cart" : 
+                        "Remove Item" : 
                         "Add to Cart"
                     }
                 </Button> 
@@ -111,7 +111,7 @@ function ItemBuy({item, percent}) {
                 buttonModifier=" button--cart-10">
                     {
                         isInCart ? 
-                        "Remove from Cart" : 
+                        "Remove Item" : 
                         "Add to Cart"
                     }
                 </Button> 
@@ -127,7 +127,7 @@ function ItemBuy({item, percent}) {
                 buttonModifier=" button--cart-5">
                     {
                         isInCart ? 
-                        "Remove from Cart" : 
+                        "Remove Item" : 
                         "Add to Cart"
                     }
                 </Button> 
@@ -143,7 +143,7 @@ function ItemBuy({item, percent}) {
                 buttonModifier=" button--cart">
                     {
                         isInCart ? 
-                        "Remove from Cart" : 
+                        "Remove Item" : 
                         "Add to Cart"
                     }
                 </Button> 
