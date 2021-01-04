@@ -41,13 +41,6 @@ function Cart() {
         
     }
 
-    useEffect(() => {
-        if (cartList && cartList.length !== JSON.parse(localStorage.getItem("rummageCart")).length) {
-            getCartItems()
-        }
-
-    }, [cartList]) 
-
     // Sunset pricing
     const sunsetPricing = (item) => {
         
@@ -100,7 +93,7 @@ function Cart() {
             .setItem("rummageCart",
             JSON.stringify(updatedCart));
 
-        setCartList(updatedCart);
+            getCartItems();
 
     }
 
