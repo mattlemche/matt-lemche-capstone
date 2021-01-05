@@ -16,7 +16,6 @@ class NewSaleItemModal extends Component {
         saleCreatedAt: null,
         itemName: '',
         description: '',
-        condition: '',
         category: '',
         price: 0,
     }
@@ -48,13 +47,13 @@ class NewSaleItemModal extends Component {
         e.preventDefault();
 
         const currentUser = JSON.parse(sessionStorage.getItem("rummageLoggedIn"));
-        
+
         const body = {
             itemName: this.state.itemName,
             description: this.state.description,
             image_URL: placeholder,
             category: this.state.category,
-            condition: this.state.condition,
+            condition: e.target.condition.value,
             price: this.state.price,
             yard_sale_id: this.state.currentSaleId,
             yard_sale_duration: this.state.saleDuration,
@@ -62,6 +61,7 @@ class NewSaleItemModal extends Component {
             user_id: currentUser.userLoggedInId,
         }
 
+        console.log("Logging condition from new item form", e.target.condition.value);
         console.log("Logging body from New Sale Item", body);
         
         axios   
@@ -79,6 +79,7 @@ class NewSaleItemModal extends Component {
 
     render() {
 
+        
         if (!this.state.currentSaleId) {
             return (
                 <div className="loading">
@@ -134,7 +135,7 @@ class NewSaleItemModal extends Component {
                     onChange={this.handleInputChange} 
                     name="condition" 
                     id="condition" 
-                    defaultValue="Like New"
+                    defaultValue="like-new"
                     className="form__select">
                         <option value="like-new" className="form__option">
                             Like New
