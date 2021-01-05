@@ -58,7 +58,6 @@ class NewYardSaleModal extends Component {
                 name: this.state.saleName,
                 description: this.state.description,
                 duration: this.state.duration,
-                status: "active",
                 user_id: currentUser.userLoggedInId,
             }
     

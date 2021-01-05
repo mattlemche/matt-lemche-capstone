@@ -1,59 +1,70 @@
-import React, { Component } from 'react';
-import '../components/Details/Details.scss';
+import React, { useState, useEffect} from 'react';
+import '../components/FavouriteButton/FavouriteButton.scss';
 import axios from 'axios';
-import { getItemInfo } from '../util';
+import { getItemInfo, getSaleInfo } from '../util';
 import {ReactComponent as Kettle} from '../assets/icons/kettle.svg';
 import FavouriteButton from '../components/FavouriteButton/FavouriteButton';
-import AddToCart from '../components/AddToCart/AddToCart';
+import ItemBuy from '../components/ItemBuy/ItemBuy';
 import ItemHeader from '../components/ItemHeader/ItemHeader';
 import ItemInfo from '../components/ItemInfo/ItemInfo';
 
 
 
-class ItemDetails extends Component {
+function ItemDetails(props) {
 
-    state = {
-        saleItem: null,
-    }
+    const [saleItem, setSaleItem] = useState(null);
+    const [yardSale, setYardSale] = useState(null);
 
-    componentDidMount() {
-        axios   
-            .get(getItemInfo(this.props.match.params.id))
+    useEffect(() => {
+        if (!saleItem) {
+            axios   
+            .get(getItemInfo(props.match.params.id))
             .then(response => {
-                this.setState({ 
-                    saleItem: response.data,
-                })
+                setSaleItem(response.data);
+                return response.data
             })
-    }
-
-    render() {
-
-        if (!this.state.saleItem) {
-            return (
-                <div className="loading">
-                    <h1 className="loading__title">
-                        Just collecting some details!
-                    </h1>
-                    <Kettle className="loading__icon"/>
-                </div>
-            )
-        } else {
-            return (
-                <section className="section section--item-details">
-                    <ItemHeader item={this.state.saleItem}/>
-                    <div className="details__content">
-                        <ItemInfo item={this.state.saleItem}/>
-                    </div>
-                    <div className="details__favourite">
-                        <FavouriteButton item={this.state.saleItem}/>
-                    </div>
-                    <div className="details__shop">
-                        <AddToCart item={this.state.saleItem}/>
-                    </div>
-                </section>
-            );
+            .then(response => {
+                axios
+                    .get(getSaleInfo(response.yard_sale_id))
+                    .then(response => {
+                        setYardSale(response.data);
+                    })
+            });
         }
-    }
+    });  
+
+    if (!saleItem || !yardSale) {
+        return (
+            <div className="loading">
+                <h1 className="loading__title">
+                    Just collecting some details!
+                </h1>
+                <Kettle className="loading__icon"/>
+            </div>
+        )
+    } else {
+
+        const currentDate = new Date();
+        const saleDate = new Date(yardSale.created_at);
+        const sinceSaleCreated = Math.floor((currentDate.getTime() - saleDate.getTime()) / 1000 / 60 / 60);
+        const hoursRemaining = yardSale.duration * 24 - sinceSaleCreated;
+        const percentRemaining = hoursRemaining / (yardSale.duration * 24 / 100);
+        
+        return (
+            <section className="section section--item-details">
+                
+                    <ItemHeader item={saleItem}/>
+                    <ItemInfo item={saleItem}/>
+                    <div className="favourite">
+                        <FavouriteButton item={saleItem}/>
+                    </div>
+                    
+                    <ItemBuy item={saleItem} percent={percentRemaining}/>
+                           
+            </section>
+        );
+        }
 }
+
 
 export default ItemDetails;

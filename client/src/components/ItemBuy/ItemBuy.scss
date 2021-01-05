@@ -1,0 +1,49 @@
+@use '../../partials/variables' as *;
+
+/*------------------------------------*\
+  #ITEM BUY
+\*------------------------------------*/
+
+.item-buy {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: $max-width-content;
+    padding: 1.5rem;
+    background-color: rgba($color-sky, 0.1);
+
+    &--25 {
+        background-color: rgba($color-cerise, 0.1);
+    }
+
+    &--10 {
+        background-color: rgba($color-cerise, 0.1);
+    }
+
+    &--5 {
+        background-color: rgba($color-cerise, 0.1);
+    }
+
+    &__price {
+        color: $color-sky;
+        font-size: 2rem;
+        font-weight: 700;
+
+        &:before {
+            content: '$';
+        }
+
+        &--25 {
+            color: $color-cerise;
+        }
+    
+        &--10 {
+            color: $color-cerise;
+        }
+    
+        &--5 {
+            color: $color-cerise;
+        }
+    }
+}

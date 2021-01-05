@@ -1,0 +1,26 @@
+@use '../../partials/variables' as *;
+
+/*------------------------------------*\
+  #SUNSET BADGE
+\*------------------------------------*/
+
+.sunset-badge {
+    position: relative;
+    z-index: 15;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    background-color: $color-lemon;
+    
+    &--25 {
+        background: linear-gradient($color-cerise, $color-lemon);
+    }
+
+    &--10 {
+        background: linear-gradient($color-cerise 50%, $color-lemon 100%);
+    }
+
+    &--5 {
+        background: linear-gradient($color-cerise 75%, $color-lemon 100%);
+    }
+}

@@ -12,7 +12,7 @@ const CartThumb = ({
 
     const navigate = useHistory();
 
-    const handleItemCick = (e, id) => {
+    const handleItemCick = (_e, id) => {
         navigate.push(`/item/${id}`)
     }
     
@@ -31,9 +31,8 @@ const CartThumb = ({
 
             </div>
             <div className="cart-thumb__price">
-                {price ? price.toFixed(2) : ''}
+                {price}
             </div>
-            
         </li>
     );
 };
