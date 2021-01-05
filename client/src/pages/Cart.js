@@ -6,7 +6,7 @@ import CartThumb from '../components/CartThumb/CartThumb';
 import CartTotal from '../components/CartTotal/CartTotal';
 import Button from '../components/Button/Button';
 
-function Cart() {
+function Cart({cartHandlerDelete}) {
 
     const [cartList, setCartList] = useState(null);
  
@@ -82,18 +82,19 @@ function Cart() {
     }
 
 
-    const handleDeleteItem = (_e, id) => {
-        const currentCart = JSON.parse(localStorage.getItem("rummageCart"));
+    const handleDeleteItem = (e, id) => {
+        cartHandlerDelete(e, id)
+        // const currentCart = JSON.parse(localStorage.getItem("rummageCart"));
 
-        const updatedCart = currentCart.filter(item => {
-            return item !== id
-        });
+        // const updatedCart = currentCart.filter(item => {
+        //     return item !== id
+        // });
 
-        localStorage
-            .setItem("rummageCart",
-            JSON.stringify(updatedCart));
+        // localStorage
+        //     .setItem("rummageCart",
+        //     JSON.stringify(updatedCart));
 
-            getCartItems();
+        getCartItems();
 
     }
 

@@ -55,12 +55,17 @@ class LoginModal extends Component {
                     }
                 );
             })
-            .then(response => {
-                //direct new user to home screen
+            .then(_response => {
+                this.props.userStatus(true)
+                
+            })
+            .then(_response => {
+                //direct user to home screen
                 return this.props.history.push('/');
             })
             .catch(error => {
                 alert("You've entered an incorrect username or password. Please try again.");
+                console.log("Error from login", error);
             })
     }
 
