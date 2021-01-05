@@ -25,18 +25,6 @@ function ItemBuy({
     // Add item to cart
     const handleAddtoCart = (e, id) => {
         cartHandlerAdd(e, id);
-        // const updateCart = JSON.parse(localStorage.getItem("rummageCart"));
-
-        // // Check if item is already in cart
-        // if (updateCart.find(cartId => cartId === id)) {
-        //     return;
-        // }
-
-        // updateCart.push(id);
-
-        // localStorage
-        //     .setItem("rummageCart",
-        //     JSON.stringify(updateCart));
 
         setIsInCart(true);
 
@@ -44,18 +32,7 @@ function ItemBuy({
 
     // Remove item from cart
     const handleRemoveFromCart = (e, id) => {
-
-        cartHandlerDelete(e, id)
-
-        // const updateCart = JSON.parse(localStorage.getItem("rummageCart"));
-
-        // const itemIndex = updateCart.indexOf(id);
-
-        // updateCart.splice(itemIndex, 1);
-
-        // localStorage
-        //     .setItem("rummageCart",
-        //     JSON.stringify(updateCart));
+        cartHandlerDelete(e, id);
         
         setIsInCart(false);
 
