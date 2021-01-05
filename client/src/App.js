@@ -28,7 +28,7 @@ class App extends Component {
     const rummageCart = JSON.parse(localStorage.getItem("rummageCart"));
 
     this.state = {
-      isLoggedIn: rummageLoggedIn.isLoggedIn || false,
+      isLoggedIn: rummageLoggedIn ? rummageLoggedIn.isLoggedIn : '' || false,
       username: "",
       cartContents: rummageCart || [],
     };

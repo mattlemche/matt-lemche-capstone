@@ -84,15 +84,6 @@ function Cart({cartHandlerDelete}) {
 
     const handleDeleteItem = (e, id) => {
         cartHandlerDelete(e, id)
-        // const currentCart = JSON.parse(localStorage.getItem("rummageCart"));
-
-        // const updatedCart = currentCart.filter(item => {
-        //     return item !== id
-        // });
-
-        // localStorage
-        //     .setItem("rummageCart",
-        //     JSON.stringify(updatedCart));
 
         getCartItems();
 
