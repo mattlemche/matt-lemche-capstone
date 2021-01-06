@@ -9,7 +9,7 @@ module.exports = [
       "name": "Antique Kettle",
       "description": "Brass antique kettle, was my grandfather's. I think it was made in 1870s",
       "image_URL": `${IMAGE_URL}static/sale_item_images/image-for-sale-item-1.jpg`,
-      "condition": "lightly-used",
+      "condition": "Lightly Used",
       "category": "antiques",
       "price": 80
   },
@@ -18,7 +18,7 @@ module.exports = [
       "name": "Soap Dish and Scrubber",
       "description": "Small bamboo soap dish and bamboo scrubber. Great for doing dishes!",
       "image_URL": `${IMAGE_URL}static/sale_item_images/image-for-sale-item-2.jpg`,
-      "condition": "like-new",
+      "condition": "Like New",
       "category": "household",
       "price": 5
   },
@@ -27,7 +27,7 @@ module.exports = [
       "name": "Wooden Utensils",
       "description": "11 wooden cooking utensils. Selling as a bunch. Will last yers",
       "image_URL": `${IMAGE_URL}static/sale_item_images/image-for-sale-item-3.jpg`,
-      "condition": "good",
+      "condition": "Good",
       "category": "household",
       "price": 10
   },
@@ -36,14 +36,14 @@ module.exports = [
       "name": "Dutch Oven",
       "description": "Almost new dutch oven , great for suaces",
       "image_URL": `${IMAGE_URL}static/sale_item_images/image-for-sale-item-4.jpg`,
-      "condition": "like-new",
+      "condition": "Like New",
       "category": "household",
       "price": 100
   },
   {
   
       "name": "Oven mits",
-      "description": "good for handling hot items!",
+      "description": "Good for handling hot items!",
       "image_URL": `${IMAGE_URL}static/sale_item_images/image-for-sale-item-5.jpg`,
       "condition": "fair",
       "category": "household",
@@ -54,7 +54,7 @@ module.exports = [
       "name": "Kitchenaid Mixer",
       "description": "This is almost new!",
       "image_URL": `${IMAGE_URL}static/sale_item_images/image-for-sale-item-6.jpg`,
-      "condition": "lightly-used",
+      "condition": "Lightly Used",
       "category": "appliances",
       "price": 100
   },
@@ -81,7 +81,7 @@ module.exports = [
       "name": "Dutch Oven",
       "description": "Le Creuset dutch oven",
       "image_URL": `${IMAGE_URL}static/sale_item_images/image-for-sale-item-9.jpg`,
-      "condition": "like-new",
+      "condition": "Like New",
       "category": "household",
       "price": 200
   },
@@ -144,7 +144,7 @@ module.exports = [
     "name": "Antique Kettle",
     "description": "Brass antique kettle, was my grandfather's. I think it was made in 1870s",
     "image_URL": `${IMAGE_URL}static/sale_item_images/image-for-sale-item-1.jpg`,
-    "condition": "lightly-used",
+    "condition": "Lightly Used",
     "category": "antiques",
     "price": 80
 },
@@ -153,7 +153,7 @@ module.exports = [
     "name": "Soap Dish and Scrubber",
     "description": "Small bamboo soap dish and bamboo scrubber. Great for doing dishes!",
     "image_URL": `${IMAGE_URL}static/sale_item_images/image-for-sale-item-2.jpg`,
-    "condition": "like-new",
+    "condition": "Like New",
     "category": "household",
     "price": 5
 },
@@ -162,7 +162,7 @@ module.exports = [
     "name": "Wooden Utensils",
     "description": "11 wooden cooking utensils. Selling as a bunch. Will last yers",
     "image_URL": `${IMAGE_URL}static/sale_item_images/image-for-sale-item-3.jpg`,
-    "condition": "good",
+    "condition": "Good",
     "category": "household",
     "price": 10
 },
@@ -171,14 +171,14 @@ module.exports = [
     "name": "Dutch Oven",
     "description": "Almost new dutch oven , great for suaces",
     "image_URL": `${IMAGE_URL}static/sale_item_images/image-for-sale-item-4.jpg`,
-    "condition": "like-new",
+    "condition": "Like New",
     "category": "household",
     "price": 100
 },
 {
 
     "name": "Oven mits",
-    "description": "good for handling hot items!",
+    "description": "Good for handling hot items!",
     "image_URL": `${IMAGE_URL}static/sale_item_images/image-for-sale-item-5.jpg`,
     "condition": "fair",
     "category": "household",
@@ -189,7 +189,7 @@ module.exports = [
     "name": "Kitchenaid Mixer",
     "description": "This is almost new!",
     "image_URL": `${IMAGE_URL}static/sale_item_images/image-for-sale-item-6.jpg`,
-    "condition": "lightly-used",
+    "condition": "Lightly Used",
     "category": "appliances",
     "price": 100
 },
@@ -216,7 +216,7 @@ module.exports = [
     "name": "Dutch Oven",
     "description": "Le Creuset dutch oven",
     "image_URL": `${IMAGE_URL}static/sale_item_images/image-for-sale-item-9.jpg`,
-    "condition": "like-new",
+    "condition": "Like New",
     "category": "household",
     "price": 200
 },
@@ -279,7 +279,7 @@ module.exports = [
   "name": "Antique Kettle",
   "description": "Brass antique kettle, was my grandfather's. I think it was made in 1870s",
   "image_URL": `${IMAGE_URL}static/sale_item_images/image-for-sale-item-1.jpg`,
-  "condition": "lightly-used",
+  "condition": "Lightly Used",
   "category": "antiques",
   "price": 80
 },
@@ -288,7 +288,7 @@ module.exports = [
   "name": "Soap Dish and Scrubber",
   "description": "Small bamboo soap dish and bamboo scrubber. Great for doing dishes!",
   "image_URL": `${IMAGE_URL}static/sale_item_images/image-for-sale-item-2.jpg`,
-  "condition": "like-new",
+  "condition": "Like New",
   "category": "household",
   "price": 5
 },
@@ -297,7 +297,7 @@ module.exports = [
   "name": "Wooden Utensils",
   "description": "11 wooden cooking utensils. Selling as a bunch. Will last yers",
   "image_URL": `${IMAGE_URL}static/sale_item_images/image-for-sale-item-3.jpg`,
-  "condition": "good",
+  "condition": "Good",
   "category": "household",
   "price": 10
 },
@@ -306,14 +306,14 @@ module.exports = [
   "name": "Dutch Oven",
   "description": "Almost new dutch oven , great for suaces",
   "image_URL": `${IMAGE_URL}static/sale_item_images/image-for-sale-item-4.jpg`,
-  "condition": "like-new",
+  "condition": "Like New",
   "category": "household",
   "price": 100
 },
 {
 
   "name": "Oven mits",
-  "description": "good for handling hot items!",
+  "description": "Good for handling hot items!",
   "image_URL": `${IMAGE_URL}static/sale_item_images/image-for-sale-item-5.jpg`,
   "condition": "fair",
   "category": "household",
@@ -324,7 +324,7 @@ module.exports = [
   "name": "Kitchenaid Mixer",
   "description": "This is almost new!",
   "image_URL": `${IMAGE_URL}static/sale_item_images/image-for-sale-item-6.jpg`,
-  "condition": "lightly-used",
+  "condition": "Lightly Used",
   "category": "appliances",
   "price": 100
 },
@@ -351,7 +351,7 @@ module.exports = [
   "name": "Dutch Oven",
   "description": "Le Creuset dutch oven",
   "image_URL": `${IMAGE_URL}static/sale_item_images/image-for-sale-item-9.jpg`,
-  "condition": "like-new",
+  "condition": "Like New",
   "category": "household",
   "price": 200
 },
@@ -414,7 +414,7 @@ module.exports = [
   "name": "Antique Kettle",
   "description": "Brass antique kettle, was my grandfather's. I think it was made in 1870s",
   "image_URL": `${IMAGE_URL}static/sale_item_images/image-for-sale-item-1.jpg`,
-  "condition": "lightly-used",
+  "condition": "Lightly Used",
   "category": "antiques",
   "price": 80
 },
@@ -423,7 +423,7 @@ module.exports = [
   "name": "Soap Dish and Scrubber",
   "description": "Small bamboo soap dish and bamboo scrubber. Great for doing dishes!",
   "image_URL": `${IMAGE_URL}static/sale_item_images/image-for-sale-item-2.jpg`,
-  "condition": "like-new",
+  "condition": "Like New",
   "category": "household",
   "price": 5
 },
@@ -432,7 +432,7 @@ module.exports = [
   "name": "Wooden Utensils",
   "description": "11 wooden cooking utensils. Selling as a bunch. Will last yers",
   "image_URL": `${IMAGE_URL}static/sale_item_images/image-for-sale-item-3.jpg`,
-  "condition": "good",
+  "condition": "Good",
   "category": "household",
   "price": 10
 },
@@ -441,14 +441,14 @@ module.exports = [
   "name": "Dutch Oven",
   "description": "Almost new dutch oven , great for suaces",
   "image_URL": `${IMAGE_URL}static/sale_item_images/image-for-sale-item-4.jpg`,
-  "condition": "like-new",
+  "condition": "Like New",
   "category": "household",
   "price": 100
 },
 {
 
   "name": "Oven mits",
-  "description": "good for handling hot items!",
+  "description": "Good for handling hot items!",
   "image_URL": `${IMAGE_URL}static/sale_item_images/image-for-sale-item-5.jpg`,
   "condition": "fair",
   "category": "household",
@@ -459,7 +459,7 @@ module.exports = [
   "name": "Kitchenaid Mixer",
   "description": "This is almost new!",
   "image_URL": `${IMAGE_URL}static/sale_item_images/image-for-sale-item-6.jpg`,
-  "condition": "lightly-used",
+  "condition": "Lightly Used",
   "category": "appliances",
   "price": 100
 },
@@ -486,7 +486,7 @@ module.exports = [
   "name": "Dutch Oven",
   "description": "Le Creuset dutch oven",
   "image_URL": `${IMAGE_URL}static/sale_item_images/image-for-sale-item-9.jpg`,
-  "condition": "like-new",
+  "condition": "Like New",
   "category": "household",
   "price": 200
 },

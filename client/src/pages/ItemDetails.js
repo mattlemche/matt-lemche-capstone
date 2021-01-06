@@ -59,7 +59,11 @@ function ItemDetails(props) {
                         <FavouriteButton item={saleItem}/>
                     </div>
                     
-                    <ItemBuy item={saleItem} percent={percentRemaining}/>
+                    <ItemBuy 
+                    item={saleItem} 
+                    percent={percentRemaining}
+                    cartHandlerAdd={props.cartHandlerAdd}
+                    cartHandlerDelete={props.cartHandlerDelete}/>
                            
             </section>
         );

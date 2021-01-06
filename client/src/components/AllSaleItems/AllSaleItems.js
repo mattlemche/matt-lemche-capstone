@@ -104,14 +104,14 @@ class AllSaleItems extends React.Component {
                         const hoursRemaining = item.yard_sale_duration * 24 - sinceSaleCreated;
                         const percentRemaining = hoursRemaining / (item.yard_sale_duration * 24 / 100);
 
-                        console.log({
-                            "Logging vars from all sale items": '',
-                            "currentDate": currentDate,
-                            "saleDate": saleDate,
-                            "sinceSaleCreated": sinceSaleCreated,
-                            "hoursRemaining": hoursRemaining,
-                            "percentRemaining": percentRemaining
-                        })
+                        // console.log({
+                        //     "Logging vars from all sale items": '',
+                        //     "currentDate": currentDate,
+                        //     "saleDate": saleDate,
+                        //     "sinceSaleCreated": sinceSaleCreated,
+                        //     "hoursRemaining": hoursRemaining,
+                        //     "percentRemaining": percentRemaining
+                        // })
 
                         return (
                             <ItemThumb 

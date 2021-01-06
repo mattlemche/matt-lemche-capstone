@@ -39,6 +39,10 @@ class AllYardSales extends Component {
                 <YardSaleList>
                 {this.state.saleArray.map((sale) => {
 
+                    if (sale.saleItems.length === 0) {
+                        return '';
+                    }
+
                     const currentDate = new Date();
                     const saleDate = new Date(sale.created_at);
                     const sinceSaleCreated = Math.floor((currentDate.getTime() - saleDate.getTime()) / 1000 / 60 / 60);

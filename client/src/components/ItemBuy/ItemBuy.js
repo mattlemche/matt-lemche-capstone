@@ -3,7 +3,12 @@ import './ItemBuy.scss';
 import Button from '../Button/Button';
 
 
-function ItemBuy({item, percent}) {
+function ItemBuy({
+    item, 
+    percent, 
+    cartHandlerAdd,
+    cartHandlerDelete
+}) {
 
     const [isInCart, setIsInCart] = useState();
 
@@ -18,37 +23,16 @@ function ItemBuy({item, percent}) {
     );
 
     // Add item to cart
-    const handleAddtoCart = (_e, id) => {
-
-        const updateCart = JSON.parse(localStorage.getItem("rummageCart"));
-
-        // Check if item is already in cart
-        if (updateCart.find(cartId => cartId === id)) {
-            return;
-        }
-
-        updateCart.push(id);
-
-        localStorage
-            .setItem("rummageCart",
-            JSON.stringify(updateCart));
+    const handleAddtoCart = (e, id) => {
+        cartHandlerAdd(e, id);
 
         setIsInCart(true);
 
     }
 
     // Remove item from cart
-    const handleRemoveFromCart = (_e, id) => {
-
-        const updateCart = JSON.parse(localStorage.getItem("rummageCart"));
-
-        const itemIndex = updateCart.indexOf(id);
-
-        updateCart.splice(itemIndex, 1);
-
-        localStorage
-            .setItem("rummageCart",
-            JSON.stringify(updateCart));
+    const handleRemoveFromCart = (e, id) => {
+        cartHandlerDelete(e, id);
         
         setIsInCart(false);
 
