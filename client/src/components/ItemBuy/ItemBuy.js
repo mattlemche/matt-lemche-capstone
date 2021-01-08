@@ -42,20 +42,36 @@ function ItemBuy({
 
         if (remainder <= 25 && remainder > 10) {
             return (
-                <div className="item-buy__price item-buy__price--25">
+                <div className="item-buy__price-container">
+                    <span className="item-buy__price-original">
+                    {item.price.toFixed(2)}
+                    </span>
+                    <div className="item-buy__price item-buy__price--25">
                     {(item.price * 0.5).toFixed(2)}
-                </div>
+                    </div>  
+                </div> 
             )
         } else if (remainder <= 10 && remainder > 5) {
             return (
-                <div className="item-buy__price item-buy__price--10">
-                    {(item.price * 0.4).toFixed(2)}
-                </div>                
+                <div className="item-buy__price-container">
+                    <span className="item-buy__price-original">
+                    {item.price.toFixed(2)}
+                    </span>
+                    <div className="item-buy__price item-buy__price--10">
+                        
+                        {(item.price * 0.4).toFixed(2)}
+                    </div>  
+                </div>              
                 )
         } else if (remainder <= 5) {
             return (
-                <div className="item-buy__price item-buy__price--5">
-                     {(item.price * 0.25).toFixed(2)}
+                <div className="item-buy__price-container">
+                    <span className="item-buy__price-original">
+                    {item.price.toFixed(2)}
+                    </span>
+                    <div className="item-buy__price item-buy__price--5">
+                        {(item.price * 0.25).toFixed(2)}
+                    </div>  
                 </div>
                 )
         } else {
