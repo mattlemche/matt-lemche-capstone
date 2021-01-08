@@ -23,44 +23,72 @@ const ItemThumb = ({
 
         if (remainder <= 25 && remainder > 10) {
             return (
-            <span className="item-thumb__price item-thumb__price--25">
-                {(price * 0.5).toFixed(2)}
-            </span>
+                <span className="item-thumb__price item-thumb__price--25">
+                    {
+                    duration > 0
+                    ? ""
+                    : percent <= 25
+                        ?   <div className="item-thumb__sunset">
+                                <SunsetBadge percent={percent}/>
+                            </div>
+                        : ""
+                    }
+                    {(price * 0.5).toFixed(2)}
+                </span>
             )
         } else if (remainder <= 10 && remainder > 5) {
             return (
                 <span className="item-thumb__price item-thumb__price--10">
+                    {
+                    duration > 0
+                    ? ""
+                    : percent <= 25
+                        ?   <div className="item-thumb__sunset">
+                                <SunsetBadge percent={percent}/>
+                            </div>
+                        : ""
+                    }
                     {(price * 0.4).toFixed(2)}
                 </span>
                 )
         } else if (remainder <= 5) {
             return (
                 <span className="item-thumb__price item-thumb__price--5">
+                    {
+                    duration > 0
+                    ? ""
+                    : percent <= 25
+                        ?   <div className="item-thumb__sunset">
+                                <SunsetBadge percent={percent}/>
+                            </div>
+                        : ""
+                    }
                     {(price * 0.25).toFixed(2)}
                 </span>
                 )
         } else {
             return (
-            <span className="item-thumb__price">
-                {price.toFixed(2)}
-            </span>
+                <span className="item-thumb__price">
+                    {
+                    duration > 0
+                    ? ""
+                    : percent <= 25
+                        ?   <div className="item-thumb__sunset">
+                                <SunsetBadge percent={percent}/>
+                            </div>
+                        : ""
+                    }
+                    {price.toFixed(2)}
+                </span>
             )
         }
     }
 
-    
+    console.log("Logging percent from item thmub", percent)
+
     return (
         <li onClick={(e) => {handleItemCick(e, itemId)}} className="item-thumb">
-            {
-                duration > 0
-                ? ""
-                : percent <= 25
-                    ?   <div className="item-thumb__sunset">
-                            <SunsetBadge percent={percent}/>
-                        </div>
-                    : ""
-                
-            }
+            
             
             <div className="item-thumb__image-container">
                 <img src={!image ? placeholder : image} alt={name} className="item-thumb__image"/>
