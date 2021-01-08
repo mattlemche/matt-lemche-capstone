@@ -59,7 +59,7 @@
         z-index: 10;
         bottom: 0;
         right: 0;
-        padding: 0.25rem 0.25rem 0.25rem 0.5rem;
+        padding: 0.25rem 0.25rem 0.25rem 0.85rem;
         border-radius: 0.75rem 0 0 0;
         background-color: $color-white;
         color: $color-sky;
@@ -84,9 +84,9 @@
 
     &__sunset {
         position: absolute;
-        top: 0.5rem;
-        right: 0.5rem;
-        width: 2rem;
-        height: 2rem;
+        top: -0.5rem;
+        left: -0.75rem;
+        width: 1.5rem;
+        height: 1.5rem;
     }
 }
