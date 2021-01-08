@@ -25,6 +25,18 @@
         background-color: rgba($color-cerise, 0.1);
     }
 
+    &__price-original {
+        display: inline-block;
+        width: 100%;
+        font-size: 1rem;
+        text-decoration: line-through;
+        text-align: center;
+
+        &::before {
+            content: '$';
+        }
+    }
+
     &__price {
         color: $color-sky;
         font-size: 2rem;
