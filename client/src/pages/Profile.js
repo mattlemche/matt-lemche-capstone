@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import { getUserInfo } from '../util';
 import ProfileDetails from '../components/ProfileDetails/ProfileDetails';
 import {ReactComponent as Kettle} from '../assets/icons/kettle.svg';
@@ -14,35 +13,17 @@ class Profile extends Component {
     })
     
     componentDidMount() {
-
-        if (JSON.parse(sessionStorage.getItem("rummageLoggedIn"))) {
-            const rummageLoggedIn = JSON.parse(sessionStorage.getItem("rummageLoggedIn"));
-            axios
-                .get(getUserInfo(rummageLoggedIn.userLoggedIn))
-                .then(response => {
-                    this.setState({
-                        currentUser: response.data,
-                    })
-                });
-        }
-        
+        const rummageLoggedIn = JSON.parse(sessionStorage.getItem("rummageLoggedIn"));
+        axios
+            .get(getUserInfo(rummageLoggedIn.userLoggedIn))
+            .then(response => {
+                this.setState({
+                    currentUser: response.data,
+                })
+            })
     }
 
     render() {
-
-        if (!sessionStorage.getItem("rummageLoggedIn")) {
-            return (
-                <div className="loading">
-                    <h3 className="loading__title">
-                        You don't seem to be signed in!
-                    </h3>
-                    <Link to='/login' className="button">
-                        Login / Signup
-                    </Link>
-                </div>
-            )
-        }
-
         if (!this.state.currentUser) {
             return (
                 <div className="loading">

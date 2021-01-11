@@ -71,7 +71,6 @@ class LoginModal extends Component {
 
 
     render() {
-
         return (
             <section className="section section--login">
                 <Logo className="section__logo"/>
@@ -82,8 +81,8 @@ class LoginModal extends Component {
                     </label>
                     <input 
                     name="userName" 
-                    type="text" 
-                    className="form__input" 
+                    type="text" c
+                    lassName="form__input" 
                     onChange={this.handleInputChange} 
                     value={this.state.username}/>
                     <label htmlFor="password" className="form__label">

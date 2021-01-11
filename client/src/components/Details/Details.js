@@ -97,11 +97,11 @@
 //         navigate.goBack();
 //     }
 
-
 //     // Add item to cart
 //     const handleAddtoCart = (_e, id) => {
 
 //         const updateCart = JSON.parse(localStorage.getItem("rummageCart"));
+
 
 //         // Check if item is already in cart
 //         if (updateCart.find(cartId => cartId === id)) {

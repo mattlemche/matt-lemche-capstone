@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import { yardSaleDelete } from '../util';
 import { getUserInfo } from '../util';
 import {ReactComponent as Kettle} from '../assets/icons/kettle.svg';
@@ -19,14 +18,11 @@ class MySales extends Component {
     })
     
     componentDidMount() {
-        if (JSON.parse(sessionStorage.getItem("rummageLoggedIn"))) {
-            const currentUserId = JSON.parse(sessionStorage.getItem("rummageLoggedIn")).userLoggedIn;
-            this.setState({ userId: currentUserId });
-            this.getSales(currentUserId);
-        }
+        const currentUserId = JSON.parse(sessionStorage.getItem("rummageLoggedIn")).userLoggedIn;
+        this.setState({ userId: currentUserId });
+        this.getSales(currentUserId);
+        
     }
-
-    
 
     getSales = (id) => {
         axios
@@ -63,6 +59,7 @@ class MySales extends Component {
                 </div>
             )
         }
+
 
         if (!this.state.userSales) {
             return (

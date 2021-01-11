@@ -14,6 +14,10 @@ class Home extends Component {
   
   render() {
     const {path} = this.props.match;
+
+    if (!sessionStorage.getItem("rummageLoggedIn")) {
+      this.props.history.push('/login');
+    }
   
     return (
       <div>

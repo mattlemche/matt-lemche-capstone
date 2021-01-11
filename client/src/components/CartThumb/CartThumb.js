@@ -28,7 +28,6 @@ const CartThumb = ({
                 <div className="cart-thumb__delete" onClick={(e) => onDelete(e, id)}>
                     Remove item
                 </div>
-
             </div>
             <div className="cart-thumb__price">
                 {price}

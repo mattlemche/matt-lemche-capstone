@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import { getUserFavourites } from '../util';
 import ItemList from '../components/ItemList/ItemList';
 import ItemThumb from '../components/ItemThumb/ItemThumb';
@@ -12,42 +11,24 @@ class Favourites extends Component {
     }
 
     componentDidMount() {
-
-        if (JSON.parse(sessionStorage.getItem("rummageLoggedIn"))) {
-            const currentUser = JSON.parse(sessionStorage.getItem("rummageLoggedIn"));
-            axios
-                .get(getUserFavourites(currentUser.userLoggedInId))
-                .then(response => {
-                    this.setState({ 
-                        favourites: response.data.favourites,
-                        });
-                });
-        }
-        
+        const currentUser = JSON.parse(sessionStorage.getItem("rummageLoggedIn"));
+        axios
+            .get(getUserFavourites(currentUser.userLoggedInId))
+            .then(response => {
+                this.setState({ 
+                    favourites: response.data.favourites,
+                    });
+            });
     }
 
 
     render() {
-
-        if (!sessionStorage.getItem("rummageLoggedIn")) {
-            return (
-                <div className="loading">
-                    <h3 className="loading__title">
-                        You don't seem to be signed in!
-                    </h3>
-                    <Link to='/login' className="button">
-                        Login / Signup
-                    </Link>
-                </div>
-            )
-        }
-
         if (this.state.favourites.length === 0) {
             return (
                 <div className="loading">
-                    <h3 className="loading__title">
+                    <h1 className="loading__title">
                         You don't have any favourites yet!
-                    </h3>
+                    </h1>
                 </div>
             );
         } 

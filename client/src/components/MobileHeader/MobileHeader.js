@@ -1,9 +1,10 @@
 import React, { useState, useEffect} from 'react';
 import './MobileHeader.scss';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { ReactComponent as UserIcon } from '../../assets/icons/user.svg';
 import { ReactComponent as NewSaleIcon } from '../../assets/icons/new-sale-2.svg';
 import { ReactComponent as Logo } from '../../assets/logo/rummage-wordmark.svg';
+
 
 export default function MobileHeader(props) {
 
@@ -36,6 +37,7 @@ export default function MobileHeader(props) {
                             </div>
                         </NavLink>
                     </li>
+
                     
                     {
                         !isLoggedIn
@@ -62,6 +64,7 @@ export default function MobileHeader(props) {
                             </NavLink>
                             </li>
                     }
+
                 </ul>
             </nav>
             
@@ -69,3 +72,4 @@ export default function MobileHeader(props) {
     );
     
 };
+
