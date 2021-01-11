@@ -107,7 +107,6 @@
     }
 
     &--add-image {
-      position: fixed;
       bottom: 8rem;
       left: 0;
       right: 0;
@@ -154,6 +153,18 @@
     &--checkout {
       width: fit-content;
       margin: 0 auto;
+    }
+
+    &--cart-25 {
+      background-color: $color-cerise;
+    }
+
+    &--cart-10 {
+      background-color: $color-cerise;
+    }
+
+    &--cart-5 {
+      background-color: $color-cerise;
     }
 
 }

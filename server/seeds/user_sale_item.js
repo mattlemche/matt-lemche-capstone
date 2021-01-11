@@ -55,6 +55,8 @@ exports.seed = function(knex) {
         // Select random sale
         const currentSale = getRandomId(saleObjects);
         // Assign sale id and seller id of sale to item
+        itemRow.yard_sale_duration = currentSale.duration;
+        itemRow.yard_sale_created_at = currentSale.created_at;
         itemRow.yard_sale_id = currentSale.id;
         itemRow.user_id = currentSale.user_id;
         // return each updated row in sale table

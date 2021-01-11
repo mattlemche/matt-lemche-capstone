@@ -1,4 +1,7 @@
-const API_URL = 'http://localhost:8080/'
+const API_URL = process.env.NODE_ENV === 'production'
+? 'https://rummage-app.herokuapp.com/api/' : 'http://localhost:8080/api/';
+
+
 export const getAllItems = `${API_URL}sale-item`;
 export const getAllSales = `${API_URL}yard-sale`;
 export const newUser = `${API_URL}user`;

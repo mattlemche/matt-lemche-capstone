@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { yardSaleDelete } from '../util';
 import { getUserInfo } from '../util';
 import {ReactComponent as Kettle} from '../assets/icons/kettle.svg';
 import YardSaleList from '../components/YardSaleList/YardSaleList';
 import YardSaleThumb from '../components/YardSaleThumb/YardSaleThumb';
+import Button from '../components/Button/Button';
 
 
 
@@ -17,11 +19,14 @@ class MySales extends Component {
     })
     
     componentDidMount() {
-        const currentUserId = JSON.parse(sessionStorage.getItem("rummageLoggedIn")).userLoggedIn;
-        this.setState({ userId: currentUserId });
-        this.getSales(currentUserId);
-        
+        if (JSON.parse(sessionStorage.getItem("rummageLoggedIn"))) {
+            const currentUserId = JSON.parse(sessionStorage.getItem("rummageLoggedIn")).userLoggedIn;
+            this.setState({ userId: currentUserId });
+            this.getSales(currentUserId);
+        }
     }
+
+    
 
     getSales = (id) => {
         axios
@@ -33,7 +38,6 @@ class MySales extends Component {
         });
     }
 
-
     handleSaleDelete = (_e, id) => {
         axios
             .delete(yardSaleDelete(id))
@@ -42,7 +46,24 @@ class MySales extends Component {
             })
     }
 
+    handleCreateSale = () => {
+        this.props.history.push('/new-yard-sale')
+    }
+
     render() {
+        if (!sessionStorage.getItem("rummageLoggedIn")) {
+            return (
+                <div className="loading">
+                    <h3 className="loading__title">
+                        You don't seem to be signed in!
+                    </h3>
+                    <Link to='/login' className="button">
+                        Login / Signup
+                    </Link>
+                </div>
+            )
+        }
+
         if (!this.state.userSales) {
             return (
                 <div className="loading">
@@ -52,6 +73,19 @@ class MySales extends Component {
                     <Kettle className="loading__icon"/>
                 </div>
             )
+        }
+
+        if (this.state.userSales.length === 0) {
+            return (
+                <div className="loading">
+                    <h3 className="loading__title">
+                        You don't have any Yard Sales yet!
+                    </h3>
+                    <Button buttonType="button" onButtonClick={this.handleCreateSale}>
+                        Create a Yard Sale
+                    </Button>
+                </div>
+            );
         }
 
         return (

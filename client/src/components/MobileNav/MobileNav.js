@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './MobileNav.scss';
 import { NavLink } from 'react-router-dom';
 import { ReactComponent as HomeIcon } from '../../assets/icons/home.svg';
@@ -6,7 +6,20 @@ import { ReactComponent as FavIcon } from '../../assets/icons/favourite.svg';
 import { ReactComponent as SaleIcon } from '../../assets/icons/my-sales.svg';
 import { ReactComponent as CartIcon } from '../../assets/icons/cart.svg';
 
-const MobileNav = () => {
+export default function MobileNav({cartArray}) {
+
+    const [cartCounter, setCartCounter] = useState([]);
+
+    useEffect(() => {
+        if (cartArray && cartArray.length !== cartCounter) {
+            setCartCounter(cartArray.length);
+        } else {
+            return [];
+        }
+    }, [cartArray, cartCounter, setCartCounter]);
+
+    console.log("Logging state from mobile nav (footer)", cartCounter)
+
     return (
         <footer className='mobile-footer'>
             <nav className="mobile-nav">
@@ -49,6 +62,11 @@ const MobileNav = () => {
                         to='/cart' 
                         className="mobile-nav__link" 
                         activeClassName="mobile-nav__link--active">
+                            <div className="mobile-nav__counter">
+                                <div className={cartCounter > 0 ? "mobile-nav__cart-count mobile-nav__cart-count--show" : "mobile-nav__cart-count"}>
+                                    {cartCounter}
+                                </div>
+                            </div>
                             <CartIcon className="mobile-nav__icon" />
                             <div className="mobile-nav__title">
                                 Cart
@@ -61,4 +79,3 @@ const MobileNav = () => {
     );
 };
 
-export default MobileNav;

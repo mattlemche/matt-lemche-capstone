@@ -1,0 +1,14 @@
+@use '../../partials/variables' as *;
+
+/*------------------------------------*\
+  #FAVOURITE BUTTON CONTAINER
+\*------------------------------------*/
+
+.favourite {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: $max-width-content;
+    padding: 0 1.5rem;
+    margin-bottom: 2rem;
+}

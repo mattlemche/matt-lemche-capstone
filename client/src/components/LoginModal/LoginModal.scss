@@ -6,11 +6,12 @@
 
 
 .icon-bubble-container {
-    position: fixed;
-    bottom: 2rem;
+    position: absolute;
+    bottom: 1.5rem;
     display: flex;
     justify-content: space-around;
     width: 100%;
+    max-width: $max-width-content;
     padding: 0 2rem;
    
 }

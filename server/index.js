@@ -9,7 +9,8 @@ const userRoutes = require('./routes/userRoutes');
 const yardSaleRoutes = require('./routes/yardSaleRoutes');
 const saleItemRoutes = require('./routes/saleItemRoutes');
 const avatarRoutes = require('./routes/avatarRoutes');
-const favouriteRoutes = require('./routes/favouriteRoutes')
+const favouriteRoutes = require('./routes/favouriteRoutes');
+const path = require("path");
 
 
 require('dotenv').config();
@@ -28,12 +29,20 @@ app.use(express.static('public'));
 
 app.use('/static', express.static('public'))
 
-app.use('/login', loginRoutes)
-app.use('/user', userRoutes);
-app.use('/yard-sale', yardSaleRoutes);
-app.use('/sale-item', saleItemRoutes);
-app.use('/avatar-upload', avatarRoutes);
-app.use('/favourite', favouriteRoutes);
+app.use('/api/login', loginRoutes)
+app.use('/api/user', userRoutes);
+app.use('/api/yard-sale', yardSaleRoutes);
+app.use('/api/sale-item', saleItemRoutes);
+app.use('/api/avatar-upload', avatarRoutes);
+app.use('/api/favourite', favouriteRoutes);
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static("../client/build"));
+    
+    app.get('*', (_req, res) => {
+      res.sendFile(path.join(__dirname, "../client", "build", "index.html"));
+    });
+}
 
 app.listen(PORT, () => {
     console.log(`Express is listenting on port ${PORT}`);
