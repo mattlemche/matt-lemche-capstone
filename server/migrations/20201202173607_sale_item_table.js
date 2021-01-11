@@ -18,6 +18,8 @@ exports.up = function(knex) {
         .unsigned()
         .notNullable()
         .defaultTo(1);
+    table.string("yard_sale_duration");
+    table.timestamp("yard_sale_created_at").defaultTo(knex.fn.now());
     table
         .integer("yard_sale_id")
         .unsigned()

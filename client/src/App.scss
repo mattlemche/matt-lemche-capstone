@@ -32,7 +32,7 @@ a {
 body {
   height: 100vh;
   max-width: $max-width-content;
-  padding: 5.625rem 0 6rem;
+  padding: 6rem 0 6rem;
   margin: 0 auto;
   background-color: $color-white;
   font-family: 'Arimo';
@@ -105,6 +105,10 @@ body {
   &--signup {
     @extend .section--login;
     height: auto;
+  }
+
+  &--cart {
+    padding-bottom: 2rem;
   }
 }
 

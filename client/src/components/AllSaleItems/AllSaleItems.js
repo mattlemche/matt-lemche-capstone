@@ -90,7 +90,7 @@ class AllSaleItems extends React.Component {
                         <div className="no-results__content">
                             <h3 className="no-results__title">Oh shoot!</h3>
                             <span className="no-results__copy">
-                            It doesn't seem that anyone is selling that currently.
+                            Seems like no one is selling that currently.
                             </span>
                         </div>
                     </div> : 
@@ -98,14 +98,29 @@ class AllSaleItems extends React.Component {
                 }                  
                 <ItemList>
                     {this.state.itemArray.map((item) => {
+                        const currentDate = new Date();
+                        const saleDate = new Date(item.yard_sale_created_at);
+                        const sinceSaleCreated = Math.floor((currentDate.getTime() - saleDate.getTime()) / 1000 / 60 / 60);
+                        const hoursRemaining = item.yard_sale_duration * 24 - sinceSaleCreated;
+                        const percentRemaining = hoursRemaining / (item.yard_sale_duration * 24 / 100);
+
+                        // console.log({
+                        //     "Logging vars from all sale items": '',
+                        //     "currentDate": currentDate,
+                        //     "saleDate": saleDate,
+                        //     "sinceSaleCreated": sinceSaleCreated,
+                        //     "hoursRemaining": hoursRemaining,
+                        //     "percentRemaining": percentRemaining
+                        // })
+
                         return (
                             <ItemThumb 
-                                
                             key={item.id} 
                             itemId={item.id}
                             price={item.price}
                             image={item.image_URL}
                             imageAlt={item.name}
+                            percent={percentRemaining}
                             />
                         )
                     })}

@@ -7,14 +7,14 @@ import { getAllSales } from '../../util';
 class NewYardSaleModal extends Component {
 
     state = {
-        saleName: 'Massive Sale!',
-        description: 'This is going to be one for the books! Tons of items at great prices. Don\'t miss a chance to find that special something!!',
+        saleName: '',
+        description: '',
         location: {
-            city: 'Mississauga',
-            province: 'ON',
-            postal: 'L78 5T6',
+            city: '',
+            province: '',
+            postal: '',
         },
-        duration: 2,
+        duration: 0,
         retrieval: false,
     }
 
@@ -51,14 +51,28 @@ class NewYardSaleModal extends Component {
         e.preventDefault()
 
         const currentUser = JSON.parse(sessionStorage.getItem("rummageLoggedIn"));
-        
         const body = {
-            location: this.state.location,
-            name: this.state.saleName,
-            description: this.state.description,
-            duration: this.state.duration,
-            status: "active",
-            user_id: currentUser.userLoggedInId,
+                location: this.state.location,
+                name: this.state.saleName,
+                description: this.state.description,
+                duration: this.state.duration,
+                user_id: currentUser.userLoggedInId,
+            }
+    
+            axios   
+                .post(getAllSales, body)
+                .then(response => {
+                    sessionStorage.setItem("rummageCurrentSale", 
+                        JSON.stringify({
+                            saleId: response.data.id,
+                            saleName: response.data.name
+                        }));
+                })
+                .then(_response => {
+                    this.props.history.push('/my-yard-sales');
+                });
+        } else {
+            return alert("You need to be signed in to create a yard sale!");
         }
 
         axios   

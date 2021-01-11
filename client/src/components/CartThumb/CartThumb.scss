@@ -13,6 +13,10 @@
     border-bottom: 1px solid rgba($color-shale, 0.1);
     overflow: hidden;
 
+    &:last-of-type {
+        border-bottom: none;
+    }
+
     &__image-container {
         display: flex;
         align-items: center;
@@ -21,6 +25,7 @@
         max-height: 3rem;
         border-radius: 0.25rem;
         overflow: hidden;
+        cursor: pointer;
     }
 
     &__image {
@@ -34,6 +39,7 @@
     &__name {
         color: $color-cerise;
         font-weight: 700;
+        cursor: pointer;
     }
 
     &__price {
