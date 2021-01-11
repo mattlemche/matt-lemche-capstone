@@ -1,5 +1,6 @@
 import React from 'react';
-import './CartThumb.scss'
+import './CartThumb.scss';
+import { useHistory } from 'react-router-dom';
 
 const CartThumb = ({
     itemName,
@@ -8,25 +9,29 @@ const CartThumb = ({
     id, 
     onDelete,
 }) => {
+
+    const navigate = useHistory();
+
+    const handleItemCick = (_e, id) => {
+        navigate.push(`/item/${id}`)
+    }
     
     return (
         <li className="cart-thumb">
-            <div className="cart-thumb__image-container">
+            <div className="cart-thumb__image-container" onClick={(e) => handleItemCick(e, id)}>
                 <img src={image} alt={itemName} className="cart-thumb__image"/>
             </div>
             <div className="cart-thumb__content">
-                <span className="cart-thumb__name">
+                <span className="cart-thumb__name" onClick={(e) => handleItemCick(e, id)}>
                     {itemName}
                 </span>
-                {/* handleDelete is not functional */}
-                <div className="cart-thumb__delete" >
+                <div className="cart-thumb__delete" onClick={(e) => onDelete(e, id)}>
                     Remove item
                 </div>
             </div>
             <div className="cart-thumb__price">
                 {price}
             </div>
-            
         </li>
     );
 };

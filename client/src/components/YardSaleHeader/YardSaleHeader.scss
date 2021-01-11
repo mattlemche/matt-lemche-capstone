@@ -1,0 +1,15 @@
+@use '../../partials/variables' as *;
+
+/*------------------------------------*\
+  #YARD SALE HEADER
+\*------------------------------------*/
+
+.yard-sale-header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 16rem;
+    background-color: $color-shale;
+    overflow: hidden;
+}

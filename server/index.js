@@ -9,7 +9,8 @@ const userRoutes = require('./routes/userRoutes');
 const yardSaleRoutes = require('./routes/yardSaleRoutes');
 const saleItemRoutes = require('./routes/saleItemRoutes');
 const avatarRoutes = require('./routes/avatarRoutes');
-const favouriteRoutes = require('./routes/favouriteRoutes')
+const favouriteRoutes = require('./routes/favouriteRoutes');
+const path = require("path");
 
 
 require('dotenv').config();
