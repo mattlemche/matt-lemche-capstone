@@ -1,4 +1,5 @@
 @use '../../partials/variables' as *;
+@use '../../partials/mixins' as *;
 
 /*------------------------------------*\
   #ITEM THUMB
@@ -38,6 +39,54 @@
 
     &:nth-child(3n+3) {
         margin-right: 0;
+    }
+
+    @include large-mobile {
+        width: calc(((1 / 4) * 100%) - (0.2rem / 1.25));
+
+        &:nth-child(3n+3) {
+            margin-right: 0.2rem;
+        }
+
+        &:nth-child(4n+4) {
+            margin-right: 0;
+        }
+    }
+
+    @include tablet {
+        width: calc(((1 / 5) * 100%) - (0.2rem / 1.25));
+
+        &:nth-child(3n+3) {
+            margin-right: 0.2rem;
+        }
+
+        &:nth-child(4n+4) {
+            margin-right: 0.2rem;
+        }
+
+        &:nth-child(5n+5) {
+            margin-right: 0;
+        }
+    }
+
+    @include large-tablet {
+        width: calc(((1 / 6) * 100%) - (0.2rem / 1.2));
+
+        &:nth-child(3n+3) {
+            margin-right: 0.2rem;
+        }
+
+        &:nth-child(4n+4) {
+            margin-right: 0.2rem;
+        }
+
+        &:nth-child(5n+5) {
+            margin-right: 0.2rem;
+        }
+
+        &:nth-child(6n+6) {
+            margin-right: 0;
+        }
     }
 
     &__image-container {
