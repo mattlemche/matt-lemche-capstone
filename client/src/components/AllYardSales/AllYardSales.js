@@ -49,15 +49,6 @@ class AllYardSales extends Component {
                     const hoursRemaining = sale.duration * 24 - sinceSaleCreated;
                     const percentRemaining = hoursRemaining / (sale.duration * 24 / 100);
 
-                    console.log({
-                        "Logging vars from all yard sales": '',
-                        "currentDate": currentDate,
-                        "saleDate": saleDate,
-                        "sinceSaleCreated": sinceSaleCreated,
-                        "hoursRemaining": hoursRemaining,
-                        "percentRemaining": percentRemaining
-                    })
-
                     return (
                         <YardSaleThumb 
                         key={sale.id} 

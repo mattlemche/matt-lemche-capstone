@@ -16,7 +16,6 @@ function Cart({cartHandlerDelete}) {
             getCartItems();
         }
 
-        console.log("Logging cartlist from useEffect 1", cartList);
          
     }, [cartList]);
 
@@ -26,7 +25,6 @@ function Cart({cartHandlerDelete}) {
             axios
             .get(getAllItems)
             .then(response => {
-                console.log("Logging response from getCartItems", response)
                 // retreive item ids from local storage
                 const currentCart = JSON.parse(localStorage.getItem("rummageCart"));
 
@@ -63,18 +61,11 @@ function Cart({cartHandlerDelete}) {
 
     // Tally prices for cart
     const getSum = (array) => {
-
-        console.log("Logging cartlist from tally", cartList);
-
         let priceArray = array.map(item => sunsetPricing(item));
-        
-
-        console.log("Logging price array from cart", priceArray);
 
         let sum = 0;
 
         for (let i = 0; i < priceArray.length; i++) {
-            console.log("Logging priceArray at i ", priceArray[i]);
             sum += priceArray[i];
         }
 

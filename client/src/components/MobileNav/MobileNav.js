@@ -18,7 +18,6 @@ export default function MobileNav({cartArray}) {
         }
     }, [cartArray, cartCounter, setCartCounter]);
 
-    console.log("Logging state from mobile nav (footer)", cartCounter)
 
     return (
         <footer className='mobile-footer'>

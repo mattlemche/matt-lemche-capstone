@@ -84,8 +84,6 @@ const ItemThumb = ({
         }
     }
 
-    console.log("Logging percent from item thmub", percent)
-
     return (
         <li onClick={(e) => {handleItemCick(e, itemId)}} className="item-thumb">
             

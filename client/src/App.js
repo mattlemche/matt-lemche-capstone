@@ -86,7 +86,6 @@ class App extends Component {
 
   render() {
 
-    console.log("Logging state from App.js", this.state);
     return (
       <Router>
         <ScrollToTop />

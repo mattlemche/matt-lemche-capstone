@@ -60,9 +60,6 @@ class NewSaleItemModal extends Component {
             yard_sale_created_at: this.state.saleCreatedAt,
             user_id: currentUser.userLoggedInId,
         }
-
-        console.log("Logging condition from new item form", e.target.condition.value);
-        console.log("Logging body from New Sale Item", body);
         
         axios   
             .post(getAllItems, body)
