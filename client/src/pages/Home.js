@@ -13,18 +13,20 @@ export default function Home(props) {
   useEffect(() => {
     let isMounted = true;
 
-    if (isMounted) {
       if (JSON.parse(localStorage.getItem("rummageVisted")) || JSON.parse(sessionStorage.getItem("rummageLoggedIn"))) {
         setFirstVisit(false);
       } else {
-        setFirstVisit(true);
-        localStorage
-        .setItem("rummageVisted", 
-        JSON.stringify(true));
-        return () => { isMounted = false };
-      }    
-    }
 
+        if (isMounted) {
+          setFirstVisit(true);
+          localStorage
+          .setItem("rummageVisted", 
+          JSON.stringify(true));
+          return () => { isMounted = false };
+        }
+        
+      }    
+    
     return () => { isMounted = false };
     
   }, [setFirstVisit]);
@@ -33,9 +35,14 @@ export default function Home(props) {
 
   const showHideIntro = (bool) => {
     if (bool) {
-        return 'section section--grey-out'
+        return (
+          <IntroModal 
+          navigate={props} 
+          close={handleClose}
+          />
+        )
     }
-    return 'section section--hide'
+    return null;
   }
 
   const handleClose = () => {
@@ -45,11 +52,7 @@ export default function Home(props) {
   return (
 
     <>
-      <IntroModal 
-      navigate={props} 
-      showHide={showHideIntro} 
-      close={handleClose}
-      firstVisit={firstVisit}/>
+      {showHideIntro(firstVisit)}
       <div>
         <BrowseNav>
           <NavLink to={`${path}`} exact className="browse-nav__link" activeClassName="browse-nav__link--active">Items</NavLink>

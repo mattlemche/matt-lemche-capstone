@@ -6,7 +6,7 @@ import { slideList } from '../../util';
 import { ReactComponent as Logo } from '../../assets/logo/rummage-wordmark.svg';
 import { ReactComponent as CloseIcon } from '../../assets/icons/close.svg';
 
-export default function IntroModal({navigate, showHide, close, firstVisit}) {
+export default function IntroModal({navigate, close}) {
 
     const [currentSlide, setCurrentSlide] = useState(slideList[0]);
 
@@ -36,7 +36,7 @@ export default function IntroModal({navigate, showHide, close, firstVisit}) {
     }
 
     return (
-        <section className={showHide(firstVisit)}>
+        <section className="section section--grey-out">
             <div className="intro-modal">
                 <div className="intro-modal__header">
                     <div className="intro-modal__close" onClick={close}>
