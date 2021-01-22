@@ -113,6 +113,38 @@ body {
   &--cart {
     padding-bottom: 2rem;
   }
+
+  &--grey-out {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 95;
+    width: 100%;
+    max-width: $max-width-content;
+    height: 100%;
+    min-height: 100vh;
+    padding: 5%;
+    margin: 0 auto;
+    background-color: rgba($color-shale, 0.5);
+  }
+
+  &--hide {
+    display: none;
+  }
+}
+
+.close-icon {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  fill: $color-cerise;
+  transition: transform 200ms ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.2);
+  }
 }
 
 .sun {

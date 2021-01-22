@@ -15,6 +15,7 @@ class AllSaleItems extends React.Component {
         itemArray: null,
         search: '',
     }
+    
     // Get all sale items from db
     getAllItems = () => {
         axios
