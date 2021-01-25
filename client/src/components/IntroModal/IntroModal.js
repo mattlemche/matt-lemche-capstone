@@ -5,6 +5,8 @@ import Button from '../Button/Button';
 import { slideList } from '../../util';
 import { ReactComponent as Logo } from '../../assets/logo/rummage-wordmark.svg';
 import { ReactComponent as CloseIcon } from '../../assets/icons/close.svg';
+import { ReactComponent as NextIcon } from '../../assets/icons/next.svg';
+import { ReactComponent as PrevIcon } from '../../assets/icons/previous.svg';
 
 export default function IntroModal({navigate, close}) {
 
@@ -18,6 +20,15 @@ export default function IntroModal({navigate, close}) {
        }
        setCurrentSlide(slideList[newIndex]);
     }
+
+    const handlePrevSlide = (_e, slide) => {
+        let newIndex = slideList.findIndex( x => x.id === slide.id ) - 1;
+ 
+        if (newIndex < 0) {
+            return setCurrentSlide(slideList[3]);
+        }
+        setCurrentSlide(slideList[newIndex]);
+     }
     
     const handleSignUp = () => {
         navigate.history.push('/signup');
@@ -50,6 +61,19 @@ export default function IntroModal({navigate, close}) {
                 <ImageSlider>
                     <div className="slider__container">
                         <div className="slider__slide">
+                            <div className="slider__arrows-container">
+                                <div 
+                                className="slider__arrow slider__arrow--left"
+                                onClick={(e) => handlePrevSlide(e, currentSlide)}
+                                >
+                                    <PrevIcon className="arrow-icon"/>
+                                </div>
+                                <div className="slider__arrow slider__arrow--right"
+                                onClick={(e) => handleNextSlide(e, currentSlide)}
+                                >
+                                    <NextIcon className="arrow-icon"/>
+                                </div>
+                            </div>
                             <img 
                             src={currentSlide.imageUrl} 
                             alt={currentSlide.alt} 

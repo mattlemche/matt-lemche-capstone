@@ -14,7 +14,9 @@ export default function Home(props) {
     let isMounted = true;
 
       if (JSON.parse(localStorage.getItem("rummageVisted")) || JSON.parse(sessionStorage.getItem("rummageLoggedIn"))) {
-        setFirstVisit(false);
+        if (isMounted) {
+          setFirstVisit(false)
+        };
       } else {
 
         if (isMounted) {
@@ -26,7 +28,7 @@ export default function Home(props) {
         }
         
       }    
-    
+    console.log("Logging from Home UseEffect, useEffect ran")
     return () => { isMounted = false };
     
   }, [setFirstVisit]);
@@ -37,7 +39,7 @@ export default function Home(props) {
     if (bool) {
         return (
           <IntroModal 
-          navigate={props} 
+          // navigate={props} 
           close={handleClose}
           />
         )
