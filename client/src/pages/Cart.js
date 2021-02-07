@@ -17,8 +17,6 @@ function Cart({cartHandlerDelete}) {
             getCartItems();
         }
 
-        console.log("Component mounted")
-
         return () => isMounted = false;
          
     }, [cartList]);
