@@ -43,6 +43,7 @@ export default function AllSaleItems() {
         }
         
         return () => {isMounted = false};
+        
     }, [itemArray]);
 
     const handleSearchChange = (e) => {

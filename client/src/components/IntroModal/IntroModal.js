@@ -8,7 +8,7 @@ import { ReactComponent as CloseIcon } from '../../assets/icons/close.svg';
 import { ReactComponent as NextIcon } from '../../assets/icons/next.svg';
 import { ReactComponent as PrevIcon } from '../../assets/icons/previous.svg';
 
-export default function IntroModal({navigate, close}) {
+export default function IntroModal({close, signUp}) {
 
     const [currentSlide, setCurrentSlide] = useState(slideList[0]);
 
@@ -29,10 +29,7 @@ export default function IntroModal({navigate, close}) {
         }
         setCurrentSlide(slideList[newIndex]);
      }
-    
-    const handleSignUp = () => {
-        navigate.history.push('/signup');
-    }
+
 
     const slideNavHighlight = (slide) => {
         if (slide.id === currentSlide.id) {
@@ -111,7 +108,7 @@ export default function IntroModal({navigate, close}) {
                     className="button" 
                     buttonType="button" 
                     onButtonClick={currentSlide.id === (slideList.length)
-                        ? handleSignUp
+                        ? signUp
                         : (e) => handleNextSlide(e, currentSlide)}
                     > 
                         {

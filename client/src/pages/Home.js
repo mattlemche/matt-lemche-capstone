@@ -21,19 +21,36 @@ export default function Home(props) {
 
         if (isMounted) {
           setFirstVisit(true);
-          localStorage
-          .setItem("rummageVisted", 
-          JSON.stringify(true));
+          // localStorage
+          // .setItem("rummageVisted", 
+          // JSON.stringify(true));
           return () => { isMounted = false };
         }
         
       }    
-    console.log("Logging from Home UseEffect, useEffect ran")
+    
     return () => { isMounted = false };
     
   }, [setFirstVisit]);
 
   const {path} = props.match;
+
+  // Close Intro Modal, update local storage first visit
+  const handleClose = () => {
+    setFirstVisit(false);
+    localStorage
+    .setItem("rummageVisted", 
+    JSON.stringify(true));
+  }
+
+  // Navigate from Intro Modal to signup, 
+  // update local storage first visit
+  const handleSignUp = () => {
+    props.history.push('/signup');
+    localStorage
+    .setItem("rummageVisted", 
+    JSON.stringify(true));
+  }
 
   const showHideIntro = (bool) => {
     if (bool) {
@@ -41,14 +58,11 @@ export default function Home(props) {
           <IntroModal 
           // navigate={props} 
           close={handleClose}
+          signUp={handleSignUp}
           />
         )
     }
     return null;
-  }
-
-  const handleClose = () => {
-      setFirstVisit(false);
   }
 
   return (
