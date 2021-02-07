@@ -11,11 +11,15 @@ function Cart({cartHandlerDelete}) {
     const [cartList, setCartList] = useState(null);
  
     useEffect(() => {
+        let isMounted = true;
 
-        if (!cartList) {
+        if (isMounted && !cartList) {
             getCartItems();
         }
 
+        console.log("Component mounted")
+
+        return () => isMounted = false;
          
     }, [cartList]);
 
@@ -30,6 +34,10 @@ function Cart({cartHandlerDelete}) {
 
                 // use ids to get item details from db
                 const updatedCart = currentCart.map(cartItem => {
+
+                    if (!response.data.find(resItem => resItem.id === cartItem)) {
+                        return 0;
+                    }
                     return response.data.find(resItem => resItem.id === cartItem)
                 })
 
@@ -78,6 +86,19 @@ function Cart({cartHandlerDelete}) {
 
         getCartItems();
 
+    }
+
+    if (cartList && cartList[0] === 0) {
+        localStorage
+        .setItem("rummageCart", 
+        JSON.stringify([]));
+        return (
+            <div className="loading">
+                <h3 className="loading__title">
+                    Oh no! The items you added to your cart are no longer available.
+                </h3>
+            </div>
+            )
     }
 
     if (!cartList || cartList.length === 0) {
