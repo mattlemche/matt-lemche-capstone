@@ -13,6 +13,6 @@ module.exports = {
   },
   production: {
     client: "mysql",
-    connection: process.env.JAWSDB_URL
+    connection: process.env.JAWSDB_CHARCOAL_URL
   }
 };
